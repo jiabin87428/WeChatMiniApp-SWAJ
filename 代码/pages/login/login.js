@@ -4,18 +4,31 @@ const app = getApp()
 
 Page({
   data: {
-    motto: '111',
+    motto: 'Hello World',
     userInfo: {},
+    useUserName: false,    //使用用户名登录
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  gotoLogin: function() {
+  showUserModel: function () {
+    wx.showModal({
+      title: '11',
+      content: JSON.stringify(this.data.userInfo),
+    })
+  },
+  // 使用企业用户登录
+  loadUserNameLogin: function (e) {
+    this.setData({
+      useUserName: true
+    })
+  },
+  gotoLogin: function () {
     wx.navigateTo({
       url: '../login/login'
     })
@@ -26,7 +39,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -48,12 +61,17 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  getPhoneNumber: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  } 
 })

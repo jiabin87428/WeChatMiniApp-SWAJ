@@ -1,12 +1,30 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/login/login"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#62B8FF",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "assets/dangerCheck_unselected.png",
+      "selectedIconPath": "assets/dangerCheck.png",
+      "text":"隐患排查"
+    },{
+      "pagePath": "pages/login/login",
+      "iconPath": "assets/me_unselected.png",
+      "selectedIconPath": "assets/me.png",
+      "text": "我的"
+    }]
   }
 }

@@ -1,10 +1,16 @@
 /**index.wxss**/
 .baseView {
-  background-color: whitesmoke;
   position: fixed;
   height: 100%;
   width: 100%;
-  justify-content: center;/*水平居中*/
+  display:flex;
+  flex-direction:column;
+  /*align-items:center;垂直居中*/
+  /*justify-content: center;水平居中*/
+}
+
+.loginImage {
+  width: 100%;
 }
 
 .userinfo {
@@ -30,7 +36,6 @@
   background-color: white;
   width: 100%;
   height: 40px;
-  margin-top: 50px;
 }
 
 .passwordView {
@@ -39,6 +44,25 @@
   background-color: white;
   width: 100%;
   height: 40px;
+}
+
+.buttonView {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 40px; 
+}
+
+.registerButton {
+  width: 50%;
+  height: 100%;
+  margin: 10px;
+}
+
+.loginButton {
+  width: 50%;
+  height: 100%;
+  margin: 10px;
 }
 
 .text {
@@ -58,6 +82,14 @@
 }
 
 .usermotto {
-  /* margin-top: 200px; */
-  margin-bottom: 100px;
+  margin-top: 200px;
+}
+
+.wechartLoginButton {
+  background-color: #1AAD19;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: initial;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
