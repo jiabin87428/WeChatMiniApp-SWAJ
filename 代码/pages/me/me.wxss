@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* pages/me/me.wxss */
 .baseView {
   position: fixed;
   height: 100%;
@@ -34,4 +34,23 @@
   font-size: 16px;
   color: #696969;
   margin-left: 20px;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  /* border-radius: 50%; */
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-weight: initial;
+}
+
+.userinfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

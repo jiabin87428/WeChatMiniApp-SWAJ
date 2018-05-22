@@ -9,7 +9,7 @@ Page({
     // tab切换    
     currentTab: 0,
     //用户名
-    userName:"请登录"
+    userName: "请登录"
   },
   onLoad: function () {
     var that = this;
@@ -52,12 +52,12 @@ Page({
   },
   // 点击添加隐患
   addClick: function () {
-    if(!this.checkLogin()) {
+    if (!this.checkLogin()) {
       wx.navigateTo({
         url: '../login/login'
       })
       return
-    }else{
+    } else {
       wx.navigateTo({
         url: '../danger/addDanger'
       })
@@ -65,7 +65,7 @@ Page({
   },
   // 点击隐患列表
   listClick: function () {
-    if(!this.checkLogin()) {
+    if (!this.checkLogin()) {
       wx.navigateTo({
         url: '../login/login'
       })

@@ -1,6 +1,9 @@
-<!--index.wxml-->
+<!--pages/me/me.wxml-->
 <scroll-view scroll-y="true" class='scrollView'>
-  <image class="mainImage" src="../../assets/login.jpg" mode="aspectFill"></image>
+  <view class="userinfo">
+    <image bindtap="userClick" class="userinfo-avatar" src="../../assets/user.png" mode="aspectFit"></image>
+    <text class="userinfo-nickname">{{userName}}</text>
+  </view>
   <view id='1' class='scrollItem'>
     <text class='cellText'>Item1</text>
   </view>

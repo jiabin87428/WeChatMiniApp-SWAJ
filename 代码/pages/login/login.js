@@ -28,6 +28,27 @@ Page({
       useUserName: true
     })
   },
+  // 注册
+  registerClick: function (e) {
+    wx.navigateTo({
+      url: '../register/register'
+    })
+  },
+  // 退出登录
+  loginOut: function (e) {
+    var _this = this
+    wx.removeStorage({
+      key: 'userInfo',
+      success: function(res) {
+        app.globalData.userInfo = null
+        _this.setData({
+          userInfo: {},
+          hasUserInfo: false,
+          useUserName: false
+        })
+      },
+    })
+  },
   gotoLogin: function () {
     wx.navigateTo({
       url: '../login/login'
@@ -61,8 +82,30 @@ Page({
       })
     }
   },
+  /**
+   *  监听页面显示，
+   *    当从当前页面调转到另一个页面
+   *    另一个页面销毁时会再次执行
+   */
+  onShow: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else {
+      this.setData({
+        userInfo: {},
+        hasUserInfo: false
+      })
+    }
+  },
   getUserInfo: function (e) {
     console.log(e)
+    wx.setStorage({
+      key: 'userInfo',
+      data: e.detail.userInfo,
+    })
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

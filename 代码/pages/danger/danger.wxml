@@ -1,0 +1,16 @@
+<view class="baseView" style='background-color:whitesmoke'>
+  <!-- <view class="userinfo">
+    <image bindtap="userClick" class="userinfo-avatar" src="../../assets/user.png" mode="aspectFit"></image>
+    <text class="userinfo-nickname">{{userName}}</text>
+  </view> -->
+  <view class="userinfo">
+    <view class='dangerView' bindtap='addClick'>
+      <image class="dangerIcon" src="../../assets/add.png" mode="aspectFit"></image>
+      <text class='dangerText'>添加隐患</text>
+    </view>
+    <view class='dangerView' bindtap='listClick'>
+      <image class="dangerIcon" src="../../assets/list.png" mode="aspectFit"></image>
+      <text class='dangerText'>隐患列表</text>
+    </view>
+  </view>
+</view>

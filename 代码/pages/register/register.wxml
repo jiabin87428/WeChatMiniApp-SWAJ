@@ -1,0 +1,14 @@
+<!--pages/register/register.wxml-->
+<view class="baseView" style='background-color:whitesmoke'>
+  <view class="userNameView">
+    <text class='flex-item text'>用户名：</text>
+    <input class='flex-item input' placeholder="输入用户名" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+  </view>
+  <view class="passwordView">
+    <text class='flex-item text'>密码：</text>
+    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="输入密码" auto-focus password/>
+  </view>
+  <view class="buttonView">
+    <button type='primary' class='flex-item registerButton' bindtap="registerClick">注册</button>
+  </view> 
+</view>
