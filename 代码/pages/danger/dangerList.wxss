@@ -1,4 +1,26 @@
 /* pages/danger/dangerList.wxss */
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+.addDangerView {
+  position:absolute;
+  bottom: 50px;
+  right: 0px;
+  width: 61px;
+  height: 44.5px;
+}
+.addDangerIcon {
+  width: 61px;
+  height: 44.5px;
+  right: 0px;
+}
+
 .swiper-tab{    
   width: 100%;    
   border-bottom: 2rpx solid #777777;    
@@ -20,7 +42,8 @@
   height: 100%; 
   width: 100%; 
   overflow: hidden; 
+  background-color: antiquewhite;
 }    
 .swiper-box view{    
-    text-align: center;    
+  text-align: center;    
 }    

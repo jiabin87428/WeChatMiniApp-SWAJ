@@ -58,5 +58,24 @@ Page({
       title: '装逼小程序',
       path: '/page/user?id=123'
     }
+  },// 点击添加隐患
+  addDangerClick: function () {
+    if (!this.checkLogin()) {
+      wx.navigateTo({
+        url: '../login/login'
+      })
+      return
+    } else {
+      wx.navigateTo({
+        url: '../danger/addDanger'
+      })
+    }
+  },
+  // 判断是否登录
+  checkLogin: function () {
+    if (app.globalData.userInfo) {
+      return true
+    }
+    return false
   }
 })    

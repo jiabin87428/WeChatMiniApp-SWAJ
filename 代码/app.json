@@ -29,7 +29,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/danger/danger",
+        "pagePath": "pages/danger/dangerList",
         "iconPath": "assets/dangerCheck_unselected.png",
         "selectedIconPath": "assets/dangerCheck.png",
         "text": "隐患排查"

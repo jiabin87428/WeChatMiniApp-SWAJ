@@ -13,5 +13,8 @@
     <swiper-item>    
       <view>已处理</view>    
     </swiper-item>      
-  </swiper>    
+  </swiper>
+</view>
+<view class='addDangerView'>
+  <image class="addDangerIcon" bindtap='addDangerClick' src="../../assets/addDanger.png" mode="aspectFit"></image>
 </view>
