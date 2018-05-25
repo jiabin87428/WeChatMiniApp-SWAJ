@@ -17,11 +17,11 @@
   </block>
    <block wx:if="{{useUserName}}">
     <view class='userNameBaseView'>
-      <view class="userNameView">
+      <view class="inputView">
         <text class='flex-item text'>用户名：</text>
         <input class='flex-item input' placeholder="输入用户名" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
       </view>
-      <view class="passwordView">
+      <view class="inputView">
         <text class='flex-item text'>密码：</text>
         <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="输入密码" auto-focus password/>
       </view>

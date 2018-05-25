@@ -1,12 +1,46 @@
 <!--pages/register/register.wxml-->
 <view class="baseView" style='background-color:whitesmoke'>
-  <view class="userNameView">
+  <view class="inputView">
     <text class='flex-item text'>用户名：</text>
-    <input class='flex-item input' placeholder="输入用户名" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <input class='flex-item input' placeholder="请输入用户名" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
   </view>
-  <view class="passwordView">
+  <view class="inputView">
     <text class='flex-item text'>密码：</text>
-    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="输入密码" auto-focus password/>
+    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="请输入密码" auto-focus password/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>企业全称：</text>
+    <input class='flex-item input' placeholder="请输入企业全称" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>企业属地：</text>
+    <input class='flex-item input' placeholder="请输入企业属地" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>企业类型：</text>
+    <input class='flex-item input' placeholder="请选择企业类型" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item selectedView'>
+      <text class='selectedText'>选择</text>
+    </view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>安全干部：</text>
+    <input class='flex-item input' placeholder="请输入安全干部" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>手机：</text>
+    <input class='flex-item input' placeholder="请输入手机" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>企业地址：</text>
+    <input class='flex-item input' placeholder="请输入企业地址" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
   </view>
   <view class="buttonView">
     <button type='primary' class='flex-item registerButton' bindtap="registerClick">注册</button>

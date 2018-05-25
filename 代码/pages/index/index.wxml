@@ -2,15 +2,95 @@
 <scroll-view scroll-y="true" class='scrollView'>
   <image class="mainImage" src="../../assets/login.jpg" mode="aspectFill"></image>
   <view id='1' class='scrollItem'>
-    <text class='cellText'>Item1</text>
+    <text class='cellText1'>本年度累计事故数：</text>
+    <text class='cellText2'>0</text>
   </view>
   <view id='2' class='scrollItem'>
-    <text class='cellText'>Item2</text>
+    <text class='cellText1'>本年度重特大事故</text>
+    <text class='cellText2'>0</text>
   </view>
   <view id='3' class='scrollItem'>
-    <text class='cellText'>Item3</text>
+    <text class='cellText1'>本月自查次数</text>
+    <text class='cellText2'>0</text>
   </view>
   <view id='4' class='scrollItem'>
-    <text class='cellText'>Item4</text>
+    <text class='cellText1'>本月自查项数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='5' class='scrollItem'>
+    <text class='cellText1'>本月督查次数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='6' class='scrollItem'>
+    <text class='cellText1'>本月督查项数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='7' class='scrollItem'>
+    <text class='cellText1'>本月自查隐患数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='8' class='scrollItem'>
+    <text class='cellText1'>本月督查隐患数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='9' class='scrollItem'>
+    <text class='cellText1'>总隐患数</text>
+    <text class='cellText2'>2</text>
+  </view>
+  <view id='10' class='scrollItem'>
+    <text class='cellText1'>重大隐患数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='11' class='scrollItem'>
+    <text class='cellText1'>已整改隐患数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='12' class='scrollItem'>
+    <text class='cellText1'>未整改隐患数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='13' class='scrollItem'>
+    <text class='cellText1'>逾期隐患数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='14' class='scrollItem'>
+    <text class='cellText1'>特种设备</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='15' class='scrollItem'>
+    <text class='cellText1'>逾检特种设备</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='16' class='scrollItem'>
+    <text class='cellText1'>重大危险源</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='17' class='scrollItem'>
+    <text class='cellText1'>逾期未审危险源</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='18' class='scrollItem'>
+    <text class='cellText1'>证书数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='19' class='scrollItem'>
+    <text class='cellText1'>缺失证书</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='20' class='scrollItem'>
+    <text class='cellText1'>过期证书</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='21' class='scrollItem'>
+    <text class='cellText1'>预案个数</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='22' class='scrollItem'>
+    <text class='cellText1'>已演练预案</text>
+    <text class='cellText2'>0</text>
+  </view>
+  <view id='23' class='scrollItem'>
+    <text class='cellText1'>未演练预案</text>
+    <text class='cellText2'>0</text>
   </view>
 </scroll-view>

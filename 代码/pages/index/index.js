@@ -34,11 +34,15 @@ Page({
    *    另一个页面销毁时会再次执行
    */
   onShow: function () {
-    if (app.globalData.userInfo) {
+    if (this.checkLogin()) {
       this.setData({
         userName: app.globalData.userInfo.nickName
       })
-    } else {
+    }else {
+      // 暂时注销
+      // wx.navigateTo({
+      //   url: '../login/login'
+      // })
       this.setData({
         userName: "请登录"
       })
