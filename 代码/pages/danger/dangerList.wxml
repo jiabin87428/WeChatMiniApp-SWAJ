@@ -7,11 +7,197 @@
   <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">    
     <!-- 待处理 -->    
     <swiper-item>    
-      <view>待处理</view>    
+      <scroll-view scroll-y="true" class='scrollView'>
+        <view id='1' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='2' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='3' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='4' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='5' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='6' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='7' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='8' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='9' bindtap='getDetail' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='10' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='11' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='12' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='13' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='14' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='15' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='16' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='17' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='18' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='19' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='20' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='21' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='22' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='23' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+      </scroll-view>  
     </swiper-item>    
     <!-- 已处理 -->    
     <swiper-item>    
-      <view>已处理</view>    
+      <scroll-view scroll-y="true" class='scrollView'>
+        <view id='1' bindtap='getDetail' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='2' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='3' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='4' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='5' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='6' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='7' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='8' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='9' bindtap='getDetail' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='10' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='11' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='12' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='13' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='14' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='15' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='16' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='17' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='18' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='19' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='20' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='21' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='22' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+        <view id='23' bindtap='getDetail' class='scrollItem'>
+          <text class='cellText1'>整改通知（中国远洋海运集团有限公司）</text>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+        </view>
+      </scroll-view>   
     </swiper-item>      
   </swiper>
 </view>

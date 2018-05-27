@@ -60,16 +60,25 @@ Page({
     }
   },// 点击添加隐患
   addDangerClick: function () {
-    if (!this.checkLogin()) {
-      wx.navigateTo({
-        url: '../login/login'
-      })
-      return
-    } else {
-      wx.navigateTo({
-        url: '../danger/addDanger'
-      })
-    }
+    wx.navigateTo({
+      url: '../danger/addDanger'
+    })
+    // if (!this.checkLogin()) {
+    //   wx.navigateTo({
+    //     url: '../login/login'
+    //   })
+    //   return
+    // } else {
+    //   wx.navigateTo({
+    //     url: '../danger/addDanger'
+    //   })
+    // }
+  },
+  // 点击查看隐患详情
+  getDetail: function () {
+    wx.navigateTo({
+      url: '../danger/dangerDetail'
+    })
   },
   // 判断是否登录
   checkLogin: function () {

@@ -5,15 +5,27 @@
     <text class="userinfo-nickname">{{userName}}</text>
   </view>
   <view id='1' class='scrollItem'>
-    <text class='cellText'>Item1</text>
+    <text class='cellText1'>企业全称</text>
+    <text class='cellText2'>上海歌略软件科技有限公司</text>
   </view>
   <view id='2' class='scrollItem'>
-    <text class='cellText'>Item2</text>
+    <text class='cellText1'>企业属地</text>
+    <text class='cellText2'>上海</text>
   </view>
   <view id='3' class='scrollItem'>
-    <text class='cellText'>Item3</text>
+    <text class='cellText1'>企业类型</text>
+    <text class='cellText2'>测试类型</text>
   </view>
   <view id='4' class='scrollItem'>
-    <text class='cellText'>Item4</text>
+    <text class='cellText1'>安全干部</text>
+    <text class='cellText2'>王娇龙</text>
+  </view>
+  <view id='5' class='scrollItem'>
+    <text class='cellText1'>联系方式</text>
+    <text class='cellText2'>13900000000</text>
+  </view>
+  <view id='6' class='scrollItem'>
+    <text class='cellText1'>企业地址</text>
+    <text class='cellText2'>上海市浦东新区XX路100号</text>
   </view>
 </scroll-view>

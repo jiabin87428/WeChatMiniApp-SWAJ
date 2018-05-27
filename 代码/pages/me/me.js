@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName:'请登录'
+    userName:'王娇龙'
   },
 
   /**
