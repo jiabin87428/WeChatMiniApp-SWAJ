@@ -1,0 +1,10 @@
+<!--component/cells/imageSelectedCell.wxml-->
+<view class='baseView'>
+  <view class='titleView'>
+    <text class='cellText1'>隐患照片</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='imageView' class='imageView'>
+    <image class="addImageButton" src="../../assets/addImage.png" mode="aspectFit"></image>
+  </view>
+</view>

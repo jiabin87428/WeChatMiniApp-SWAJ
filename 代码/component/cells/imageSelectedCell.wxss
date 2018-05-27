@@ -1,18 +1,30 @@
-.scrollView {
+.baseView {
+  display:flex;
+  flex-direction:column;
   width: 100%;
   height: 100%;
-  background-color: lightgray;
-
+  background-color: white;
+  /* margin-bottom: 10px; */
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
 }
 
-.scrollItem {
+.titleView {
   display:flex;
   flex-direction:row;
   width: 100%;
   height: 48px;
   background-color: white;
-  margin-top: 10px; 
-  border-bottom: 1rpx solid #D3D3D3;
+  /* margin-bottom: 10px; */
+  align-items:center;/*垂直居中*/
+}
+
+.imageView {
+  display:flex;
+  flex-direction:row;
+  width: 95%;
+  height: 100px;
+  background-color: white;
   align-items:center;/*垂直居中*/
 }
 
@@ -37,4 +49,9 @@
 .arrow {
   width: 10px;
   margin-right: 16px;
+}
+
+.addImageButton {
+  width: 80px;
+  height: 80px;
 }

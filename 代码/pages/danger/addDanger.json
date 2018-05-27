@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "imageView":"/component/cells/imageSelectedCell"
+  }
+}
