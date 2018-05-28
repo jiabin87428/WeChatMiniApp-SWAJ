@@ -4,7 +4,14 @@
     <text class='cellText1'>隐患照片</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
-  <view id='imageView' class='imageView'>
-    <image class="addImageButton" src="../../assets/addImage.png" mode="aspectFit"></image>
+  <view id='imageView' style='height:{{imageViewHeight}}px;' class='imageView'>
+     <block wx:for="{{imageList}}" wx:for-item="image" wx:for-index='idx'>
+      <view class="littleImageView" bindtap='viewPhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
+        <image class="littleImage" src="{{image}}" data-id="{{idx}}" data-src="{{image}}" bindtap="previewImage" mode="aspectFit"></image>
+      </view>
+    </block> 
+    <view class="littleImageView" bindtap='addPhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
+      <image class="littleImage" src="../../assets/addImage.png" mode="aspectFit"></image>
+    </view>
   </view>
 </view>

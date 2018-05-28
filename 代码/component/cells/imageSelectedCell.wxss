@@ -22,10 +22,12 @@
 .imageView {
   display:flex;
   flex-direction:row;
-  width: 95%;
-  height: 100px;
+  width: 100%;
+  /* height: 100px; */
   background-color: white;
-  align-items:center;/*垂直居中*/
+  align-items: flex-start;/*垂直居中*/
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
 }
 
 .mainImage {
@@ -51,7 +53,11 @@
   margin-right: 16px;
 }
 
-.addImageButton {
-  width: 80px;
-  height: 80px;
+.littleImageView {
+  padding: 5px 0px 0px 10px;
+}
+
+.littleImage {
+  width: 100%;
+  height: 100%; 
 }
