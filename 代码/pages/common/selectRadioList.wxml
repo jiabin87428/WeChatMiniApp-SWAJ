@@ -1,0 +1,15 @@
+<!--pages/common/selectRadioList.wxml-->
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <block wx:for="{{sourceList}}" wx:for-item="item" wx:for-index='idx'>
+        <view class='scrollItem'>
+          <text class='cellText1'>{{item.name}}</text>
+          <radio class="radio" value="{{idx}}" checked="{{item.checked}}">
+              
+          </radio>
+        </view>
+      </block>
+    </radio-group>
+  </scroll-view>
+</view>

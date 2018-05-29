@@ -1,6 +1,8 @@
 // pages/danger/addDanger.js
 // 在需要使用的js文件中，导入js  
 var util = require('../../utils/util.js');
+//获取应用实例
+const app = getApp()
 Page({
 
   /**
@@ -10,7 +12,25 @@ Page({
     imageList: [],
     littleImageWidth: 0,
     imageViewHeight: 100,
-    time:""
+    time:"",
+    // 企业名称
+    companyName: "",
+    // 行业类型
+    industryType: null,
+    // 隐患大类
+    dangerType1: null,
+    // 隐患小类
+    dangerType2: null,
+    // 存在问题
+    problem: null,
+    // 问题描述
+    desc: "",
+    // 可能造成后沟
+    result: "",
+    // 潜在事故
+    danger: null,
+    // 整改建议
+    advise: "",
   },
 
   /**
@@ -41,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var _this = this;
   },
 
   /**
@@ -78,6 +98,7 @@ Page({
   onShareAppMessage: function () {
   
   },
+  // 添加图片
   addPhoto: function () {
     var _this = this;
     wx.chooseImage({
@@ -100,6 +121,7 @@ Page({
       }
     })
   },
+  // 浏览图片
   viewPhoto: function (e) {
     var _this = this
     var current = e.target.dataset.src;
@@ -108,6 +130,7 @@ Page({
       urls: _this.data.imageList // 需要预览的图片http链接列表
     })
   },
+  // 删除图片
   deleteImage: function (e) {
     var _this = this
     var currentIdx = e.currentTarget.id;
@@ -118,6 +141,48 @@ Page({
     })
     _this.setData({
       imageViewHeight: Math.ceil((_this.data.imageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
+    })
+  },
+  // 跳转输入页面
+  jumpInput: function (e) {
+    var viewId = e.currentTarget.id;
+    var placeholder = ""
+    var inputstring = ""
+    if (viewId == "companyName") {
+      placeholder = "请输入企业名称"
+      inputstring = this.data.companyName
+    } else if (viewId == "problem") {
+      placeholder = "请输入存在问题"
+      inputstring = this.data.problem
+    } else if (viewId == "desc") {
+      placeholder = "请输入问题描述"
+      inputstring = this.data.desc
+    } else if (viewId == "result") {
+      placeholder = "请输入可能造成的后果"
+      inputstring = this.data.result
+    } else if (viewId == "advise") {
+      placeholder = "请输入整改建议"
+      inputstring = this.data.advise
+    }
+    wx.navigateTo({
+      url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
+    })
+  },
+  // 跳转单选列表
+  jumpRadio: function (e) {
+    var viewId = e.currentTarget.id;
+    var sourceData = null
+    if (viewId == "industryType") {
+      sourceData = app.globalData.industryType
+    } else if (viewId == "dangerType1") {
+      sourceData = app.globalData.dangerType1
+    } else if (viewId == "dangerType2") {
+      sourceData = app.globalData.dangerType2
+    } else if (viewId == "problem") {
+      sourceData = app.globalData.problemType
+    }
+    wx.navigateTo({
+      url: '../common/selectRadioList?id=' + viewId +'&data=' + JSON.stringify(sourceData)
     })
   }
 })

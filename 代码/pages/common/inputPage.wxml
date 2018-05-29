@@ -1,0 +1,5 @@
+<!--pages/common/inputPage.wxml-->
+<view class='baseView'>
+  <textarea id='textarea' class='textarea' maxlength='2000' bindinput='bindinput' placeholder="{{placeholder}}" value="{{inputstring}}"></textarea>
+  <button type='primary' class='okbutton' bindtap='okClick'>确定</button>
+</view>

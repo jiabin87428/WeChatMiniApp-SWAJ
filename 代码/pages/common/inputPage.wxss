@@ -1,0 +1,24 @@
+/* pages/common/inputPage.wxss */
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: #999999;
+}
+
+.okbutton{
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

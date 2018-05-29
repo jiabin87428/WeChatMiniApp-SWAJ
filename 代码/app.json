@@ -8,7 +8,10 @@
     "pages/danger/dangerList",
     "pages/danger/dangerDetail",
     "pages/danger/danger",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/common/inputPage",
+    "pages/common/selectRadioList",
+    "pages/common/selectCheckList"
   ],
   "window": {
     "backgroundTextStyle": "light",
