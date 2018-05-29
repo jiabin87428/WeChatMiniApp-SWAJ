@@ -14,6 +14,18 @@
     <text class='cellText2'>隐患大类</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
+  <view id='3' class='scrollItem'>
+    <text class='cellText2'>隐患小类</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='3' class='scrollItem'>
+    <text class='cellText2'>存在问题</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='1' class='scrollItem'>
+    <text class='cellText1'>问题描述</text>
+    <input class='flex-item input' placeholder="请输入问题描述" placeholder-style='font-size:14px;font-weight: initial;'/>
+  </view>
   <!-- <imageView style='height:100px;'></imageView> -->
   <view class='imageBaseView' style='height:{{58+imageViewHeight}}px;'>
     <view class='titleView'>
