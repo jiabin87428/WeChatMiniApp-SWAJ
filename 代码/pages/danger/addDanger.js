@@ -31,6 +31,9 @@ Page({
     danger: null,
     // 整改建议
     advise: "",
+
+    // 显示潜在事故字符串
+    dangerString: ""
   },
 
   /**
@@ -61,7 +64,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var _this = this;
+    if (this.data.danger != null) {
+      this.setData({
+        dangerString: ""
+      })
+      for (var i = 0; i < this.data.danger.length; i++) {
+        var name = this.data.danger[i].name
+        this.setData({
+          dangerString: this.data.dangerString + " " + name
+        })
+      }
+    }
+    console.log('123')
   },
 
   /**
@@ -172,17 +186,35 @@ Page({
   jumpRadio: function (e) {
     var viewId = e.currentTarget.id;
     var sourceData = null
+    var selected = null
     if (viewId == "industryType") {
       sourceData = app.globalData.industryType
+      selected = this.data.industryType
     } else if (viewId == "dangerType1") {
       sourceData = app.globalData.dangerType1
+      selected = this.data.dangerType1
     } else if (viewId == "dangerType2") {
       sourceData = app.globalData.dangerType2
+      selected = this.data.dangerType2
     } else if (viewId == "problem") {
       sourceData = app.globalData.problemType
+      selected = this.data.problem
     }
     wx.navigateTo({
-      url: '../common/selectRadioList?id=' + viewId +'&data=' + JSON.stringify(sourceData)
+      url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
+    })
+  },
+  // 跳转多选列表
+  jumpCheckBox: function (e) {
+    var viewId = e.currentTarget.id;
+    var sourceData = null
+    var selected = null
+    if (viewId == "danger") {
+      sourceData = app.globalData.industryType
+      selected = this.data.danger
+    }
+    wx.navigateTo({
+      url: '../common/selectCheckList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
     })
   }
 })

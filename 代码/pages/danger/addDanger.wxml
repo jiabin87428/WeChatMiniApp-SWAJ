@@ -55,9 +55,9 @@
     <text class='cellText2'>{{result}}</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
-  <view id='5' class='scrollItem'>
+  <view id='danger' class='scrollItem' bindtap='jumpCheckBox'>
     <text class='cellText1'>潜在事故</text>
-    <text class='cellText2'>{{companyName}}</text>
+    <text class='cellText2'>{{dangerString}}</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view id='advise' class='scrollItem' bindtap='jumpInput'>

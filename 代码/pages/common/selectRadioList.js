@@ -8,8 +8,8 @@ Page({
     viewId: "",
     // 数据源
     sourceList: null,
-    // 选择的项
-    selectedItem: null
+    // 选中的项
+    selected: null
   },
 
   /**
@@ -18,9 +18,11 @@ Page({
   onLoad: function (options) {
     var viewId = options.id
     var data = options.data
+    var selected = options.selected
     this.setData({
       viewId: viewId,
-      sourceList: JSON.parse(data)
+      sourceList: JSON.parse(data),
+      selected: JSON.parse(selected)
     })
   },
 

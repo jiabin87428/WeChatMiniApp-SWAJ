@@ -5,7 +5,7 @@
       <block wx:for="{{sourceList}}" wx:for-item="item" wx:for-index='idx'>
         <view class='scrollItem'>
           <text class='cellText1'>{{item.name}}</text>
-          <radio class="radio" value="{{idx}}" checked="{{item.checked}}">
+          <radio class="radio" value="{{idx}}" checked="{{item.id == selected.id}}">
               
           </radio>
         </view>
