@@ -6,19 +6,19 @@
     <text class='flex-item cellText2'>上海歌略软件科技有限公司</text>
   </view>
   <view id='2' class='scrollItem'>
-    <text class='cellText2'>行业类型</text>
+    <text class='cellText1'>行业类型</text>
     <text class='flex-item cellText2'>道路交通</text>
   </view>
   <view id='3' class='scrollItem'>
-    <text class='cellText2'>隐患类别</text>
+    <text class='cellText1'>隐患类别</text>
     <text class='flex-item cellText2'>基础管理-安全生产责任制</text>
   </view>
   <view id='3' class='scrollItem'>
-    <text class='cellText2'>存在问题</text>
+    <text class='cellText1'>存在问题</text>
     <text class='flex-item cellText2'>其他</text>
   </view>
   <view id='3' class='scrollItem'>
-    <text class='cellText2'>问题描述</text>
+    <text class='cellText1'>问题描述</text>
     <text class='flex-item cellText2'>111111111</text>
   </view>
   <view class='imageBaseView' style='height:{{58+imageViewHeight}}px;'>
@@ -43,7 +43,7 @@
     <text class='flex-item cellText2'>测试问题测试问题测试问题测试问题</text>
   </view>
   <view id='5' class='scrollItem'>
-    <text class='cellText2'>潜在事故</text>
+    <text class='cellText1'>潜在事故</text>
     <text class='flex-item cellText2'>起重伤害 机械伤害 车辆伤害 物体打击</text>
   </view>
   <view id='6' class='scrollItem'>

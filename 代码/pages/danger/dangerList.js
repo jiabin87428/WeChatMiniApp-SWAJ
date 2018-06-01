@@ -8,6 +8,28 @@ Page({
     winHeight: 0,
     // tab切换    
     currentTab: 0,
+    dangerList: [
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+      { "title": "整改通知（中国远洋海运集团有限公司）" },
+    ]
   },
   onLoad: function () {
     var that = this;
@@ -49,6 +71,15 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
+
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
+    //模拟加载
+    setTimeout(function () {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
   },
   /** 
    * 点击分享 
@@ -86,5 +117,18 @@ Page({
       return true
     }
     return false
-  }
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
+    //模拟加载
+    setTimeout(function () {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
+  },
 })    
