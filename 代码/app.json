@@ -11,19 +11,20 @@
     "pages/me/me",
     "pages/common/inputPage",
     "pages/common/selectRadioList",
-    "pages/common/selectCheckList"
+    "pages/common/selectCheckList",
+    "pages/danger/dangerCheckList"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#2D68AA",
+    "navigationBarTitleText": "沙湾安监",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#dddddd",
-    "selectedColor": "#62B8FF",
-    "borderStyle": "white",
-    "backgroundColor": "#ffffff",
+    "color": "#898989",
+    "selectedColor": "#086DD7",
+    "borderStyle": "#6F6F6F",
+    "backgroundColor": "#F7F7F7",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -32,7 +33,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/danger/dangerList",
+        "pagePath": "pages/danger/danger",
         "iconPath": "assets/dangerCheck_unselected.png",
         "selectedIconPath": "assets/dangerCheck.png",
         "text": "隐患排查"

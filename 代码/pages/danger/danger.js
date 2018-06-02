@@ -52,29 +52,35 @@ Page({
   },
   // 点击添加隐患
   addClick: function () {
-    if (!this.checkLogin()) {
-      wx.navigateTo({
-        url: '../login/login'
-      })
-      return
-    } else {
-      wx.navigateTo({
-        url: '../danger/addDanger'
-      })
-    }
+    wx.navigateTo({
+      url: '../danger/addDanger'
+    })
+    // if (!this.checkLogin()) {
+    //   wx.navigateTo({
+    //     url: '../login/login'
+    //   })
+    //   return
+    // } else {
+    //   wx.navigateTo({
+    //     url: '../danger/addDanger'
+    //   })
+    // }
   },
   // 点击隐患列表
   listClick: function () {
-    if (!this.checkLogin()) {
-      wx.navigateTo({
-        url: '../login/login'
-      })
-      return
-    } else {
-      wx.navigateTo({
-        url: '../danger/dangerList'
-      })
-    }
+    wx.navigateTo({
+      url: '../danger/dangerCheckList'
+    })
+    // if (!this.checkLogin()) {
+    //   wx.navigateTo({
+    //     url: '../login/login'
+    //   })
+    //   return
+    // } else {
+    //   wx.navigateTo({
+    //     url: '../danger/dangerList'
+    //   })
+    // }
   },
 
   // 判断是否登录
