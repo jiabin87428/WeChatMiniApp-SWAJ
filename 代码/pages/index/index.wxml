@@ -3,7 +3,7 @@
   <image class="mainImage" src="../../assets/login.jpg" mode="aspectFill"></image>
   <view id='1' class='scrollItem'>
     <text class='cellText1'>本年度累计事故数：</text>
-    <text class='cellText2'>0</text>
+    <text class='cellText2'>1</text>
   </view>
   <view id='2' class='scrollItem'>
     <text class='cellText1'>本年度重特大事故</text>
