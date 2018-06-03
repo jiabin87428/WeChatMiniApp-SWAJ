@@ -68,19 +68,19 @@ Page({
   },
   // 点击隐患列表
   listClick: function () {
-    wx.navigateTo({
-      url: '../danger/dangerCheckList'
-    })
-    // if (!this.checkLogin()) {
-    //   wx.navigateTo({
-    //     url: '../login/login'
-    //   })
-    //   return
-    // } else {
-    //   wx.navigateTo({
-    //     url: '../danger/dangerList'
-    //   })
-    // }
+    // wx.navigateTo({
+    //   url: '../danger/dangerCheckList'
+    // })
+    if (!this.checkLogin()) {
+      wx.navigateTo({
+        url: '../login/login'
+      })
+      return
+    } else {
+      wx.navigateTo({
+        url: '../danger/dangerList'
+      })
+    }
   },
 
   // 判断是否登录

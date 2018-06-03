@@ -1,16 +1,6 @@
 <!--pages/register/register.wxml-->
 <view class="baseView" style='background-color:whitesmoke'>
   <view class="inputView">
-    <text class='flex-item text'>用户名：</text>
-    <input class='flex-item input' placeholder="请输入用户名" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>密码：</text>
-    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="请输入密码" auto-focus password/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
     <text class='flex-item text'>企业全称：</text>
     <input class='flex-item input' placeholder="请输入企业全称" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
     <view class='flex-item unSelectedView'></view>
@@ -28,8 +18,23 @@
     </view>
   </view>
   <view class="inputView">
-    <text class='flex-item text'>安全干部：</text>
+    <text class='flex-item text'>系统负责人：</text>
     <input class='flex-item input' placeholder="请输入安全干部" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>联系人邮箱：</text>
+    <input class='flex-item input' placeholder="将作为登录账号" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>密码：</text>
+    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="请输入密码" auto-focus password/>
+    <view class='flex-item unSelectedView'></view>
+  </view>
+  <view class="inputView">
+    <text class='flex-item text'>确认密码：</text>
+    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="请再次输入密码" auto-focus password/>
     <view class='flex-item unSelectedView'></view>
   </view>
   <view class="inputView">
