@@ -1,3 +1,7 @@
+
+var request = require('../../utils/request.js')
+var config = require('../../utils/config.js')
+
 var app = getApp()
 Page({
   data: {
@@ -34,6 +38,7 @@ Page({
    *    另一个页面销毁时会再次执行
    */
   onShow: function () {
+    this.getStatistics()
     if (this.checkLogin()) {
       this.setData({
         userName: app.globalData.userInfo.nickName
@@ -87,5 +92,23 @@ Page({
       return true
     }
     return false
+  },
+
+  // 获取统计数据
+  getStatistics: function () {
+    var params = {
+      // "repIsqy": "是",
+      // "repRecordid": " 9B3C1758E6F148659A30C31A4810A702"
+      "username": "root",
+      "password": "111111"
+    }
+    request.requestLoading(config.login, params, '正在加载数据', function (res) {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
+    })
   }
 })    
