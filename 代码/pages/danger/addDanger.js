@@ -1,6 +1,7 @@
 // pages/danger/addDanger.js
 // 在需要使用的js文件中，导入js  
 var util = require('../../utils/util.js');
+var request = require('../../utils/request.js')
 //获取应用实例
 const app = getApp()
 Page({
@@ -215,6 +216,17 @@ Page({
     }
     wx.navigateTo({
       url: '../common/selectCheckList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
+    })
+  },
+  // 提交事件
+  submitClick: function (e) {
+    request.requestLoading('http://www.kuaidi100.com/query?type=yuantong&postid=11111111111', '', '正在加载数据', function (res) {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
     })
   }
 })
