@@ -114,7 +114,7 @@ App({
       { id: "4001", name: "其他" }
     ],
     /** 
-    潜在事故
+    潜在隐患
     @param id   事故id
     @param name 事故名称  
     */

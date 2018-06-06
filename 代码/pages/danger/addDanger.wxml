@@ -30,9 +30,9 @@
       </view>
     </view>
   </view>
-  <view id='result' class='scrollItem' bindtap='jumpInput'>
+  <view id='danger' class='scrollItem' bindtap='jumpCheckBox'>
     <text class='cellText1'>潜在隐患</text>
-    <text class='cellText2'>{{result}}</text>
+    <text class='cellText2'>{{dangerString}}</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view id='advise' class='scrollItem' bindtap='jumpInput'>

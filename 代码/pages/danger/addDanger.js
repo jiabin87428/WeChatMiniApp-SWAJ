@@ -201,7 +201,7 @@ Page({
     var sourceData = null
     var selected = null
     if (viewId == "danger") {
-      sourceData = app.globalData.industryType
+      sourceData = app.globalData.dangerType
       selected = this.data.danger
     }
     wx.navigateTo({
