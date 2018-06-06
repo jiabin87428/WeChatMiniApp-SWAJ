@@ -2,13 +2,19 @@
 //获取应用实例
 const app = getApp()
 
+var request = require('../../utils/request.js')
+var config = require('../../utils/config.js')
+
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     useUserName: false,    //使用用户名登录
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // 使用用户名密码登录
+    userName:'',
+    passWord:''
   },
   //事件处理函数
   bindViewTap: function () {
@@ -20,6 +26,44 @@ Page({
     wx.showModal({
       title: '11',
       content: JSON.stringify(this.data.userInfo),
+    })
+  },
+  // 拿到用户名  
+  getUserName: function (e) {
+    var val = e.detail.value;
+    this.setData({
+      userName: val
+    });
+  },  
+  // 拿到密码  
+  getPassWord: function (e) {
+    var val = e.detail.value;
+    this.setData({
+      passWord: val
+    });
+  },  
+  // 登录
+  login: function (e) {
+    var params = {
+      "username": this.data.userName,
+      "password": this.data.passWord
+    }
+    request.requestLoading(config.login, params, '正在加载数据', function (res)     {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+      if (res.repCode == '200') {
+        wx.setStorage({
+          key: "userInfo",
+          data: res
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
     })
   },
   // 使用企业用户登录

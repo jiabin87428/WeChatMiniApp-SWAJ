@@ -34,15 +34,7 @@ Page({
    *    另一个页面销毁时会再次执行
    */
   onShow: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userName: app.globalData.userInfo.nickName
-      })
-    } else {
-      this.setData({
-        userName: "请登录"
-      })
-    }
+    
   },
   // 点击用户头像
   userClick: function () {
@@ -68,19 +60,19 @@ Page({
   },
   // 点击隐患列表
   listClick: function () {
-    // wx.navigateTo({
-    //   url: '../danger/dangerCheckList'
-    // })
-    if (!this.checkLogin()) {
-      wx.navigateTo({
-        url: '../login/login'
-      })
-      return
-    } else {
-      wx.navigateTo({
-        url: '../danger/dangerList'
-      })
-    }
+    wx.navigateTo({
+      url: '../danger/dangerCheckList'
+    })
+    // if (!this.checkLogin()) {
+    //   wx.navigateTo({
+    //     url: '../login/login'
+    //   })
+    //   return
+    // } else {
+    //   wx.navigateTo({
+    //     url: '../danger/dangerList'
+    //   })
+    // }
   },
 
   // 判断是否登录
