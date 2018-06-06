@@ -28,4 +28,7 @@
     <text class='cellText1'>企业地址</text>
     <text class='cellText2'>上海市浦东新区XX路100号</text>
   </view>
+  <view id='7' class='scrollItem'>
+    <button type='default' class='submitButton' bindtap="loginOut">退出登录</button>
+  </view>
 </scroll-view>

@@ -1,53 +1,57 @@
-<!--pages/register/register.wxml-->
-<view class="baseView" style='background-color:whitesmoke'>
-  <view class="inputView">
-    <text class='flex-item text'>企业全称：</text>
-    <input class='flex-item input' placeholder="请输入企业全称" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>企业属地：</text>
-    <input class='flex-item input' placeholder="请输入企业属地" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>企业类型：</text>
-    <input class='flex-item input' placeholder="请选择企业类型" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item selectedView'>
-      <text class='selectedText'>选择</text>
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <view class='scrollItem'>
+      <text class='cellText1'>企业全称</text>
+      <!-- <text class='cellText2'>{{companyName}}</text> -->
+      <input id='companyName' class='input' placeholder="请输入企业全称" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' auto-focus/> 
     </view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>系统负责人：</text>
-    <input class='flex-item input' placeholder="请输入安全干部" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>联系人邮箱：</text>
-    <input class='flex-item input' placeholder="将作为登录账号" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>密码：</text>
-    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="请输入密码" auto-focus password/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>确认密码：</text>
-    <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="请再次输入密码" auto-focus password/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>手机：</text>
-    <input class='flex-item input' placeholder="请输入手机" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="inputView">
-    <text class='flex-item text'>企业地址：</text>
-    <input class='flex-item input' placeholder="请输入企业地址" placeholder-style='font-size:14px;font-weight: initial;' auto-focus/>
-    <view class='flex-item unSelectedView'></view>
-  </view>
-  <view class="buttonView">
-    <button type='primary' class='flex-item registerButton' bindtap="registerClick">注册</button>
-  </view> 
+    <view id='companyPlace' class='scrollItem' bindtap='jumpRadio'>
+      <text class='cellText1'>企业属地</text>
+      <text class='cellText2'>{{companyPlace}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view id='companyType' class='scrollItem' bindtap='jumpRadio'>
+      <text class='cellText1'>企业类型</text>
+      <text class='cellText2'>{{companyType}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view id='range' class='scrollItem' bindtap='jumpCheckBox'>
+      <text class='cellText1'>涉及范围</text>
+      <text class='cellText2'>{{rangeString}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>系统负责人</text>
+      <!-- <text class='cellText2'>{{contactName}}</text> -->
+       <input id='contactName' class='input' placeholder="请输入系统负责人" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' auto-focus/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>联系人邮箱</text>
+      <!-- <text class='cellText2'>{{contactEmail}}</text> -->
+       <input id='contactEmail' class='input' placeholder="将作为登录用户名" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' auto-focus/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>密码</text>
+      <!-- <text class='cellText2'>{{password}}</text> -->
+       <input id='password' class='input' placeholder="请输入企业全称" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' auto-focus password/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>确认密码</text>
+      <!-- <text class='cellText2'>{{comformPassword}}</text> -->
+       <input id='comformPassword' class='input' placeholder="请输入企业全称" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' auto-focus password/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>手机</text>
+      <!-- <text class='cellText2'>{{phone}}</text> -->
+       <input id='phone' class='input' placeholder="请输入企业全称" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' auto-focus/> 
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>当前位置</text>
+      <text class='cellText2'>{{address}}</text>
+      <image class="arrow" mode="aspectFit"></image>
+    </view>
+    <view id='submit' class='scrollButtonItem'>
+      <button type='default' class='submitButton' bindtap="submitClick">注册</button>
+    </view>
+  </scroll-view>
 </view>

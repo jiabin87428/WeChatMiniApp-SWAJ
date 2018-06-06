@@ -1,5 +1,47 @@
+var request = require('./utils/request.js')
+var config = require('./utils/config.js')
+
 //app.js
 App({
+  // 判断是否登录
+  checkLogin: function () {
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        that.globalData.userInfo = res.data
+        that.getStatistics()
+        console.log(that.globalData.userInfo)
+      }, fail: function (res) {
+        that.globalData.userInfo = null
+        wx.navigateTo({
+          url: '../login/login'
+        })
+      }
+    })
+    // if (app.globalData.userInfo) {
+    //   return true
+    // }
+    // return false
+  },
+  // 获取企业属地
+  getCompanyPlace: function (cb) {
+    var that = this
+    if (this.globalData.companyPlace) {
+      typeof cb == "function" && cb(this.globalData.companyPlace)
+    } else {
+      //调用接口
+      request.requestLoading(config.getLocal, null, '正在加载数据', function (res) {
+        console.log(res)
+        that.globalData.userInfo = res.repLocal
+        typeof cb == "function" && cb(that.globalData.userInfo)
+      }, function () {
+        wx.showToast({
+          title: '加载数据失败',
+        })
+      })
+    }
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -141,6 +183,8 @@ App({
       { id: "5020", name: "其他伤害" },
     ],
     // 用户信息
-    userInfo: null
+    userInfo: null,
+    // 企业属地
+    companyPlace: null
   }
 })

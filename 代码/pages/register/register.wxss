@@ -1,4 +1,3 @@
-/* pages/register/register.wxss */
 .baseView {
   position: fixed;
   height: 100%;
@@ -6,74 +5,73 @@
   display:flex;
   flex-direction:column;
   align-items:center;/*垂直居中*/
-  /*justify-content: center;/*水平居中*/
+  justify-content: center;/*水平居中*/
 }
 
-.inputView {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
+.scrollView {
   width: 100%;
-  height: 40px;
+  height: 100%;
+  background-color: #D3D3D3;
+}
+
+.scrollItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+   /* height: 58px;  */
+  background-color: white; 
+  border-bottom: 1rpx solid #D3D3D3;
   align-items:center;/*垂直居中*/
-  justify-content: center;/*水平居中*/
-  margin-bottom: 1px;
 }
 
-.buttonView {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;/*水平居中*/
-  width: 100%;
-  height: 50px; 
-}
-
-.text {
-  width: 150px;
-  /* height: 100%; */
-  text-align:  center;
-  line-height: 40px; /*垂直居中*/ 
-  font-weight: initial;
+.cellText1 {
   font-size: 14px;
+  color: #696969;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 100px;
+}
+
+.cellText2 {
+  font-size: 14px;
+  color: #696969;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 100%;
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.arrow {
+  width: 10px;
+  height: 58px;
+  margin-right: 16px;
 }
 
 .input {
   /* background-color: red; */
   margin-left: 10px;
-  width: 90%;
-  height: 100%;
+  width: 100%;
+  height: 58px;
   font-size: 14px; 
 }
 
-.registerButton {
-  width: 90%;
-  height: 40px;
-  margin: 10px; 
-}
-
-.selectedView {
-  height: 30px;
-  width: 100px;
-   display: grid;
-  flex-direction:column; 
-  align-items:center;/*垂直居中*/
-  justify-content: center;/*水平居中*/
-  background: green;
-}
-
-.unSelectedView {
-  height: 30px;
-  width: 100px;
-   display: grid;
-  flex-direction:column; 
-  align-items:center;/*垂直居中*/
-  justify-content: center;/*水平居中*/
-  background: white;
-}
-
-.selectedText {
+.scrollButtonItem {
+  display:flex;
+  flex-direction:row;
   width: 100%;
-  height: 20px;
-  font-size: 14px;
-  color: white;
+  height: 70px;
+  background-color: white; 
+  align-items:center;/*垂直居中*/
+}
+
+.submitButton {
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
 }

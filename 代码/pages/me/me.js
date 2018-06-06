@@ -1,4 +1,6 @@
 // pages/me/me.js
+var app = getApp()
+
 Page({
 
   /**
@@ -62,5 +64,16 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  // 退出登录
+  loginOut: function () {
+    var that = this
+    wx.removeStorage({
+      key: 'userInfo',
+      success: function (res) {
+        app.checkLogin()
+      }
+    })
   }
 })

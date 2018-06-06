@@ -2,6 +2,8 @@
 // 在需要使用的js文件中，导入js  
 var util = require('../../utils/util.js');
 var request = require('../../utils/request.js')
+var config = require('../../utils/config.js')
+var amapFile = require('../../libs/amap-wx.js');
 //获取应用实例
 const app = getApp()
 Page({
@@ -13,7 +15,10 @@ Page({
     imageList: [],
     littleImageWidth: 0,
     imageViewHeight: 100,
+    // 提交时间
     time:"",
+    // 当前位置
+    address:"",
     // 企业名称
     companyName: "",
     // 隐患描述
@@ -31,6 +36,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getCurrentAddress()
     let screenWidth = wx.getSystemInfoSync().windowWidth
     this.setData({
       littleImageWidth: (screenWidth - 50) / 4
@@ -210,13 +216,42 @@ Page({
   },
   // 提交事件
   submitClick: function (e) {
-    request.requestLoading('http://www.kuaidi100.com/query?type=yuantong&postid=11111111111', '', '正在加载数据', function (res) {
+    var params = {
+      "repIsqy": app.globalData.userInfo.repIsqy,
+      "qyid": app.globalData.userInfo.repRecordid,
+      "qymc": this.data.companyName,
+      "wtms": this.data.desc,
+      "tjsj": this.data.time,
+      "dqwz": this.data.address,
+      "qzyh": this.data.dangerString
+    }
+    request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)
     }, function () {
       wx.showToast({
         title: '加载数据失败',
       })
+    })
+  },
+  // 高德地图获取当前地址
+  getCurrentAddress: function() {
+    var that = this;
+    var myAmapFun = new amapFile.AMapWX({ key: 'f28afe6170399e78d1f7e1b672c1fa49' });
+    myAmapFun.getRegeo({
+      success: function (data) {
+        if (data.length > 0) {
+          let item = data[0]
+          console.log(item.name)
+          that.setData ({
+            address:item.name
+          })
+        }
+      },
+      fail: function (info) {
+        //失败回调
+        console.log(info)
+      }
     })
   }
 })

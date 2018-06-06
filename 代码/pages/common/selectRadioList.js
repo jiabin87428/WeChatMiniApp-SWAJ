@@ -97,6 +97,10 @@ Page({
       prevPage.setData({
         problem: this.data.sourceList[e.detail.value]
       })
+    } else if (this.data.viewId == "companyPlace") {
+      prevPage.setData({
+        companyPlace: this.data.sourceList[e.detail.value]
+      })
     }
     wx.navigateBack({
       delta: pages.length - 2

@@ -58,3 +58,9 @@
   flex-direction: column;
   align-items: center;
 }
+
+.submitButton {
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
+}

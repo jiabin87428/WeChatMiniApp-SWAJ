@@ -47,7 +47,7 @@
   </view>
   <view id='8' class='scrollItem'>
     <text class='cellText1'>当前位置</text>
-    <text class='cellText2'>{{time}}</text>
+    <text class='cellText2'>{{address}}</text>
     <image class="arrow" mode="aspectFit"></image>
   </view>
   <view id='9' class='scrollButtonItem'>
