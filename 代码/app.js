@@ -33,8 +33,32 @@ App({
       //调用接口
       request.requestLoading(config.getLocal, null, '正在加载数据', function (res) {
         console.log(res)
-        that.globalData.userInfo = res.repLocal
-        typeof cb == "function" && cb(that.globalData.userInfo)
+        that.globalData.companyPlace = res.repLocal
+        typeof cb == "function" && cb(that.globalData.companyPlace)
+      }, function () {
+        wx.showToast({
+          title: '加载数据失败',
+        })
+      })
+    }
+  },
+  // 获取企业类型
+  getCompanyType: function (id,cb) {
+    var that = this
+    var cType = null
+    if (id == null) {
+      cType = this.globalData.companyType1
+    }else {
+      cType = this.globalData.companyType1
+    }
+    if (cType) {
+      typeof cb == "function" && cb(cType)
+    } else {
+      //调用接口
+      request.requestLoading(config.getType, id, '正在加载数据', function (res) {
+        console.log(res)
+        cType = res.repType
+        typeof cb == "function" && cb(cType)
       }, function () {
         wx.showToast({
           title: '加载数据失败',
@@ -185,6 +209,10 @@ App({
     // 用户信息
     userInfo: null,
     // 企业属地
-    companyPlace: null
+    companyPlace: null,
+    // 企业一级类型
+    companyType1: null,
+    // 企业二级类型
+    companyType2: null
   }
 })

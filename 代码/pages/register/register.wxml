@@ -7,12 +7,12 @@
     </view>
     <view id='companyPlace' class='scrollItem' bindtap='jumpRadio'>
       <text class='cellText1'>企业属地</text>
-      <text class='cellText2'>{{companyPlace}}</text>
+      <text class='cellText2'>{{companyPlace.name}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='companyType' class='scrollItem' bindtap='jumpRadio'>
+    <view id='companyType1' class='scrollItem' bindtap='jumpRadio'>
       <text class='cellText1'>企业类型</text>
-      <text class='cellText2'>{{companyType}}</text>
+      <text class='cellText2'>{{companyType1.name}}/{{companyType2.name}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
     <view id='range' class='scrollItem' bindtap='jumpCheckBox'>

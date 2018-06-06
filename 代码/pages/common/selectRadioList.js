@@ -1,3 +1,4 @@
+var app = getApp()
 // pages/common/selectRadioList.js
 Page({
 
@@ -101,9 +102,31 @@ Page({
       prevPage.setData({
         companyPlace: this.data.sourceList[e.detail.value]
       })
+    } else if (this.data.viewId == "companyType1") {
+      prevPage.setData({
+        companyType1: this.data.sourceList[e.detail.value]
+      })
+      //调用应用实例的方法获取全局数据
+      app.getCompanyType({ "typeId": prevPage.data.companyType1.id}, function (companyType) {
+        wx.navigateTo({
+          url: '../common/selectRadioList?id=' + "companyType2" + '&data=' + JSON.stringify(companyType) + '&selected=' + JSON.stringify(prevPage.data.companyType1)
+        })
+      })
+      return
+    } else if (this.data.viewId == "companyType2") {
+      prevPage = pages[pages.length - 3]
+      prevPage.setData({
+        companyType2: this.data.sourceList[e.detail.value]
+      })
+    } 
+    if (this.data.viewId == "companyType2") {
+      wx.navigateBack({
+        delta: 2
+      })
+    }else{
+      wx.navigateBack({
+        delta: 1
+      })
     }
-    wx.navigateBack({
-      delta: pages.length - 2
-    })
   }
 })

@@ -110,7 +110,7 @@ Page({
       })
     }
     wx.navigateBack({
-      delta: pages.length - 2
+      delta: 1
     })
   }
 })

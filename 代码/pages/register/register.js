@@ -1,3 +1,6 @@
+var request = require('../../utils/request.js')
+var config = require('../../utils/config.js')
+var amapFile = require('../../libs/amap-wx.js');
 var app = getApp()
 
 // pages/register/register.js
@@ -13,9 +16,10 @@ Page({
     password: "",
     comformPassword: "",
     phone: "",
-    companyPlace: null,
-    companyType: null,
-    range: null,
+    companyPlace: [],
+    companyType1: [],
+    companyType2: [],
+    range: [],
     address: ""
   },
 
@@ -23,7 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getCurrentAddress()
   },
 
   /**
@@ -44,7 +48,8 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
+    console.log("222222")
   },
 
   /**
@@ -121,14 +126,14 @@ Page({
       app.getCompanyPlace(function (companyPlace) {
         sourceData = companyPlace
         that.jumpRadioPage(viewId, sourceData, selected)
-        // //更新数据
-        // that.setData({
-        //   companyPlace: companyPlace
-        // })
       })
-    } else if (viewId == "dangerType1") {
-      sourceData = app.globalData.dangerType1
-      selected = this.data.dangerType1
+    } else if (viewId == "companyType1") {
+      selected = this.data.companyType1
+      //调用应用实例的方法获取全局数据
+      app.getCompanyType(null,function (companyType) {
+        sourceData = companyType
+        that.jumpRadioPage(viewId, sourceData, selected)
+      })
     } else if (viewId == "dangerType2") {
       sourceData = app.globalData.dangerType2
       selected = this.data.dangerType2
@@ -155,4 +160,59 @@ Page({
       url: '../common/selectCheckList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
     })
   },
+  // 高德地图获取当前地址
+  getCurrentAddress: function () {
+    var that = this;
+    var myAmapFun = new amapFile.AMapWX({ key: 'f28afe6170399e78d1f7e1b672c1fa49' });
+    myAmapFun.getRegeo({
+      success: function (data) {
+        if (data.length > 0) {
+          let item = data[0]
+          console.log(item.name)
+          that.setData({
+            address: item.name
+          })
+        }
+      },
+      fail: function (info) {
+        //失败回调
+        console.log(info)
+      }
+    })
+  },
+  // 注册
+  submitClick: function (e) {
+    var params = {
+      "companyName": this.data.companyName,
+      "companyLocalid": this.data.companyPlace.id,
+      "companyLocal": this.data.companyPlace.name,
+      "companyTypeid": this.data.companyType2.id,
+      "companyType": this.data.companyType1.name + '/' + this.data.companyType2.name,
+      "inChargePerson": this.data.contactName,
+      "email": this.data.contactEmail,
+      "password": this.data.password,
+      "mobile": this.data.phone,
+      "address": this.data.address
+    }
+    request.requestLoading(config.register, params, '正在加载数据', function (res) {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+      if (res.repCode == '200') {
+        wx.showToast({
+          title: '注册成功',
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      }else {
+        wx.showToast({
+          title: '注册失败',
+        })
+      }
+    }, function () {
+      wx.showToast({
+        title: '注册失败',
+      })
+    })
+  }
 })

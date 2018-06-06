@@ -22,7 +22,7 @@ function requestLoading(url, params, message, success, fail) {
       // 'Content-Type': 'application/json'
       'Content-type': 'application/x-www-form-urlencoded'
     },
-    method: 'post',
+    method: 'POST',
     success: function (res) {
       //console.log(res.data)
       wx.hideNavigationBarLoading()
