@@ -7,28 +7,8 @@
     <!-- <input class='flex-item input' placeholder="请输入企业名称" placeholder-style='font-size:14px;font-weight: initial;'/> -->
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image> 
   </view>
-  <view id='industryType' class='scrollItem' bindtap='jumpRadio'>
-    <text class='cellText1'>行业类型</text>
-    <text class='cellText2'>{{industryType.name}}</text>
-    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
-  </view>
-  <view id='dangerType1' class='scrollItem' bindtap='jumpRadio'>
-    <text class='cellText1'>隐患大类</text>
-    <text class='cellText2'>{{dangerType1.name}}</text>
-    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
-  </view>
-  <view id='dangerType2' class='scrollItem' bindtap='jumpRadio'>
-    <text class='cellText1'>隐患小类</text>
-    <text class='cellText2'>{{dangerType2.name}}</text>
-    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
-  </view>
-  <view id='problem' class='scrollItem' bindtap='jumpRadio'>
-    <text class='cellText1'>存在问题</text>
-    <text class='cellText2'>{{problem.name}}</text>
-    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
-  </view>
   <view id='desc' class='scrollItem' bindtap='jumpInput'>
-    <text class='cellText1'>问题描述</text>
+    <text class='cellText1'>隐患描述</text>
     <text class='cellText2'>{{desc}}</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
@@ -51,13 +31,8 @@
     </view>
   </view>
   <view id='result' class='scrollItem' bindtap='jumpInput'>
-    <text class='cellText1'>潜在后果</text>
+    <text class='cellText1'>潜在隐患</text>
     <text class='cellText2'>{{result}}</text>
-    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
-  </view>
-  <view id='danger' class='scrollItem' bindtap='jumpCheckBox'>
-    <text class='cellText1'>潜在事故</text>
-    <text class='cellText2'>{{dangerString}}</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view id='advise' class='scrollItem' bindtap='jumpInput'>

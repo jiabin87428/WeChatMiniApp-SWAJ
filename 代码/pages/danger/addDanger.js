@@ -16,19 +16,9 @@ Page({
     time:"",
     // 企业名称
     companyName: "",
-    // 行业类型
-    industryType: null,
-    // 隐患大类
-    dangerType1: null,
-    // 隐患小类
-    dangerType2: null,
-    // 存在问题
-    problem: null,
-    // 问题描述
+    // 隐患描述
     desc: "",
-    // 可能造成后沟
-    result: "",
-    // 潜在事故
+    // 潜在隐患
     danger: null,
     // 整改建议
     advise: "",
