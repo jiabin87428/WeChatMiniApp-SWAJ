@@ -17,6 +17,8 @@
 }
 
 .okbutton{
+  background-color: #0B6BD9;
+  color: white;
   width: 90%;
   height: 48px;
   margin-top: 10px;

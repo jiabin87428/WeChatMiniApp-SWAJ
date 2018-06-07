@@ -20,7 +20,7 @@ Page({
     // 当前位置
     address:"",
     // 企业名称
-    companyName: "",
+    companyName: null,
     // 隐患描述
     desc: "",
     // 潜在隐患
@@ -184,22 +184,16 @@ Page({
     var viewId = e.currentTarget.id;
     var sourceData = null
     var selected = null
-    if (viewId == "industryType") {
-      sourceData = app.globalData.industryType
-      selected = this.data.industryType
-    } else if (viewId == "dangerType1") {
-      sourceData = app.globalData.dangerType1
-      selected = this.data.dangerType1
-    } else if (viewId == "dangerType2") {
-      sourceData = app.globalData.dangerType2
-      selected = this.data.dangerType2
-    } else if (viewId == "problem") {
-      sourceData = app.globalData.problemType
-      selected = this.data.problem
+    if (viewId == "companyName") {
+      selected = this.data.companyName
+      //调用应用实例的方法获取全局数据
+      app.getCompanyName(null,function (companyName) {
+        sourceData = companyName
+        wx.navigateTo({
+          url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
+        })
+      })
     }
-    wx.navigateTo({
-      url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
-    })
   },
   // 跳转多选列表
   jumpCheckBox: function (e) {
@@ -219,7 +213,7 @@ Page({
     var params = {
       "repIsqy": app.globalData.userInfo.repIsqy,
       "qyid": app.globalData.userInfo.repRecordid,
-      "qymc": this.data.companyName,
+      "qymc": this.data.companyName.name,
       "wtms": this.data.desc,
       "tjsj": this.data.time,
       "dqwz": this.data.address,

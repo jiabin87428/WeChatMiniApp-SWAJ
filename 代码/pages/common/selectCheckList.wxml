@@ -10,7 +10,7 @@
       </block>
     </checkbox-group>
     <view class='buttonView'>
-      <button type='default' class='submitButton' bindtap="submitClick">确定</button>
+      <button class='submitButton' bindtap="submitClick">确定</button>
     </view>
   </scroll-view>
 </view>

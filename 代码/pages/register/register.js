@@ -123,7 +123,7 @@ Page({
     if (viewId == "companyPlace") {
       selected = this.data.companyPlace
       //调用应用实例的方法获取全局数据
-      app.getCompanyPlace(function (companyPlace) {
+      app.getCompanyPlace(null,function (companyPlace) {
         sourceData = companyPlace
         that.jumpRadioPage(viewId, sourceData, selected)
       })

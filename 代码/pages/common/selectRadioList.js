@@ -6,6 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 搜否需要搜索栏
+    needSearch: true,
+    // 搜索栏高度
+    searchHeight: 40,
+    // 列表高度
+    scrollHeight: 0,
     viewId: "",
     // 数据源
     sourceList: null,
@@ -25,6 +31,23 @@ Page({
       sourceList: JSON.parse(data),
       selected: JSON.parse(selected)
     })
+
+    if (viewId == 'companyType1' || viewId == 'companyType2') {
+      this.setData({
+        needSearch: false,
+        searchHeight: 0
+      })
+    }
+
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        console.info(res.windowHeight);
+        that.setData({
+          scrollHeight: res.windowHeight - that.data.searchHeight
+        });
+      }
+    });
   },
 
   /**
@@ -82,21 +105,9 @@ Page({
     // console.log('radio发生change事件，携带value值为：', e.detail.name)
     var pages = getCurrentPages();             //  获取页面栈
     var prevPage = pages[pages.length - 2];   // 上一个页面
-    if (this.data.viewId == "industryType") {
+    if (this.data.viewId == "companyName") {
       prevPage.setData({
-        industryType: this.data.sourceList[e.detail.value]
-      })
-    } else if (this.data.viewId == "dangerType1") {
-      prevPage.setData({
-        dangerType1: this.data.sourceList[e.detail.value]
-      })
-    } else if (this.data.viewId == "dangerType2") {
-      prevPage.setData({
-        dangerType2: this.data.sourceList[e.detail.value]
-      })
-    } else if (this.data.viewId == "problem") {
-      prevPage.setData({
-        problem: this.data.sourceList[e.detail.value]
+        companyName: this.data.sourceList[e.detail.value]
       })
     } else if (this.data.viewId == "companyPlace") {
       prevPage.setData({
@@ -126,6 +137,24 @@ Page({
     }else{
       wx.navigateBack({
         delta: 1
+      })
+    }
+  },
+  // 搜索
+  searchClick: function (e) {
+    var that = this
+    if (this.data.viewId == "companyName") {
+      app.getCompanyName({"companyName":e.detail.value}, function (companyName) {
+        that.setData({
+          sourceList: companyName
+        })
+      })
+    } else if (this.data.viewId == "companyPlace") {
+      //调用应用实例的方法获取全局数据
+      app.getCompanyPlace({ "localName": e.detail.value }, function (companyPlace) {
+        that.setData({
+          sourceList: companyPlace
+        })
       })
     }
   }

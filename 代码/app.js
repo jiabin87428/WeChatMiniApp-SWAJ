@@ -24,17 +24,43 @@ App({
     // }
     // return false
   },
-  // 获取企业属地
-  getCompanyPlace: function (cb) {
+  // 获取企业名称
+  getCompanyName: function (searchObj,cb) {
     var that = this
-    if (this.globalData.companyPlace) {
+    if (this.globalData.companyName && searchObj == null) {
+      typeof cb == "function" && cb(this.globalData.companyName)
+    } else {
+      //调用接口
+      request.requestLoading(config.getCompanyName, searchObj, '正在加载数据', function (res) {
+        console.log(res)
+        if (searchObj == null) {
+          that.globalData.companyName = res.repCompany
+          typeof cb == "function" && cb(that.globalData.companyName)
+        }else{
+          typeof cb == "function" && cb(res.repCompany)
+        }
+      }, function () {
+        wx.showToast({
+          title: '加载数据失败',
+        })
+      })
+    }
+  },
+  // 获取企业属地
+  getCompanyPlace: function (searchObj,cb) {
+    var that = this
+    if (this.globalData.companyPlace && searchObj == null) {
       typeof cb == "function" && cb(this.globalData.companyPlace)
     } else {
       //调用接口
-      request.requestLoading(config.getLocal, null, '正在加载数据', function (res) {
+      request.requestLoading(config.getLocal, searchObj, '正在加载数据', function (res) {
         console.log(res)
-        that.globalData.companyPlace = res.repLocal
-        typeof cb == "function" && cb(that.globalData.companyPlace)
+        if (searchObj == null) {
+          that.globalData.companyPlace = res.repLocal
+          typeof cb == "function" && cb(that.globalData.companyPlace)
+        } else {
+          typeof cb == "function" && cb(res.repLocal)
+        }
       }, function () {
         wx.showToast({
           title: '加载数据失败',
@@ -49,7 +75,7 @@ App({
     if (id == null) {
       cType = this.globalData.companyType1
     }else {
-      cType = this.globalData.companyType1
+      cType = this.globalData.companyType2
     }
     if (cType) {
       typeof cb == "function" && cb(cType)
@@ -206,6 +232,8 @@ App({
       { id: "5019", name: "中毒和窒息" },
       { id: "5020", name: "其他伤害" },
     ],
+    // 企业名称
+    companyName: null,
     // 用户信息
     userInfo: null,
     // 企业属地

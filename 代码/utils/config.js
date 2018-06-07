@@ -14,6 +14,9 @@ var config = {
   // 注册
   register: `${host}/register.so`,
 
+  // 企业名称列表
+  getCompanyName: `${host}/getXx.so?action=getQyList`,
+
   // 企业属地接口
   getLocal: `${host}/getXx.so?action=getLocal`,
 

@@ -1,6 +1,10 @@
 <!--pages/common/selectRadioList.wxml-->
 <view class="baseView">
-  <scroll-view scroll-y="true" class='scrollView'>
+  <view class="searchView" wx:if="{{needSearch==true}}">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入查询内容' confirm-type='search' bindconfirm="searchClick"></input>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight}}px;">
     <radio-group class="radio-group" bindchange="radioChange">
       <block wx:for="{{sourceList}}" wx:for-item="item" wx:for-index='idx'>
         <view class='scrollItem'>

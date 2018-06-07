@@ -1,3 +1,6 @@
+var app = getApp()
+var request = require('../../utils/request.js')
+var config = require('../../utils/config.js')
 // pages/danger/dangerCheckList.js
 Page({
 
@@ -5,7 +8,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    scrollHeight: 0
+    scrollHeight: 0,
+    // 隐患列表
+    dangerList: [
+      // {
+      //   "qymc": "欢天喜地鞭炮销售店",
+      //   "recordid": "B2A63870974F4913A7FE215A56B0B2B8", 
+      //   "yhfxrq": "2018-05-06", 
+      //   "yhnr": "业人员教育培训试试"        
+      // },{
+      //   "qymc": "欢天喜地鞭炮销售店",
+      //   "recordid": "FEF1112ACE414874B3F71F17B44D0433",
+      //   "yhfxrq": "2018-05-03",
+      //   "yhnr": "需要培训"
+      //   }
+    ]
   },
 
   /**
@@ -34,7 +51,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this
+    var params = {
+      "repIsqy": app.globalData.userInfo.repIsqy,
+      "repRecordid": app.globalData.userInfo.repRecordid
+    }
+    this.reqDangerList(params)
   },
 
   /**
@@ -75,6 +97,27 @@ Page({
   getDetail: function () {
     wx.navigateTo({
       url: '../danger/dangerDetail'
+    })
+  },
+  // 获取隐患列表
+  reqDangerList: function (searchObj, cb) {
+    var that = this
+    //调用接口
+    request.requestLoading(config.getYhList, searchObj, '正在加载数据', function (res) {
+      console.log(res)
+      if (res.repCode == '200') {
+        that.setData({
+          dangerList: res.repYhList
+        })
+      }else {
+        wx.showToast({
+          title: res.repMsg,
+        })
+      }
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
     })
   },
 })
