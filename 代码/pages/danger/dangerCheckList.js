@@ -105,7 +105,7 @@ Page({
     //调用接口
     request.requestLoading(config.getYhList, searchObj, '正在加载数据', function (res) {
       console.log(res)
-      if (res.repCode == '200') {
+      if (res.repYhList != null) {
         that.setData({
           dangerList: res.repYhList
         })
