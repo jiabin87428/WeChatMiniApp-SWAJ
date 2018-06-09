@@ -3,14 +3,14 @@
   <image class="mainImage" src="../../assets/dangerBG.png" mode="widthFix"></image>
   <view id='1' class='scrollItem'>
     <text class='cellText1'>隐患总数：</text>
-    <text class='cellText2'>1</text>
+    <text class='cellText2'>{{yhzs}}</text>
   </view>
   <view id='2' class='scrollItem'>
     <text class='cellText1'>已整改隐患</text>
-    <text class='cellText2'>0</text>
+    <text class='cellText2'>{{yzgyhs}}</text>
   </view>
   <view id='3' class='scrollItem'>
     <text class='cellText1'>未整改隐患</text>
-    <text class='cellText2'>0</text>
+    <text class='cellText2'>{{wzgyhs}}</text>
   </view>
 </scroll-view>

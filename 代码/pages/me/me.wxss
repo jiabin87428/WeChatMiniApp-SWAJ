@@ -27,17 +27,32 @@
 }
 
 .cellText1 {
-  font-size: 16px;
+  font-size: 14px;
   color: #696969;
-  margin-left: 20px;
-  width: 50%;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 100px;
 }
+
 .cellText2 {
-  font-size: 16px;
-  color: #CCCCCC;
-  margin-right: 20px;
+  font-size: 14px;
+  color: #B5B5B5;
+  margin-left: 10px;
+  margin-right: 5px;
   width: 100%;
-  text-align: right;
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.arrow {
+  width: 10px;
+  height: 58px;
+  margin-right: 16px;
 }
 
 .userinfo-avatar {
@@ -63,4 +78,6 @@
   width: 90%;
   height: 48px;
   margin-top: 10px;
+  background-color: #0B6BD9;
+  color: white;
 }
