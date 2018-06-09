@@ -211,19 +211,13 @@ Page({
   // 提交事件
   submitClick: function (e) {
     var params = {
-      "yhid": "",
+      "repIsqy": app.globalData.userInfo.repIsqy,
       "qyid": app.globalData.userInfo.repRecordid,
       "qymc": this.data.companyName.name,
       "wtms": this.data.desc,
-      "qzyh": this.data.dangerString,
-      "zgjy": this.data.advise,
       "tjsj": this.data.time,
       "dqwz": this.data.address,
-      "sfyzg": "false",
-      "zgwcqk": "",
-      "zgfzr": "",
-      "zgwcrq": "",
-      "repIsqy": app.globalData.userInfo.repIsqy
+      "qzyh": this.data.dangerString
     }
     request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据

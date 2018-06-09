@@ -13,13 +13,7 @@ Page({
     // tab切换    
     currentTab: 0,
     //用户名
-    userName:"请登录",
-    // 隐患总数
-    yhzs: 0,
-    // 已整改隐患数
-    yzgyhs: 0,
-    // 未整改隐患数
-    wzgyhs: 0
+    userName:"请登录"
   },
   onLoad: function () {
     var that = this;
@@ -112,7 +106,6 @@ Page({
 
   // 获取统计数据
   getStatistics: function () {
-    var that = this
     var params = {
       "repIsqy": app.globalData.userInfo.repIsqy,
       "repRecordid": app.globalData.userInfo.repRecordid
@@ -120,14 +113,6 @@ Page({
     request.requestLoading(config.getTj, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)
-      if (res.repCode != null && res.repCode == 500){
-        return
-      }
-      that.setData({
-        yhzs: res.yhzs,
-        yzgyhs: res.yzgyhs,
-        wzgyhs: res.wzgyhs
-      })
     }, function () {
       wx.showToast({
         title: '加载数据失败',
