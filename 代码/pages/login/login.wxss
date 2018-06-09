@@ -1,12 +1,12 @@
 /**index.wxss**/
 .baseView {
+  background-color: #2D68AA;
   position: fixed;
   height: 100%;
   width: 100%;
   display:flex;
   flex-direction:column;
   align-items:center;/*垂直居中*/
-  justify-content: center;/*水平居中*/
 }
 
 .loginImage {
@@ -18,13 +18,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 180rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 200rpx;
+  height: 200rpx;
   margin: 20rpx;
-  border-radius: 50%;
 }
 
 .userinfo-nickname {
@@ -32,6 +32,7 @@
 }
 
 .userNameBaseView {
+  margin-top: 200rpx;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -42,66 +43,56 @@
   display: flex;
   flex-direction: row;
   background-color: white;
-  width: 100%;
+  width: 80%;
   height: 40px;
   align-items:center;/*垂直居中*/
   justify-content: center;/*水平居中*/
-  margin-bottom: 1px;
+  margin-bottom: 40rpx;
+  border-radius: 10rpx;
 }
 
 .buttonView {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 80%;
   height: 50px; 
-}
-
-.registerButton {
-  width: 50%;
-  height: 40px;
-   margin: 10px; 
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: 10rpx;
 }
 
 .loginButton {
-  width: 50%;
+  background-color: #5777E6;
+  color: white;
+  font-weight: 200;
+  font-size: 16px;
+  width: 100%;
   height: 40px;
-  margin: 10px; 
+}
+.loginButton text {
+  vertical-align:middle;
+  display: table-cell;
 }
 
 .text {
-  width: 30%;
-  /* height: 100%; */
-  text-align:  center;
-  line-height: 40px; /*垂直居中*/ 
-  font-weight: initial;
+  font-weight: 200;
+  color: white;
+  font-size: 14px;
+}
+
+.registerText {
+  font-weight: 200;
+  color: #E5D000;
   font-size: 14px;
 }
 
 .input {
   /* background-color: red; */
-  width: 100%;
+  width: 90%;
   height: 100%;
   font-size: 14px; 
 }
 
 .usermotto {
   margin-top: 200px;
-}
-
-.wechartLoginButton {
-  background-color: #1AAD19;
-  margin-top: 10px;
-  color: white;
-  font-size: 14px;
-  font-weight: initial;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.loginOutButton {
-  width: 80%;
-  margin-top: 100px;
-  color: white;
-  font-size: 14px;
-  font-weight: initial;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

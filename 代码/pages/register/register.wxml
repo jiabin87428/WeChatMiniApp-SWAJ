@@ -51,7 +51,7 @@
       <image class="arrow" mode="aspectFit"></image>
     </view>
     <view id='submit' class='scrollButtonItem'>
-      <button type='default' class='submitButton' bindtap="submitClick">注册</button>
+      <button class='submitButton' bindtap="submitClick">注册</button>
     </view>
   </scroll-view>
 </view>

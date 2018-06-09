@@ -31,15 +31,20 @@
 }
 
 .cellText1 {
-  font-size: 16px;
+  font-size: 14px;
   color: #696969;
-  margin-left: 20px;
   width: 100%;
 }
 .cellText2 {
-  font-size: 16px;
+  font-size: 14px;
   color: #696969;
   margin-right: 20px;
   width: 100%;
   text-align: right;
+}
+
+.point {
+  width: 24px;
+  height: 24px;
+  margin: 20rpx;
 }

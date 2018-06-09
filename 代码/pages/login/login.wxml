@@ -1,17 +1,21 @@
 <!--index.wxml-->
-<view class="baseView" style='background-color:whitesmoke'>
+<view class="baseView">
   <view class='userNameBaseView'>
-    <view class="inputView">
-      <text class='flex-item text'>用户名：</text>
-      <input class='flex-item input' placeholder="输入用户名" placeholder-style='font-size:14px;font-weight: initial;' bindinput="getUserName" auto-focus/>
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="../../assets/logo_white.png" mode="aspectFit"></image>
     </view>
     <view class="inputView">
-      <text class='flex-item text'>密码：</text>
-      <input class='flex-item input' placeholder-style='font-size:13px;font-weight: initial;' placeholder="输入密码" bindinput="getPassWord" auto-focus password/>
+      <input class='input' placeholder="输入登录邮箱" placeholder-style='color:#D8D8D8;' bindinput="getUserName" auto-focus/>
+    </view>
+    <view class="inputView">
+      <input class='input'  placeholder="请输入密码" placeholder-style='color:#D8D8D8;' bindinput="getPassWord" auto-focus password/>
     </view>
     <view class="buttonView">
-      <button type='default' class='flex-item registerButton' bindtap="registerClick">注册</button>
-      <button type='primary' class='flex-item loginButton' bindtap="login">登录</button>
-    </view>           
+      <button class='loginButton' bindtap="login">登录</button>
+    </view>   
+    <view class="buttonView">
+      <text class='text'>没有账号？</text>
+      <text class='registerText' bindtap='registerClick'>现在注册</text>
+    </view>          
   </view>
 </view> 
