@@ -1,6 +1,7 @@
 
 var request = require('../../utils/request.js')
 var config = require('../../utils/config.js')
+var amapFile = require('../../libs/amap-wx.js');
 
 var app = getApp()
 Page({
@@ -19,9 +20,15 @@ Page({
     // 已整改隐患数
     yzgyhs: 0,
     // 未整改隐患数
-    wzgyhs: 0
+    wzgyhs: 0,
+    // 地图上的标记
+    markers: [],
+    latitude: '',
+    longitude: '',
+    // 当前定位地址
+    currentLocation: '尚未获得定位信息'
   },
-  onLoad: function () {
+  onLoad: function (e) {
     var that = this;
 
     /**  
@@ -37,6 +44,27 @@ Page({
       }
 
     });
+
+    var myAmapFun = new amapFile.AMapWX({ key: 'f28afe6170399e78d1f7e1b672c1fa49' });
+    myAmapFun.getRegeo({
+      success: function (data) {
+        that.setData({
+          markers: data
+        })
+        if (data.length > 0) {
+          that.setData({
+            latitude: data[0].latitude,
+            longitude: data[0].longitude,
+            currentLocation: '您正在：' + data[0].name
+          })
+        }
+      },
+      fail: function (info) {
+        //失败回调
+        console.log(info)
+      }
+    })
+    
   },
   /**
    *  监听页面显示，
@@ -132,6 +160,12 @@ Page({
       wx.showToast({
         title: '加载数据失败',
       })
+    })
+  },
+  // 添加隐患
+  addClick: function (e) {
+    wx.navigateTo({
+      url: '../danger/addDanger'
     })
   }
 })    
