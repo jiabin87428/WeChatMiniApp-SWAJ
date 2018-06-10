@@ -3,38 +3,47 @@
   <scroll-view scroll-y="true" class='scrollView'>
     <view class="userinfo">
       <image bindtap="userClick" class="userinfo-avatar" src="../../assets/user.png" mode="aspectFit"></image>
+      <view class='userinfoSub'>
+        <text class='userinfoTitle'>上海歌略软件系统有限公司</text>
+        <text class='userinfoSubTitle'>{{roleName}}</text>
+      </view>
     </view>
-    <view id='1' class='scrollItem'>
+    <view id='companyName' class='scrollItem' bindtap='jumpInput'>
       <text class='cellText1'>企业全称</text>
-      <text class='cellText2'>上海歌略软件科技有限公司</text>
+      <text class='cellText2'>{{companyName}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='2' class='scrollItem'>
+    <view id='companyPlace' class='scrollItem' bindtap='jumpRadio'>
       <text class='cellText1'>企业属地</text>
-      <text class='cellText2'>上海</text>
+      <text class='cellText2'>{{companyPlace.name}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='3' class='scrollItem'>
+    <view id='companyType' class='scrollItem' bindtap='jumpRadio'>
       <text class='cellText1'>企业类型</text>
-      <text class='cellText2'>测试类型</text>
+      <text class='cellText2'>{{companyType}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='4' class='scrollItem'>
-      <text class='cellText1'>安全干部</text>
-      <text class='cellText2'>王娇龙</text>
+    <view id='contact' class='scrollItem' bindtap='jumpInput'>
+      <text class='cellText1'>联系人</text>
+      <text class='cellText2'>{{contact}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='5' class='scrollItem'>
+    <view id='phone' class='scrollItem' bindtap='jumpInput'>
       <text class='cellText1'>联系方式</text>
-      <text class='cellText2'>13900000000</text>
+      <text class='cellText2'>{{phone}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='6' class='scrollItem'>
+    <view id='email' class='scrollItem' bindtap='jumpInput'>
+      <text class='cellText1'>邮箱</text>
+      <text class='cellText2'>{{email}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view id='address' class='scrollItem' bindtap='jumpInput'>
       <text class='cellText1'>企业地址</text>
-      <text class='cellText2'>上海市浦东新区XX路100号</text>
+      <text class='cellText2'>{{address}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='7'>
+    <view>
       <button class='submitButton' bindtap="loginOut">退出登录</button>
     </view>
   </scroll-view>

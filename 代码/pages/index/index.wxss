@@ -11,8 +11,16 @@
    justify-content: center; 
 }
 
-.subBaseView {
+.subBaseView3 {
   height: 144px; 
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  margin-top: 0px;
+}
+
+.subBaseView4 {
+  height: 192px; 
   width: 100%;
   display:flex;
   flex-direction:column;

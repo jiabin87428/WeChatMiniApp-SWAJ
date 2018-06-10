@@ -15,6 +15,9 @@ Page({
     imageList: [],
     littleImageWidth: 0,
     imageViewHeight: 100,
+    // 是否企业用户
+    isqy: true,
+
     // 提交时间
     time:"",
     // 当前位置
@@ -25,6 +28,10 @@ Page({
     desc: "",
     // 潜在隐患
     danger: null,
+    // 整改类型
+    rectifyType: "",
+    // 整改期限
+    date: "",
     // 整改建议
     advise: "",
 
@@ -61,6 +68,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.checkLogin()
+
+
     if (this.data.danger != null) {
       this.setData({
         dangerString: ""
@@ -184,14 +194,23 @@ Page({
     var viewId = e.currentTarget.id;
     var sourceData = null
     var selected = null
+
     if (viewId == "companyName") {
       selected = this.data.companyName
       //调用应用实例的方法获取全局数据
-      app.getCompanyName(null,function (companyName) {
+      app.getCompanyName(null, function (companyName) {
         sourceData = companyName
         wx.navigateTo({
           url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
         })
+      })
+    }
+
+    if (viewId == "rectifyType") {
+      selected = this.data.rectifyType
+      sourceData = app.globalData.rectifyType
+      wx.navigateTo({
+        url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
       })
     }
   },
@@ -216,6 +235,8 @@ Page({
       "qymc": this.data.companyName.name,
       "wtms": this.data.desc,
       "qzyh": this.data.dangerString,
+      "zglx": this.data.rectifyType.name,
+      "zgqx": this.data.date,
       "zgjy": this.data.advise,
       "tjsj": this.data.time,
       "dqwz": this.data.address,
@@ -253,5 +274,37 @@ Page({
         console.log(info)
       }
     })
-  }
+  },
+  // 判断是否登录
+  checkLogin: function () {
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        app.globalData.userInfo = res.data
+        if (app.globalData.userInfo.repIsqy == '否') {
+          that.setData({
+            isqy: false
+          })
+        } else {
+          that.setData({
+            isqy: true
+          })
+        }
+      }, fail: function (res) {
+        wx.navigateTo({
+          url: '../login/login'
+        })
+      }
+    })
+    // if (app.globalData.userInfo) {
+    //   return true
+    // }
+    // return false
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
 })

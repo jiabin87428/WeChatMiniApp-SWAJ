@@ -13,20 +13,34 @@ Page({
     winHeight: 0,
     // tab切换    
     currentTab: 0,
-    //用户名
-    userName:"请登录",
+    // 是否企业用户
+    isqy: true,
+    // 顶部统计栏高度
+    titleHeight: 144,
+    // 地图上的标记
+    markers: [],
+    latitude: '',
+    longitude: '',
+    // 当前定位地址
+    currentLocation: '尚未获得定位信息',
+
+    // MARK:企业用
     // 隐患总数
     yhzs: 0,
     // 已整改隐患数
     yzgyhs: 0,
     // 未整改隐患数
     wzgyhs: 0,
-    // 地图上的标记
-    markers: [],
-    latitude: '',
-    longitude: '',
-    // 当前定位地址
-    currentLocation: '尚未获得定位信息'
+
+    // MARK:非企业用
+    // 企业总数
+    qyzs: 0,
+    // 企业隐患总数
+    qyyhzs: 0,
+    // 企业已整改隐患
+    qyyzgyh: 0,
+    // 企业未整改隐患
+    qywzgyh: 0
   },
   onLoad: function (e) {
     var that = this;
@@ -73,16 +87,6 @@ Page({
    */
   onShow: function () {
     this.checkLogin()
-    // if (this.checkLogin()) {
-    //   this.getStatistics()
-    //   this.setData({
-    //     userName: app.globalData.userInfo.nickName
-    //   })
-    // }else {
-    //   this.setData({
-    //     userName: "请登录"
-    //   })
-    // }
   },
   // 点击用户头像
   userClick: function () {
@@ -125,6 +129,17 @@ Page({
       success: function (res) {
         app.globalData.userInfo = res.data
         that.getStatistics()
+        if (app.globalData.userInfo.repIsqy == '否') {
+          that.setData({
+            isqy : false,
+            titleHeight: 192
+          })
+        }else {
+          that.setData({
+            isqy : true,
+            titleHeight: 144
+          })
+        }
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
         wx.navigateTo({

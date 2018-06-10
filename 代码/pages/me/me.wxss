@@ -58,7 +58,7 @@
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
+  margin: 20rpx 50rpx 20rpx 50rpx;
   /* border-radius: 50%; */
 }
 
@@ -70,8 +70,26 @@
 .userinfo {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  background-color: #2D68AA;
+}
+.userinfoSub {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.userinfoTitle {
+  color: white;
+  font-size: 35rpx;
+  font-weight: 300;
+}
+
+.userinfoSubTitle {
+  color: #CDCDCD;
+  font-size: 28rpx;
+  font-weight: 200;
 }
 
 .submitButton {

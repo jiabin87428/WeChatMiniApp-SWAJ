@@ -60,6 +60,21 @@
   overflow: hidden;
   text-overflow:ellipsis;
 }
+
+.dateChoose {
+  width: 100%;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  font-size: 14px;
+  color: #696969;
+}
+
 .mustText {
   font-size: 14px;
   color: red;

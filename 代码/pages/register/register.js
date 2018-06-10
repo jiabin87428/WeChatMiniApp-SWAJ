@@ -10,7 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 企业全称
     companyName: "",
+    // 企业简称
+    shortName: "",
     contactName: "",
     contactEmail: "",
     password: "",
@@ -19,7 +22,6 @@ Page({
     companyPlace: [],
     companyType1: [],
     companyType2: [],
-    range: [],
     address: ""
   },
 
@@ -86,6 +88,11 @@ Page({
     if (inputId == "companyName") {
       this.setData({
         companyName: val
+      });
+    }
+    if (inputId == "shortName") {
+      this.setData({
+        shortName: val
       });
     }
     if (inputId == "contactName") {
@@ -184,6 +191,7 @@ Page({
   submitClick: function (e) {
     var params = {
       "companyName": this.data.companyName,
+      "shortName": this.data.shortName,
       "companyLocalid": this.data.companyPlace.id,
       "companyLocal": this.data.companyPlace.name,
       "companyTypeid": this.data.companyType2.id,

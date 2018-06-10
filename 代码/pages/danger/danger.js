@@ -2,10 +2,14 @@ var app = getApp()
 Page({
   data: {
     /**  
-        * 页面配置  
-        */
+    * 页面配置  
+    */
+    addDangerTitle: "隐患快报",
+    addDangerDesc: "企业隐患自查自报",
     winWidth: 0,
     winHeight: 0,
+    // 是否企业用户
+    isqy: true,
     // tab切换    
     currentTab: 0,
     //用户名
@@ -34,7 +38,7 @@ Page({
    *    另一个页面销毁时会再次执行
    */
   onShow: function () {
-    
+    this.checkLogin()
   },
   // 点击用户头像
   userClick: function () {
@@ -81,5 +85,32 @@ Page({
       return true
     }
     return false
-  }
+  },
+  // 判断是否登录
+  checkLogin: function () {
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        app.globalData.userInfo = res.data
+        if (app.globalData.userInfo.repIsqy == '否') {
+          that.setData({
+            addDangerTitle: "隐患督察",
+            addDangerDesc: "对企业进行隐患排查",
+            isqy: false
+          })
+        } else {
+          that.setData({
+            addDangerTitle: "隐患快报",
+            addDangerDesc: "企业隐患自查自报",
+            isqy: true
+          })
+        }
+      }, fail: function (res) {
+        wx.navigateTo({
+          url: '../login/login'
+        })
+      }
+    })
+  },
 })    
