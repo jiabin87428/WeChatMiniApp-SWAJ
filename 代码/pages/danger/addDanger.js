@@ -36,7 +36,10 @@ Page({
     advise: "",
 
     // 显示潜在事故字符串
-    dangerString: ""
+    dangerString: "",
+
+    // 第一次提交后返回的隐患id，用户上传图片用
+    dangerId: ""
   },
 
   /**
@@ -229,6 +232,7 @@ Page({
   },
   // 提交事件
   submitClick: function (e) {
+    var that = this
     var params = {
       "yhid": "",
       "qyid": app.globalData.userInfo.repRecordid,
@@ -249,11 +253,25 @@ Page({
     request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)
+      if (res.repCode == '200') {
+        that.setData({
+          dangerId: res.recordid
+        })
+        that.submitImage()
+      }else {
+        wx.showToast({
+          title: res.repMsg,
+        })
+      }
     }, function () {
       wx.showToast({
         title: '加载数据失败',
       })
     })
+  },
+  // 提交图片事件
+  submitImage: function() {
+
   },
   // 高德地图获取当前地址
   getCurrentAddress: function() {

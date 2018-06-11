@@ -30,7 +30,7 @@ var config = {
   getTj: `${host}/getXx.so?action=getTj`,
 
   // 插入隐患
-  insertYh: `${host}/insertYh.so`
+  insertYh: `${host}/getXx.so?action=insertYh`
 
 };
 //对外把对象config返回
