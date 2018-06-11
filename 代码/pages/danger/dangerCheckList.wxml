@@ -8,8 +8,10 @@
     <view wx:for="{{dangerList}}" class='scrollItem'>
       <view class='dangerView' bindtap='getDetail'>
       <view class='typeView'>
-        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix"></image>
-        <text class='typeText'>基础</text>
+        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix" wx:if="{{item.sfyzg == 'true'}}"></image>
+        <image class="dangerIcon" src="../../assets/dangerTypeBG2.png" mode="widthFix" wx:else></image>
+        <text class='typeText' wx:if="{{item.sfyzg == 'true'}}">已整改</text>
+        <text class='typeText' wx:else>未整改</text>
       </view>
       <view class='subView'>
         <text class='dangerText'>{{item.wtms}}</text>

@@ -34,7 +34,7 @@
       <text class='cellText2'>{{qyyzgyh}}</text>
     </view>
     <view class='scrollItem'>
-      <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
+      <image class="point" src="../../assets/point_blue.png" mode="aspectFit"></image>
       <text class='cellText1'>企业未整改隐患</text>
       <text class='cellText2'>{{qywzgyh}}</text>
     </view>

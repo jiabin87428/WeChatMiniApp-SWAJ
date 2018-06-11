@@ -23,7 +23,7 @@
   </view>
   <view class='imageBaseView' style='height:{{58+imageViewHeight}}px;'>
     <view class='titleView'>
-      <text class='cellText2'>隐患照片</text>
+      <text class='cellText1'>隐患照片</text>
       <text class='cellText3'>{{imageList.length}}</text>
     </view>
     <view id='imageView' style='height:{{imageViewHeight}}px;' class='imageView'>
@@ -33,9 +33,6 @@
           <image class='littleImageDelete' src='../../assets/delete.png' bindtap='deleteImage' id='{{idx}}'></image>
         </view>
       </block> 
-      <view class="littleImageView" bindtap='addPhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
-        <image class="littleImage" src="../../assets/addImage.png" mode="aspectFit"></image>
-      </view>
     </view>
   </view>
   <view id='4' class='scrollItem'>
@@ -58,8 +55,30 @@
     <text class='cellText1'>提交位置</text>
     <text class='flex-item cellText2'>上海市浦东新区临沂北路266号</text>
   </view>
+  <view id='zgr' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>整改人</text>
+    <text class='mustText'>*</text>
+    <text class='cellText2'>{{zgr}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='zgwcrq' class='scrollItem'>
+    <text class='cellText1'>完成日期</text>
+    <text class='mustText'>*</text>
+    <picker class='dateChoose' mode="date" value="{{date}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='zgcs' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>整改措施</text>
+    <text class='mustText'>*</text>
+    <text class='cellText2'>{{zgcs}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
   <view id='9' class='scrollButtonItem'>
-    <button type='default' class='submitButton' bindtap="submitClick">处理隐患</button>
+    <button class='submitButton' bindtap="submitClick">处理隐患</button>
   </view>
 </scroll-view>
 </view>

@@ -30,8 +30,10 @@ var config = {
   getTj: `${host}/getXx.so?action=getTj`,
 
   // 插入隐患
-  insertYh: `${host}/getXx.so?action=insertYh`
+  insertYh: `${host}/getXx.so?action=insertYh`,
 
+  // 上传图片接口
+  uploadImg: `${host}/uploadImg`
 };
 //对外把对象config返回
 module.exports = config

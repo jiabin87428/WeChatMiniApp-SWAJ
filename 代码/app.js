@@ -143,6 +143,36 @@ App({
       }
     })
   },
+  // 上传图片
+  uploadDIY(filePaths, successUp, failUp, i, length, yhid) {
+    wx.uploadFile({
+      url: config.uploadImg,
+      filePath: filePaths[i],
+      name: 'fileData',
+      formData: {
+        'yhid': yhid
+      },
+      success: (resp) => {
+        successUp++;
+      },
+      fail: (res) => {
+        failUp++;
+      },
+      complete: () => {
+        i++;
+        if (i == length) {
+          wx.showToast({
+            title: '总共' + successUp + '张上传成功,' + failUp + '张上传失败！',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+        else {  //递归调用uploadDIY函数
+          this.uploadDIY(filePaths, successUp, failUp, i, length);
+        }
+      },
+    });
+  },
   globalData: {
     /** 
     行业类型

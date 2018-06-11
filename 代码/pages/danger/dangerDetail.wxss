@@ -40,9 +40,9 @@
 
 .cellText1 {
   font-size: 14px;
-  color: #696969;
-  margin-left: 20px;
-  width: 100px;
+  color: #060606;
+  margin-left: 10px;
+  width: 90px;
 }
 .cellText2 {
   font-size: 14px;
@@ -73,6 +73,8 @@
 }
 
 .submitButton {
+  background-color: #0B6BD9;
+  color: white;
   width: 90%;
   height: 48px;
   margin-top: 10px;
@@ -104,7 +106,7 @@
   display:flex;
   flex-direction:row;
   width: 100%;
-  height: 48px;
+  height: 58px;
   background-color: white;
   /* margin-bottom: 10px; */
   align-items:center;/*垂直居中*/
@@ -125,4 +127,27 @@
 .littleImage {
   width: 100%;
   height: 100%; 
+}
+
+.dateChoose {
+  display:flex;
+  flex-direction: row; 
+  width: 100%;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  align-items:center;/*垂直居中*/
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  font-size: 14px;
+  color: #696969;
+}
+
+.mustText {
+  font-size: 14px;
+  color: red;
+  width: 5px;
 }

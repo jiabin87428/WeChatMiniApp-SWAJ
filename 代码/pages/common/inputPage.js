@@ -99,9 +99,17 @@ Page({
       prevPage.setData({
         advise: this.data.inputstring
       })
+    } else if (this.data.viewId == "zgr") {
+      prevPage.setData({
+        zgr: this.data.inputstring
+      })
+    } else if (this.data.viewId == "zgcs") {
+      prevPage.setData({
+        zgcs: this.data.inputstring
+      })
     }
     wx.navigateBack({
-      delta: pages.length - 2
+      delta: 1
     })
   },
   /**
