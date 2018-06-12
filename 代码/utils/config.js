@@ -26,6 +26,9 @@ var config = {
   // 隐患列表
   getYhList: `${host}/getXx.so?action=getYhList`,
 
+  // 隐患详情
+  getOneYh: `${host}/getXx.so?action=getOneYh`,
+
   // 统计接口
   getTj: `${host}/getXx.so?action=getTj`,
 

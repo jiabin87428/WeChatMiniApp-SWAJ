@@ -3,23 +3,23 @@
 <scroll-view scroll-y="true" class='scrollView'>
   <view id='1' class='scrollItem'>
     <text class='cellText1'>企业名称</text>
-    <text class='flex-item cellText2'>上海歌略软件科技有限公司</text>
+    <text class='flex-item cellText2'>{{qymc}}</text>
   </view>
   <view id='2' class='scrollItem'>
     <text class='cellText1'>行业类型</text>
-    <text class='flex-item cellText2'>道路交通</text>
+    <text class='flex-item cellText2'>{{hylx}}</text>
   </view>
   <view id='3' class='scrollItem'>
     <text class='cellText1'>隐患类别</text>
-    <text class='flex-item cellText2'>基础管理-安全生产责任制</text>
+    <text class='flex-item cellText2'>{{yhlb}}</text>
   </view>
   <view id='3' class='scrollItem'>
     <text class='cellText1'>存在问题</text>
-    <text class='flex-item cellText2'>其他</text>
+    <text class='flex-item cellText2'>{{czwt}}</text>
   </view>
   <view id='3' class='scrollItem'>
     <text class='cellText1'>问题描述</text>
-    <text class='flex-item cellText2'>111111111</text>
+    <text class='flex-item cellText2'>{{wtms}}</text>
   </view>
   <view class='imageBaseView' style='height:{{58+imageViewHeight}}px;'>
     <view class='titleView'>
@@ -37,15 +37,15 @@
   </view>
   <view id='4' class='scrollItem'>
     <text class='cellText1'>可造成后果</text>
-    <text class='flex-item cellText2'>测试问题测试问题测试问题测试问题</text>
+    <text class='flex-item cellText2'>{{kzchg}}</text>
   </view>
   <view id='5' class='scrollItem'>
     <text class='cellText1'>潜在事故</text>
-    <text class='flex-item cellText2'>起重伤害 机械伤害 车辆伤害 物体打击</text>
+    <text class='flex-item cellText2'>{{qzsg}}</text>
   </view>
   <view id='6' class='scrollItem'>
     <text class='cellText1'>整改建议</text>
-    <text class='flex-item cellText2'>111111111</text>
+    <text class='flex-item cellText2'>{{zgjy}}</text>
   </view>
   <view id='7' class='scrollItem'>
     <text class='cellText1'>提交时间</text>
@@ -53,7 +53,7 @@
   </view>
   <view id='8' class='scrollItem'>
     <text class='cellText1'>提交位置</text>
-    <text class='flex-item cellText2'>上海市浦东新区临沂北路266号</text>
+    <text class='flex-item cellText2'>{{yjwz}}</text>
   </view>
   <view id='zgr' class='scrollItem' bindtap='jumpInput'>
     <text class='cellText1'>整改人</text>
