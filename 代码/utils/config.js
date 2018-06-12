@@ -33,7 +33,13 @@ var config = {
   insertYh: `${host}/getXx.so?action=insertYh`,
 
   // 上传图片接口
-  uploadImg: `${host}/uploadImg`
+  uploadImg: `${host}/uploadImg`,
+
+  // 头像默认链接
+  logoImg: `${host}/getXx.so?action=loadQyxxPhoto&qyid=`,
+
+  // 修改企业信息
+  updateQyxx: `${host}/getXx.so?action=updateQyxx`
 };
 //对外把对象config返回
 module.exports = config

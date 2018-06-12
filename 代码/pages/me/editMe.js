@@ -1,40 +1,44 @@
-// pages/me/me.js
+// pages/me/editMe.js
 var app = getApp()
 var config = require('../../utils/config.js')
-
+var request = require('../../utils/request.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    // 修改的参数
     // 企业ID
     qyid: '',
-    // 用户头像链接
-    logo: '',
-    roleName:'企业用户',
-    // 页面显示参数
     // 企业全称
-    showCompanyName: '企业名称',
+    companyName: '企业名称',
     // 企业属地
-    showCompanyPlace: null,
-    // 企业类型
-    showCompanyType: '企业类型',
+    companyPlace: { name: '' },
+    // 企业类型1
+    companyType1: {name: ''},
+    // 企业类型2
+    companyType2: { name: '' },
     // 联系人
-    showContact: '企业联系人',
+    contact: '企业联系人',
     // 联系方式
-    showPhone: '联系方式',
+    phone: '联系方式',
     // 邮箱
-    showEmail: '邮箱',
+    email: '邮箱',
     // 企业地址
-    showAddress: '企业地址',
+    address: '企业地址',
+
+    // 属地ID
+    companyLocalid: '',
+    // 类型ID
+    companyTypeid: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.checkLogin()
   },
 
   /**
@@ -48,7 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.checkLogin()
+  
   },
 
   /**
@@ -69,7 +73,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+  
   },
 
   /**
@@ -85,25 +89,6 @@ Page({
   onShareAppMessage: function () {
   
   },
-
-  // 用户点击换头像
-  changeLogo: function (e) {
-    var that = this
-    wx.chooseImage({
-      count: 1, // 默认9
-      success: function (res) {
-        that.setData({
-          logo: res.tempFilePaths[0]
-        })
-        app.uploadDIY('?qyid=' + that.data.qyid, [that.data.logo], 0, 0, 0, 1, function (resultCode) {
-          if (resultCode == '200') {
-            that.checkLogin()
-          }
-        })
-      }
-    })
-  },
-
   // 跳转输入页面
   jumpInput: function (e) {
     var viewId = e.currentTarget.id;
@@ -111,19 +96,19 @@ Page({
     var inputstring = ""
     if (viewId == "companyName") {
       placeholder = "请输入企业名称"
-      inputstring = this.data.showCompanyName
+      inputstring = this.data.companyName
     } else if (viewId == "contact") {
       placeholder = "请输入联系人"
-      inputstring = this.data.showContact
+      inputstring = this.data.contact
     } else if (viewId == "phone") {
       placeholder = "请输入联系方式"
-      inputstring = this.data.showPhone
+      inputstring = this.data.phone
     } else if (viewId == "email") {
       placeholder = "请输入邮箱"
-      inputstring = this.data.showEmail
+      inputstring = this.data.email
     } else if (viewId == "address") {
       placeholder = "请输入企业地址"
-      inputstring = this.data.showAddress
+      inputstring = this.data.address
     }
     wx.navigateTo({
       url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
@@ -156,17 +141,6 @@ Page({
       url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
     })
   },
-
-  // 退出登录
-  loginOut: function () {
-    var that = this
-    wx.removeStorage({
-      key: 'userInfo',
-      success: function (res) {
-        app.checkLogin()
-      }
-    })
-  },
   // 判断是否登录
   checkLogin: function () {
     var that = this
@@ -176,22 +150,20 @@ Page({
         app.globalData.userInfo = res.data
         if (app.globalData.userInfo.repIsqy == '否') {
           that.setData({
-            roleName: '监管用户',
             qyid: app.globalData.userInfo.repRecordid,
-            logo: config.logoImg + app.globalData.userInfo.repRecordid
           })
         } else {
           that.setData({
             qyid: app.globalData.userInfo.repRecordid,
-            logo: config.logoImg + app.globalData.userInfo.repRecordid,
-            roleName: '企业用户',
-            showCompanyName: app.globalData.userInfo.repName,
-            showCompanyPlace: app.globalData.userInfo.companyLocal,
-            showCompanyType: app.globalData.userInfo.companyType,
-            showContact: app.globalData.userInfo.inChargePerson,
-            showPhone: app.globalData.userInfo.mobile,
-            showEmail: app.globalData.userInfo.email,
-            showAddress: app.globalData.userInfo.address,
+            companyName: app.globalData.userInfo.repName,
+            companyPlace: { name: app.globalData.userInfo.companyLocal},
+            companyLocalid: app.globalData.userInfo.companyLocalid,
+            companyType1: { name: app.globalData.userInfo.companyType},
+            companyTypeid: app.globalData.userInfo.companyTypeid,
+            contact: app.globalData.userInfo.inChargePerson,
+            phone: app.globalData.userInfo.mobile,
+            email: app.globalData.userInfo.email,
+            address: app.globalData.userInfo.address,
           })
         }
         console.log(app.globalData.userInfo)
@@ -202,10 +174,37 @@ Page({
       }
     })
   },
-  // 跳转设置页面
-  jumpSetting: function (e) {
-    wx.navigateTo({
-      url: '../me/editMe'
+  // 提交按钮
+  submit: function (e) {
+    var that = this
+    var params = {
+      "yhid": this.data.qyid,
+      "companyName": this.data.companyName,
+      "companyLocalid": this.data.companyLocalid,
+      "companyLocal": this.data.companyPlace.name,
+      "companyTypeid": this.data.companyTypeid,
+      "companyType": this.data.companyType1.name + this.data.companyType2.name,
+      "inChargePerson": this.data.contact,
+      "email": this.data.email,
+      "mobile": this.data.phone,
+      "address": this.data.address
+    }
+    request.requestLoading(config.updateQyxx, params, '正在加载数据', function (res) {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+      if (res.repCode == '200') {
+        wx.showToast({
+          title: '修改成功',
+        })
+      } else {
+        wx.showToast({
+          title: res.repMsg,
+        })
+      }
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
     })
   }
 })

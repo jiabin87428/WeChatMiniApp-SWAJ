@@ -271,7 +271,7 @@ Page({
   },
   // 提交图片事件
   submitImage: function() {
-    app.uploadDIY(this.data.imageList, 0, 0, 0, this.data.imageList.length, this.data.dangerId)
+    app.uploadDIY('?yhid=' + this.data.dangerId +'&zptype=zgqzp', this.data.imageList, 0, 0, 0, this.data.imageList.length)
   },
   // 高德地图获取当前地址
   getCurrentAddress: function() {

@@ -144,13 +144,13 @@ App({
     })
   },
   // 上传图片
-  uploadDIY(filePaths, successUp, failUp, i, length, yhid) {
+  uploadDIY(params, filePaths, successUp, failUp, i, length, cb) {
     wx.uploadFile({
-      url: config.uploadImg,
+      url: config.uploadImg + params,
       filePath: filePaths[i],
       name: 'fileData',
       formData: {
-        'yhid': yhid
+
       },
       success: (resp) => {
         successUp++;
@@ -166,9 +166,10 @@ App({
             icon: 'none',
             duration: 2000
           })
+          typeof cb == "function" && cb('200')
         }
         else {  //递归调用uploadDIY函数
-          this.uploadDIY(filePaths, successUp, failUp, i, length);
+          this.uploadDIY(params,filePaths, successUp, failUp, i, length);
         }
       },
     });

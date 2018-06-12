@@ -107,6 +107,22 @@ Page({
       prevPage.setData({
         zgcs: this.data.inputstring
       })
+    } else if (this.data.viewId == "contact") {
+      prevPage.setData({
+        contact: this.data.inputstring
+      })
+    } else if (this.data.viewId == "phone") {
+      prevPage.setData({
+        phone: this.data.inputstring
+      })
+    } else if (this.data.viewId == "email") {
+      prevPage.setData({
+        email: this.data.inputstring
+      })
+    } else if (this.data.viewId == "address") {
+      prevPage.setData({
+        address: this.data.inputstring
+      })
     }
     wx.navigateBack({
       delta: 1
