@@ -127,7 +127,7 @@ Page({
         sourceData = companyPlace
         that.jumpRadioPage(viewId, sourceData, selected)
       })
-    } else if (viewId == "companyType") {
+    } else if (viewId == "companyType1") {
       selected = null
       //调用应用实例的方法获取全局数据
       app.getCompanyType(null, function (companyType) {
@@ -178,7 +178,7 @@ Page({
   submit: function (e) {
     var that = this
     var params = {
-      "yhid": this.data.qyid,
+      "qyid": this.data.qyid,
       "companyName": this.data.companyName,
       "companyLocalid": this.data.companyLocalid,
       "companyLocal": this.data.companyPlace.name,
@@ -195,6 +195,13 @@ Page({
       if (res.repCode == '200') {
         wx.showToast({
           title: '修改成功',
+          complete: wx.navigateBack({
+            delta: 1
+          })
+        })
+        wx.setStorage({
+          key: "userInfo",
+          data: res
         })
       } else {
         wx.showToast({
