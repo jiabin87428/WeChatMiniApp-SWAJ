@@ -161,11 +161,11 @@ App({
       complete: () => {
         i++;
         if (i == length) {
-          wx.showToast({
-            title: '总共' + successUp + '张上传成功,' + failUp + '张上传失败！',
-            icon: 'none',
-            duration: 2000
-          })
+          // wx.showToast({
+          //   title: '总共' + successUp + '张上传成功,' + failUp + '张上传失败！',
+          //   icon: 'none',
+          //   duration: 2000
+          // })
           typeof cb == "function" && cb('200')
         }
         else {  //递归调用uploadDIY函数
