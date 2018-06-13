@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sfyzg: "false",
     qyid: "",
     yhid: "",
     imageList: [],
@@ -62,8 +63,10 @@ Page({
     })
 
     var yhid = options.yhid
+    var sfyzg = options.sfyzg
     this.setData({
-      yhid: yhid
+      yhid: yhid,
+      sfyzg: sfyzg
     })
 
     this.getDetail()
@@ -169,7 +172,13 @@ Page({
           // 照片列表
           imageList: imgList,
           // 完成照片列表
-          wcImageList: wcImgList
+          wcImageList: wcImgList,
+          // 整改负责人
+          zgr: res.zgfzr,
+          // 整改完成日期
+          date: res.zgwcrq,
+          // 整改完成情况
+          zgcs: res.zgwcqk
         });
         that.setData({
           imageViewHeight: Math.ceil((that.data.imageList.length) / 4) * (that.data.littleImageWidth + 8),
@@ -260,6 +269,7 @@ Page({
     var that = this
     var params = {
       "yhid": that.data.yhid,
+      "sfyzg": "true",
       "qyid": that.data.qyid,
       "zgwcqk": that.data.zgcs,
       "zgfzr": that.data.zgr,

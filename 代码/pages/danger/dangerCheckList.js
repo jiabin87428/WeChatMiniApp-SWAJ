@@ -96,7 +96,7 @@ Page({
   // 点击查看隐患详情
   getDetail: function (e) {
     wx.navigateTo({
-      url: '../danger/dangerDetail?yhid=' + e.currentTarget.dataset.id
+      url: '../danger/dangerDetail?yhid=' + e.currentTarget.dataset.id + '&sfyzg=' + e.currentTarget.dataset.name
     })
   },
   // 获取隐患列表
