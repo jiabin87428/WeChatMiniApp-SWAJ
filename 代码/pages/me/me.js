@@ -178,7 +178,14 @@ Page({
           that.setData({
             roleName: '监管用户',
             qyid: app.globalData.userInfo.repRecordid,
-            logo: config.logoImg + app.globalData.userInfo.repRecordid
+            logo: config.logoImg + app.globalData.userInfo.repRecordid,
+            showCompanyName: app.globalData.userInfo.repName,
+            showCompanyPlace: "",
+            showCompanyType: "",
+            showContact: "",
+            showPhone: "",
+            showEmail: "",
+            showAddress: "",
           })
         } else {
           that.setData({
