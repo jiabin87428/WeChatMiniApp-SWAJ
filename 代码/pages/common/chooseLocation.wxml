@@ -1,0 +1,12 @@
+<!--pages/common/chooseLocation.wxml-->
+<view class="baseView">
+  <view class="searchView">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入查询内容' confirm-type='search' bindconfirm="searchClick"></input>
+  </view>
+  <view class="map_container" style='height:{{winHeight-40}}px;'>
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+    </map>
+  </view>
+  <text class='location'>{{currentLocation}}</text>
+</view>

@@ -13,7 +13,8 @@
     "pages/common/selectRadioList",
     "pages/common/selectCheckList",
     "pages/danger/dangerCheckList",
-    "pages/me/editMe"
+    "pages/me/editMe",
+    "pages/common/chooseLocation"
   ],
   "window": {
     "backgroundTextStyle": "light",

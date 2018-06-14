@@ -50,6 +50,11 @@
       <text class='cellText2'>{{address}}</text>
       <image class="arrow" mode="aspectFit"></image>
     </view>
+    <view id='address' class='scrollItem'  bindtap='jumpLocation'>
+      <text class='cellText1'>企业位置</text>
+      <text class='cellText2'>{{companyAddress}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
     <view id='submit' class='scrollButtonItem'>
       <button class='submitButton' bindtap="submitClick">注册</button>
     </view>

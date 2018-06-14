@@ -22,7 +22,8 @@ Page({
     companyPlace: [],
     companyType1: [],
     companyType2: [],
-    address: ""
+    address: "",
+    companyAddress: "",
   },
 
   /**
@@ -185,6 +186,12 @@ Page({
         //失败回调
         console.log(info)
       }
+    })
+  },
+  // 跳转地图坐标选择
+  jumpLocation: function (e) {
+    wx.navigateTo({
+      url: '../common/chooseLocation'
     })
   },
   // 注册
