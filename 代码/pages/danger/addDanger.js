@@ -272,6 +272,7 @@ Page({
       }else {
         wx.showToast({
           title: res.repMsg,
+          icon: 'none'
         })
       }
     }, function () {
