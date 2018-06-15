@@ -24,6 +24,9 @@ Page({
     address:"",
     // 企业名称
     companyName: null,
+    // 隐患位置
+    latitude: "0",
+    longitude: "0",
     // 隐患描述
     desc: "",
     // 潜在隐患
@@ -192,6 +195,12 @@ Page({
       url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
     })
   },
+  // 跳转地图坐标选择
+  jumpLocation: function (e) {
+    wx.navigateTo({
+      url: '../common/chooseLocation'
+    })
+  },
   // 跳转单选列表
   jumpRadio: function (e) {
     var viewId = e.currentTarget.id;
@@ -248,7 +257,9 @@ Page({
       "zgwcqk": "",
       "zgfzr": "",
       "zgwcrq": "",
-      "repIsqy": app.globalData.userInfo.repIsqy
+      "repIsqy": app.globalData.userInfo.repIsqy,
+      "mapx": this.data.longitude,
+      "mapY": this.data.latitude
     }
     request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据

@@ -14,7 +14,8 @@
     "pages/common/selectCheckList",
     "pages/danger/dangerCheckList",
     "pages/me/editMe",
-    "pages/common/chooseLocation"
+    "pages/common/chooseLocation",
+    "pages/common/searchLocation"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -8,6 +8,11 @@
     <!-- <input class='flex-item input' placeholder="请输入企业名称" placeholder-style='font-size:14px;font-weight: initial;'/> -->
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image> 
   </view>
+  <view id='address' class='scrollItem'  bindtap='jumpLocation'>
+      <text class='cellText1'>隐患位置</text>
+      <text class='cellText2'>经度：{{longitude}}，纬度：{{latitude}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
   <view id='desc' class='scrollItem' bindtap='jumpInput'>
     <text class='cellText1'>隐患描述</text>
     <text class='mustText'>*</text>

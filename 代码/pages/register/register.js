@@ -23,7 +23,8 @@ Page({
     companyType1: [],
     companyType2: [],
     address: "",
-    companyAddress: "",
+    latitude: "0",
+    longitude: "0",
   },
 
   /**
@@ -207,7 +208,9 @@ Page({
       "email": this.data.contactEmail,
       "password": this.data.password,
       "mobile": this.data.phone,
-      "address": this.data.address
+      "address": this.data.address,
+      "mapx": this.data.longitude,
+      "mapY": this.data.latitude
     }
     request.requestLoading(config.register, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
