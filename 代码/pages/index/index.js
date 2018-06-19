@@ -19,8 +19,8 @@ Page({
     titleHeight: 144,
     // 地图上的标记
     markers: [],
-    latitude: '',
-    longitude: '',
+    latitude: 0,
+    longitude: 0,
     // 当前定位地址
     currentLocation: '尚未获得定位信息',
 
@@ -40,7 +40,7 @@ Page({
     // 企业已整改隐患
     qyyzgyh: 0,
     // 企业未整改隐患
-    qywzgyh: 0
+    qywzgyh: 0,
   },
   onLoad: function (e) {
     var that = this;
@@ -58,26 +58,6 @@ Page({
       }
 
     });
-
-    var myAmapFun = new amapFile.AMapWX({ key: 'f28afe6170399e78d1f7e1b672c1fa49' });
-    myAmapFun.getRegeo({
-      success: function (data) {
-        that.setData({
-          markers: data
-        })
-        if (data.length > 0) {
-          that.setData({
-            latitude: data[0].latitude,
-            longitude: data[0].longitude,
-            currentLocation: '您正在：' + data[0].name
-          })
-        }
-      },
-      fail: function (info) {
-        //失败回调
-        console.log(info)
-      }
-    })
     
   },
   /**
@@ -129,16 +109,45 @@ Page({
       success: function (res) {
         app.globalData.userInfo = res.data
         that.getStatistics()
-        if (app.globalData.userInfo.repIsqy == '否') {
-          that.setData({
-            isqy : false,
-            titleHeight: 192
-          })
-        }else {
-          that.setData({
-            isqy : true,
-            titleHeight: 144
-          })
+        if (app.globalData.userInfo != null) {
+          var callout = {
+            content: app.globalData.userInfo.repName,
+            color: '#FFFFFF',
+            bgColor: '#5490FF',
+            borderRadius: 5,
+            padding: 5,
+            display: 'ALWAYS'
+          }
+          var mark = [{
+            iconPath: "../../assets/danger_position.png",
+            id: 99999,
+            latitude: app.globalData.userInfo.mapy,
+            longitude: app.globalData.userInfo.mapx,
+            width: 30,
+            height: 30,
+            callout: callout
+          }]
+          if (app.globalData.userInfo.repIsqy == 'false') {
+            that.setData({
+              longitude: app.globalData.userInfo.mapx,
+              latitude: app.globalData.userInfo.mapy,
+              isqy: false,
+              titleHeight: 192,
+              markers: mark
+            })
+          } else {
+            that.setData({
+              longitude: app.globalData.userInfo.mapx,
+              latitude: app.globalData.userInfo.mapy,
+              currentLocation: app.globalData.userInfo.address,
+              isqy: true,
+              titleHeight: 144,
+              markers: mark
+            })
+          }
+        }
+        if (that.data.latitude == 0 && that.data.longitude == 0) {
+          that.getCurrentLocation()
         }
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
@@ -166,14 +175,71 @@ Page({
       if (res.repCode != null && res.repCode == 500){
         return
       }
-      that.setData({
-        yhzs: res.yhzs,
-        yzgyhs: res.yzgyhs,
-        wzgyhs: res.wzgyhs
-      })
+
+      var markList = that.data.markers
+
+      if (app.globalData.userInfo.repIsqy == 'false') {
+        for (var i = 0; i < res.qylist.length; i++) {
+          var item = res.qylist[i]
+          var callout = {
+            content: item.qymc,
+            color: '#FFFFFF',
+            bgColor: '#5490FF',
+            borderRadius: 5,
+            padding: 5,
+            display: 'ALWAYS'
+          }
+          var mark = {
+            id: i,
+            latitude: item.mapy,
+            longitude: item.mapx,
+            iconPath: '../../assets/danger_position.png',
+            width: 30,
+            height: 30,
+            callout: callout
+          }
+          markList.push(mark)
+        }
+        that.setData({
+          markers: markList,
+          qyzs: res.qyzs,
+          qyyhzs: res.yhzs,
+          qyyzgyh: res.yzgyhs,
+          qywzgyh: res.wzgyhs
+        })
+      } else {
+        for (var i = 0; i < res.yhlist.length; i++) {
+          var item = res.yhlist[i]
+          var callout = {
+            content: item.yhmc,
+            color: '#FFFFFF',
+            bgColor: '#CF1111',
+            borderRadius: 5,
+            padding: 5,
+            display: 'ALWAYS'
+          }
+          var mark = {
+            id: item.yhid,
+            latitude: item.mapy,
+            longitude: item.mapx,
+            iconPath: '../../assets/ic_position.png',
+            width: 30,
+            height: 30,
+            callout: callout
+          }
+          markList.push(mark)
+        }
+        that.setData({
+          markers: markList,
+          yhzs: res.yhzs,
+          yzgyhs: res.yzgyhs,
+          wzgyhs: res.wzgyhs
+        })
+      }
     }, function () {
       wx.showToast({
         title: '加载数据失败',
+        icon: 'none'
       })
     })
   },
@@ -181,6 +247,28 @@ Page({
   addClick: function (e) {
     wx.navigateTo({
       url: '../danger/addDanger'
+    })
+  },
+  // 获取当前位置
+  getCurrentLocation: function (e) {
+    var myAmapFun = new amapFile.AMapWX({ key: 'f28afe6170399e78d1f7e1b672c1fa49' });
+    myAmapFun.getRegeo({
+      success: function (data) {
+        that.setData({
+          markers: data
+        })
+        if (data.length > 0) {
+          that.setData({
+            latitude: data[0].latitude,
+            longitude: data[0].longitude,
+            currentLocation: '您正在：' + data[0].name
+          })
+        }
+      },
+      fail: function (info) {
+        //失败回调
+        console.log(info)
+      }
     })
   }
 })    

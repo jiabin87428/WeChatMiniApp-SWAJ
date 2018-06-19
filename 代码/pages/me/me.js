@@ -174,7 +174,7 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == '否') {
+        if (app.globalData.userInfo.repIsqy == 'false') {
           that.setData({
             roleName: '监管用户',
             qyid: app.globalData.userInfo.repRecordid,

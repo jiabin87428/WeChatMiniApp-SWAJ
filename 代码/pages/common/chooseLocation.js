@@ -128,6 +128,10 @@ Page({
     this.mapCtx.getCenterLocation({
       success: function (res) {
 
+        if (that.data.longitude == res.longitude && that.data.latitude == res.latitude) {
+          return
+        }
+        
         that.setData({
           longitude: res.longitude, 
           latitude: res.latitude,
@@ -145,8 +149,8 @@ Page({
         })
       }
     })
-  }
-  , regionchange(e) {
+  }, 
+  regionchange(e) {
     // 地图发生变化的时候，获取中间点，也就是用户选择的位置
     if(e.type == 'end') {
       this.getLngLat()

@@ -32,7 +32,7 @@ Page({
       "username": this.data.userName,
       "password": this.data.passWord
     }
-    request.requestLoading(config.login, params, '正在加载数据', function (res)     {
+    request.requestLoading(config.login, params, '正在登录', function (res)     {
       //res就是我们请求接口返回的数据
       console.log(res)
       if (res.repCode == '200') {
@@ -46,7 +46,8 @@ Page({
       }
     }, function () {
       wx.showToast({
-        title: '加载数据失败',
+        title: '登录失败',
+        icon: 'none'
       })
     })
   },

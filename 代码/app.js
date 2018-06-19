@@ -11,7 +11,7 @@ App({
       success: function (res) {
         that.globalData.userInfo = res.data
         
-        if (that.globalData.userInfo.repIsqy == '否') {
+        if (that.globalData.userInfo.repIsqy == 'false') {
           that.setData({
             isqy: false
           })

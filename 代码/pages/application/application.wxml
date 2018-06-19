@@ -1,0 +1,13 @@
+<!--pages/application/application.wxml-->
+<scroll-view scroll-y="true" class='scrollView'>
+  <view class="userinfo">
+    <view class='dangerView' bindtap='listClick' wx:if='{{isqy == false}}'>
+      <image class="dangerIcon" src="../../assets/manger.png" mode="widthFix"></image>
+      <view class='subView'>
+        <text class='dangerText'>企业管理</text>
+        <text class='subText'>可根据企业类型、企业属地查询</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+

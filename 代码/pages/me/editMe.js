@@ -148,7 +148,7 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == '否') {
+        if (app.globalData.userInfo.repIsqy == 'false') {
           that.setData({
             qyid: app.globalData.userInfo.repRecordid,
           })

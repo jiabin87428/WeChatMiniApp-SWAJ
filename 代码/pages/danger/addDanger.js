@@ -259,7 +259,7 @@ Page({
       "zgwcrq": "",
       "repIsqy": app.globalData.userInfo.repIsqy,
       "mapx": this.data.longitude,
-      "mapY": this.data.latitude
+      "mapy": this.data.latitude
     }
     request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
@@ -283,7 +283,16 @@ Page({
   },
   // 提交图片事件
   submitImage: function() {
-    app.uploadDIY('?yhid=' + this.data.dangerId +'&zptype=zgqzp', this.data.imageList, 0, 0, 0, this.data.imageList.length)
+    app.uploadDIY('?yhid=' + this.data.dangerId + '&zptype=zgqzp', this.data.imageList, 0, 0, 0, this.data.imageList.length, function (resultCode) {
+      if (resultCode == '200') {
+        wx.showToast({
+          title: '新建成功',
+          complete: wx.navigateBack({
+            delta: 1
+          })
+        })
+      }
+    })
   },
   // 高德地图获取当前地址
   getCurrentAddress: function() {
@@ -312,7 +321,7 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == '否') {
+        if (app.globalData.userInfo.repIsqy == 'false') {
           that.setData({
             isqy: false
           })
