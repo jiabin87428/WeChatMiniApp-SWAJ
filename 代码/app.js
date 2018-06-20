@@ -3,6 +3,13 @@ var config = require('./utils/config.js')
 
 //app.js
 App({
+  // 公用弹出框
+  appShowToast: function (title,icon) {
+    wx.showToast({
+      title: title,
+      icon: icon
+    })
+  },
   // 判断是否登录
   checkLogin: function () {
     var that = this

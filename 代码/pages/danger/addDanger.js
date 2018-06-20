@@ -287,9 +287,11 @@ Page({
       if (resultCode == '200') {
         wx.showToast({
           title: '新建成功',
-          complete: wx.navigateBack({
-            delta: 1
-          })
+          complete: setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500)
         })
       }
     })

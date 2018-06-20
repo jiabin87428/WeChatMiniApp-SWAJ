@@ -123,6 +123,30 @@ Page({
       prevPage.setData({
         address: this.data.inputstring
       })
+    } else if (this.data.viewId == "name") {
+      prevPage.setData({
+        name: this.data.inputstring
+      })
+    } else if (this.data.viewId == "sex") {
+      prevPage.setData({
+        sex: this.data.inputstring
+      })
+    } else if (this.data.viewId == "job") {
+      prevPage.setData({
+        job: this.data.inputstring
+      })
+    } else if (this.data.viewId == "dep") {
+      prevPage.setData({
+        dep: this.data.inputstring
+      })
+    } else if (this.data.viewId == "jgEmail") {
+      prevPage.setData({
+        email: this.data.inputstring
+      })
+    } else if (this.data.viewId == "mobile") {
+      prevPage.setData({
+        mobile: this.data.inputstring
+      })
     }
     wx.navigateBack({
       delta: 1

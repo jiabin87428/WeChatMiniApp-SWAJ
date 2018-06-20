@@ -8,12 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 是否企业用户
+    isqy: 'false',
     // 企业ID
     qyid: '',
     // 用户头像链接
     logo: '',
     roleName:'企业用户',
-    // 页面显示参数
+    // 企业用户显示
     // 企业全称
     showCompanyName: '企业名称',
     // 企业属地
@@ -28,6 +30,20 @@ Page({
     showEmail: '邮箱',
     // 企业地址
     showAddress: '企业地址',
+
+    // 监管用户显示
+    // 姓名
+    name: '姓名',
+    // 性别
+    sex: '性别',
+    // 岗位
+    job: '岗位',
+    // 所在部门
+    dep: '所在部门',
+    // 联系手机
+    mobile: '联系手机',
+    // 邮箱
+    email: '邮箱'
   },
 
   /**
@@ -103,60 +119,6 @@ Page({
       }
     })
   },
-
-  // 跳转输入页面
-  jumpInput: function (e) {
-    var viewId = e.currentTarget.id;
-    var placeholder = ""
-    var inputstring = ""
-    if (viewId == "companyName") {
-      placeholder = "请输入企业名称"
-      inputstring = this.data.showCompanyName
-    } else if (viewId == "contact") {
-      placeholder = "请输入联系人"
-      inputstring = this.data.showContact
-    } else if (viewId == "phone") {
-      placeholder = "请输入联系方式"
-      inputstring = this.data.showPhone
-    } else if (viewId == "email") {
-      placeholder = "请输入邮箱"
-      inputstring = this.data.showEmail
-    } else if (viewId == "address") {
-      placeholder = "请输入企业地址"
-      inputstring = this.data.showAddress
-    }
-    wx.navigateTo({
-      url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
-    })
-  },
-  // 跳转单选列表
-  jumpRadio: function (e) {
-    var that = this
-    var viewId = e.currentTarget.id;
-    var sourceData = null
-    var selected = null
-    if (viewId == "companyPlace") {
-      selected = this.data.companyPlace
-      //调用应用实例的方法获取全局数据
-      app.getCompanyPlace(null, function (companyPlace) {
-        sourceData = companyPlace
-        that.jumpRadioPage(viewId, sourceData, selected)
-      })
-    } else if (viewId == "companyType") {
-      selected = null
-      //调用应用实例的方法获取全局数据
-      app.getCompanyType(null, function (companyType) {
-        sourceData = companyType
-        that.jumpRadioPage(viewId, sourceData, selected)
-      })
-    }
-  },
-  jumpRadioPage: function (viewId, sourceData, selected) {
-    wx.navigateTo({
-      url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
-    })
-  },
-
   // 退出登录
   loginOut: function () {
     var that = this
@@ -176,6 +138,7 @@ Page({
         app.globalData.userInfo = res.data
         if (app.globalData.userInfo.repIsqy == 'false') {
           that.setData({
+            isqy: 'false',
             roleName: '监管用户',
             qyid: app.globalData.userInfo.repRecordid,
             logo: config.logoImg + app.globalData.userInfo.repRecordid,
@@ -186,9 +149,22 @@ Page({
             showPhone: "",
             showEmail: "",
             showAddress: "",
+
+            name: app.globalData.userInfo.name == null ? '' : app.globalData.userInfo.name,
+            // 性别
+            sex: app.globalData.userInfo.sex == null ? '' : app.globalData.userInfo.sex,
+            // 岗位
+            job: app.globalData.userInfo.job == null ? '' : app.globalData.userInfo.job,
+            // 所在部门
+            dep: app.globalData.userInfo.dep == null ? '' : app.globalData.userInfo.dep,
+            // 联系手机
+            mobile: app.globalData.userInfo.mobile == null ? '' : app.globalData.userInfo.mobile,
+            // 邮箱
+            email: app.globalData.userInfo.email == null ? '' : app.globalData.userInfo.email
           })
         } else {
           that.setData({
+            isqy: 'false',
             qyid: app.globalData.userInfo.repRecordid,
             logo: config.logoImg + app.globalData.userInfo.repRecordid,
             roleName: '企业用户',
@@ -199,6 +175,13 @@ Page({
             showPhone: app.globalData.userInfo.mobile,
             showEmail: app.globalData.userInfo.email,
             showAddress: app.globalData.userInfo.address,
+
+            name: '',
+            sex: '',
+            job: '',
+            dep: '',
+            mobile: '',
+            email: ''
           })
         }
         console.log(app.globalData.userInfo)

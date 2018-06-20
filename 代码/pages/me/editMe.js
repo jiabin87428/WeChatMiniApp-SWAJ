@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 是否企业用户
+    isqy: 'false',
     // 修改的参数
     // 企业ID
     qyid: '',
@@ -32,6 +34,18 @@ Page({
     companyLocalid: '',
     // 类型ID
     companyTypeid: '',
+
+    // 监管用户显示
+    // 姓名
+    name: '姓名',
+    // 性别
+    sex: '性别',
+    // 岗位
+    job: '岗位',
+    // 所在部门
+    dep: '所在部门',
+    // 联系手机
+    mobile: '联系手机',
   },
 
   /**
@@ -109,6 +123,24 @@ Page({
     } else if (viewId == "address") {
       placeholder = "请输入企业地址"
       inputstring = this.data.address
+    } else if (viewId == "name") {
+      placeholder = "请输入姓名"
+      inputstring = this.data.name
+    } else if (viewId == "sex") {
+      placeholder = "请输入性别"
+      inputstring = this.data.sex
+    } else if (viewId == "job") {
+      placeholder = "请输入岗位"
+      inputstring = this.data.job
+    } else if (viewId == "dep") {
+      placeholder = "请输入所在部门"
+      inputstring = this.data.dep
+    } else if (viewId == "jgEmail") {
+      placeholder = "请输入邮箱"
+      inputstring = this.data.email
+    } else if (viewId == "mobile") {
+      placeholder = "请输入联系手机"
+      inputstring = this.data.mobile
     }
     wx.navigateTo({
       url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
@@ -150,10 +182,33 @@ Page({
         app.globalData.userInfo = res.data
         if (app.globalData.userInfo.repIsqy == 'false') {
           that.setData({
+            isqy: 'false',
             qyid: app.globalData.userInfo.repRecordid,
+            companyName: app.globalData.userInfo.repName,
+            companyPlace: "",
+            companyLocalid: "",
+            companyType1: "",
+            companyType2: "",
+            companyTypeid: "",
+            contact: "",
+            phone: "",
+            address: "",
+
+            name: app.globalData.userInfo.name == null ? '' : app.globalData.userInfo.name,
+            // 性别
+            sex: app.globalData.userInfo.sex == null ? '' : app.globalData.userInfo.sex,
+            // 岗位
+            job: app.globalData.userInfo.job == null ? '' : app.globalData.userInfo.job,
+            // 所在部门
+            dep: app.globalData.userInfo.dep == null ? '' : app.globalData.userInfo.dep,
+            // 联系手机
+            mobile: app.globalData.userInfo.mobile == null ? '' : app.globalData.userInfo.mobile,
+            // 邮箱
+            email: app.globalData.userInfo.email == null ? '' : app.globalData.userInfo.email
           })
         } else {
           that.setData({
+            isqy: 'false',
             qyid: app.globalData.userInfo.repRecordid,
             companyName: app.globalData.userInfo.repName,
             companyPlace: { name: app.globalData.userInfo.companyLocal},
@@ -164,6 +219,13 @@ Page({
             phone: app.globalData.userInfo.mobile,
             email: app.globalData.userInfo.email,
             address: app.globalData.userInfo.address,
+            
+            name: '',
+            sex: '',
+            job: '',
+            dep: '',
+            mobile: '',
+            email: ''
           })
         }
         console.log(app.globalData.userInfo)
@@ -177,18 +239,32 @@ Page({
   // 提交按钮
   submit: function (e) {
     var that = this
-    var params = {
-      "qyid": this.data.qyid,
-      "companyName": this.data.companyName,
-      "companyLocalid": this.data.companyLocalid,
-      "companyLocal": this.data.companyPlace.name,
-      "companyTypeid": this.data.companyTypeid,
-      "companyType": this.data.companyType1.name + this.data.companyType2.name,
-      "inChargePerson": this.data.contact,
-      "email": this.data.email,
-      "mobile": this.data.phone,
-      "address": this.data.address
+    var params = {}
+
+    if (that.data.isqy == 'true') {
+      params = {
+        "qyid": this.data.qyid,
+        "companyName": this.data.companyName,
+        "companyLocalid": this.data.companyLocalid,
+        "companyLocal": this.data.companyPlace.name,
+        "companyTypeid": this.data.companyTypeid,
+        "companyType": this.data.companyType1.name + this.data.companyType2.name,
+        "inChargePerson": this.data.contact,
+        "email": this.data.email,
+        "mobile": this.data.phone,
+        "address": this.data.address}
+    }else {
+      params = {
+        "qyid": this.data.qyid,
+        "name": this.data.name,
+        "sex": this.data.sex,
+        "job": this.data.job,
+        "dep": this.data.dep,
+        "mobile": this.data.mobile,
+        "email": this.data.email,
+      }
     }
+
     request.requestLoading(config.updateQyxx, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)

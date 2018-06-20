@@ -162,11 +162,11 @@ Page({
           // 可造成后果
           kzchg: "",
           // 潜在隐患
-          qzyh: res.qzyh,
+          qzyh: res.qzyh == null ? '' : res.qzyh,
           // 整改期限
           xqzgrq: res.xqzgrq,
           // 整改建议
-          zgjy: res.zgjy,
+          zgjy: res.zgjy == null ? '' : res.zgjy,
           // 提交时间
           tjsj: res.tjsj,
           // 照片列表
@@ -174,11 +174,11 @@ Page({
           // 完成照片列表
           wcImageList: wcImgList,
           // 整改负责人
-          zgr: res.zgfzr,
+          zgr: res.zgfzr == null ? "" : res.zgfzr,
           // 整改完成日期
-          date: res.zgwcrq,
+          date: res.zgwcrq == null ? "" : res.zgwcrq,
           // 整改完成情况
-          zgcs: res.zgwcqk
+          zgcs: res.zgwcqk == null ? "" : res.zgwcqk
         });
         that.setData({
           imageViewHeight: Math.ceil((that.data.imageList.length) / 4) * (that.data.littleImageWidth + 8),
@@ -220,7 +220,7 @@ Page({
     })
   },
   // 浏览整改后图片
-  viewPhoto: function (e) {
+  viewWcPhoto: function (e) {
     var _this = this
     var current = e.target.dataset.src;
     wx.previewImage({
@@ -243,6 +243,9 @@ Page({
   },
   // 跳转输入页面
   jumpInput: function (e) {
+    if (this.data.sfyzg == 'true') {
+      return
+    }
     var viewId = e.currentTarget.id;
     var placeholder = ""
     var inputstring = ""

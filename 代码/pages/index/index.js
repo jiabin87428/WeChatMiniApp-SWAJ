@@ -113,13 +113,13 @@ Page({
           var callout = {
             content: app.globalData.userInfo.repName,
             color: '#FFFFFF',
-            bgColor: '#5490FF',
+            bgColor: '#018B0D',
             borderRadius: 5,
             padding: 5,
             display: 'ALWAYS'
           }
           var mark = [{
-            iconPath: "../../assets/danger_position.png",
+            iconPath: "../../assets/company_position.png",
             id: 99999,
             latitude: app.globalData.userInfo.mapy,
             longitude: app.globalData.userInfo.mapx,
@@ -213,19 +213,21 @@ Page({
           var callout = {
             content: item.yhmc,
             color: '#FFFFFF',
-            bgColor: '#CF1111',
+            bgColor: item.sfyzg == 'true' ? '#0A6BDA' :'#FF6B2D',
             borderRadius: 5,
             padding: 5,
             display: 'ALWAYS'
           }
           var mark = {
-            id: item.yhid,
+            id: i,
             latitude: item.mapy,
             longitude: item.mapx,
-            iconPath: '../../assets/ic_position.png',
+            iconPath: item.sfyzg == 'true' ? '../../assets/danger_done.png' :'../../assets/danger_undo.png',
             width: 30,
             height: 30,
-            callout: callout
+            callout: callout,
+            yhid: item.yhid,
+            sfyzg: item.sfyzg
           }
           markList.push(mark)
         }
@@ -270,5 +272,23 @@ Page({
         console.log(info)
       }
     })
-  }
+  },
+  // maker点击事件
+  makertap: function (e) {
+    console.log(e)
+    if (app.globalData.userInfo.repIsqy == 'false') { // 监管用户
+
+    }else {// 企业用户
+      if (e.markerId != '99999') { // 点击的不是企业本身的坐标点
+        var mark = this.data.markers[e.markerId+1]
+        this.getDetail(mark.yhid, mark.sfyzg)
+      }
+    }
+  },
+  // 查看隐患详情
+  getDetail: function (dangerId,sfyzg) {
+    wx.navigateTo({
+      url: '../danger/dangerDetail?yhid=' + dangerId + '&sfyzg=' + sfyzg
+    })
+  },
 })    

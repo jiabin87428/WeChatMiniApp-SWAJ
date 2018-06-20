@@ -67,7 +67,7 @@
     <view id='imageView' style='height:{{wcImageViewHeight}}px;' class='imageView'>
       <block wx:for="{{wcImageList}}" wx:for-item="image" wx:for-index='idx'>
         <view class="littleImageView" style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
-          <image class="littleImage" bindtap='viewPhoto' src="{{image}}" data-id="{{idx}}" data-src="{{image}}" mode="aspectFit"></image>
+          <image class="littleImage" bindtap='viewWcPhoto' src="{{image}}" data-id="{{idx}}" data-src="{{image}}" mode="aspectFit"></image>
           <image class='littleImageDelete' src='../../assets/delete.png' bindtap='deleteImage' id='{{idx}}' wx:if="{{sfyzg=='false'}}"></image>
         </view>
       </block> 
@@ -79,12 +79,13 @@
   <view id='zgwcrq' class='scrollItem'>
     <text class='cellText1'>完成日期</text>
     <text class='mustText' wx:if="{{sfyzg=='false'}}">*</text>
-    <picker class='dateChoose' mode="date" value="{{date}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange">
+    <picker class='dateChoose' mode="date" value="{{date}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange" wx:if="{{sfyzg=='false'}}">
       <view class="picker">
         {{date}}
       </view>
     </picker>
-    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"  wx:if="{{sfyzg=='false'}}"></image>
+    <text class='cellText2' wx:else>{{date}}</text>
   </view>
   <view id='9' class='scrollButtonItem'>
     <button class='submitButton' bindtap="submitClick" wx:if="{{sfyzg=='false'}}">处理隐患</button>

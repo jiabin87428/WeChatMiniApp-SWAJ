@@ -17,7 +17,8 @@
     "pages/common/chooseLocation",
     "pages/common/searchLocation",
     "pages/application/application",
-    "pages/manger/companyManger"
+    "pages/manger/companyManger",
+    "pages/application/companyInfoList"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -45,8 +46,8 @@
       },
       {
         "pagePath": "pages/application/application",
-        "iconPath": "assets/dangerCheck_unselected.png",
-        "selectedIconPath": "assets/dangerCheck.png",
+        "iconPath": "assets/application_unselected.png",
+        "selectedIconPath": "assets/application.png",
         "text": "应用"
       },
       {

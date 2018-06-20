@@ -7,28 +7,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isqy: false
+    isqy: false,
+    screenWidth: 0,
+    screenHeight: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.checkLogin()
+    this.setData({
+      screenWidth: wx.getSystemInfoSync().windowWidth,
+      screenHeight: wx.getSystemInfoSync().windowHeight
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.checkLogin()
   },
 
   /**
@@ -67,14 +72,13 @@ Page({
   },
   // 点击隐患列表
   listClick: function () {
-    if (!this.checkLogin()) {
+    if (this.data.isqy == false) {// 监管用户
       wx.navigateTo({
-        url: '../login/login'
+        url: '../manger/companyManger'
       })
-      return
-    } else {
+    } else {// 企业用户
       wx.navigateTo({
-        url: '../manger/manger'
+        url: '../application/companyInfoList'
       })
     }
   },
