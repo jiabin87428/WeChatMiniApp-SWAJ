@@ -164,7 +164,7 @@ Page({
           })
         } else {
           that.setData({
-            isqy: 'false',
+            isqy: 'true',
             qyid: app.globalData.userInfo.repRecordid,
             logo: config.logoImg + app.globalData.userInfo.repRecordid,
             roleName: '企业用户',

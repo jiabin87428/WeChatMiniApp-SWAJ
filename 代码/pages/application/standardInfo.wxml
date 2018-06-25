@@ -1,0 +1,55 @@
+<!--pages/application/standardInfo.wxml-->
+<!--pages/application/personInfo.wxml-->
+<!--pages/me/me.wxml-->
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <view id='companyName' class='scrollItem'>
+      <text class='cellText1'>标准化证书编号</text>
+      <text class='cellText2'>{{showCompanyName}}</text>
+    </view>
+    <view id='companyPlace' class='scrollItem'>
+      <text class='cellText1'>标准化等级</text>
+      <text class='cellText2'>{{showCompanyPlace}}</text>
+    </view>
+    <view id='companyType1' class='scrollItem'>
+      <text class='cellText1'>所属行业</text>
+      <text class='cellText2'>{{showCompanyType}}</text>
+    </view>
+    <view id='contact' class='scrollItem'>
+      <text class='cellText1'>所属专业</text>
+      <text class='cellText2'>{{showContact}}</text>
+    </view>
+    <view id='phone' class='scrollItem'>
+      <text class='cellText1'>发证日期</text>
+      <text class='cellText2'>{{showPhone}}</text>
+    </view>
+    <view id='email' class='scrollItem'>
+      <text class='cellText1'>有效期限</text>
+      <text class='cellText2'>{{showEmail}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>撤销日期</text>
+      <text class='cellText2'>{{showAddress}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>评审组织单位名称</text>
+      <text class='cellText2'>{{showAddress}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>评审单位名称</text>
+      <text class='cellText2'>{{showAddress}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>证书颁发单位名称</text>
+      <text class='cellText2'>{{showAddress}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>自评报告</text>
+      <text class='cellText2'>{{showAddress}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>标准等级证书图片</text>
+      <text class='cellText2'>{{showAddress}}</text>
+    </view>
+  </scroll-view>
+</view>

@@ -18,7 +18,10 @@
     "pages/common/searchLocation",
     "pages/application/application",
     "pages/manger/companyManger",
-    "pages/application/companyInfoList"
+    "pages/application/companyInfoList",
+    "pages/application/personInfo",
+    "pages/application/standardInfo",
+    "pages/manger/companyFilter"
   ],
   "window": {
     "backgroundTextStyle": "light",

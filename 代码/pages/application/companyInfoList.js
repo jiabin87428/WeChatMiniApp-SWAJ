@@ -62,5 +62,20 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  jumpCompanyInfo: function (e) {
+    wx.navigateTo({
+      url: '../me/editMe?editable=false'
+    })
+  },
+  jumpPersonInfo: function (e) {
+    wx.navigateTo({
+      url: '../application/personInfo'
+    })
+  },
+  jumpStandardInfo: function (e) {
+    wx.navigateTo({
+      url: '../application/standardInfo'
+    })
   }
 })

@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 是否可编辑
+    editable: 'true',
     // 是否企业用户
     isqy: 'false',
     // 修改的参数
@@ -53,6 +55,12 @@ Page({
    */
   onLoad: function (options) {
     this.checkLogin()
+    var editable = options.editable
+    if (editable != null) {
+      this.setData({
+        editable: editable
+      })
+    }
   },
 
   /**
@@ -105,6 +113,9 @@ Page({
   },
   // 跳转输入页面
   jumpInput: function (e) {
+    if (this.data.editable == 'false') {
+      return
+    }
     var viewId = e.currentTarget.id;
     var placeholder = ""
     var inputstring = ""
@@ -148,6 +159,9 @@ Page({
   },
   // 跳转单选列表
   jumpRadio: function (e) {
+    if (this.data.editable == 'false') {
+      return
+    }
     var that = this
     var viewId = e.currentTarget.id;
     var sourceData = null
@@ -208,7 +222,7 @@ Page({
           })
         } else {
           that.setData({
-            isqy: 'false',
+            isqy: 'true',
             qyid: app.globalData.userInfo.repRecordid,
             companyName: app.globalData.userInfo.repName,
             companyPlace: { name: app.globalData.userInfo.companyLocal},

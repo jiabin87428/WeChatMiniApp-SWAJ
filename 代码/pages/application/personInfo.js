@@ -1,4 +1,4 @@
-// pages/manger/companyManger.js
+// pages/application/personInfo.js
 Page({
 
   /**
@@ -62,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  // 跳转筛选界面
-  jumpFilter: function (e) {
-    wx.navigateTo({
-      url: '../manger/companyFilter'
-    })
   }
 })
