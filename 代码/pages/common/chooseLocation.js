@@ -156,6 +156,8 @@ Page({
           //   }
           // ]
         })
+
+        that.getLocationInfo()
       }
     })
   }, 
@@ -170,11 +172,11 @@ Page({
     var that = this
     //console.log("获取当前经纬度：" + JSON.stringify(res));
     //发送请求通过经纬度反查地址信息  
-    var getAddressUrl = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + that.data.latitude + "," + that.data.longitude + "&key=f28afe6170399e78d1f7e1b672c1fa49&get_poi=1";
-    request.requestLoading(getAddressUrl, null, '正在加载数据', function (res) {
+    var getAddressUrl = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + that.data.latitude + "," + that.data.longitude + "&key=MP3BZ-7FR32-NBJUJ-CP4Q6-XU7MF-XYBEY&get_poi=1";
+    request.request(getAddressUrl, '正在加载数据', function (res) {
       //console.log(JSON.stringify(res));
       that.setData({
-        currentLocation: JSON.stringify(res)
+        address: res.result.address
       })
     }, function () {
       wx.showToast({

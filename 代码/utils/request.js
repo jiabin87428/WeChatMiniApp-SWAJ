@@ -48,7 +48,47 @@ function requestLoading(url, params, message, success, fail) {
     },
   })
 }
+function request(url, message, success, fail) {
+  wx.showNavigationBarLoading()
+  if (message != "") {
+    wx.showLoading({
+      title: message,
+    })
+  }
+  wx.request({
+    url: url,
+    header: {
+      // 'Content-Type': 'application/json'
+      'Content-type': 'application/x-www-form-urlencoded'
+    },
+    method: 'GET',
+    success: function (res) {
+      //console.log(res.data)
+      wx.hideNavigationBarLoading()
+      if (message != "") {
+        wx.hideLoading()
+      }
+      if (res.statusCode == 200) {
+        success(res.data)
+      } else {
+        fail()
+      }
+
+    },
+    fail: function (res) {
+      wx.hideNavigationBarLoading()
+      if (message != "") {
+        wx.hideLoading()
+      }
+      fail()
+    },
+    complete: function (res) {
+
+    },
+  })
+}
 module.exports = {
   request: request,
-  requestLoading: requestLoading
+  requestLoading: requestLoading,
+  request: request
 }
