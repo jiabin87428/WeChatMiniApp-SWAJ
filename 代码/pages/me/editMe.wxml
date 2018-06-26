@@ -31,7 +31,7 @@
       <text class='cellText2'>{{email}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
     </view>
-    <view id='address' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'true'}}">
+    <view id='address' class='scrollItem' bindtap='jumpLocation' wx:if="{{isqy == 'true'}}">
       <text class='cellText1'>企业地址</text>
       <text class='cellText2'>{{address}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>

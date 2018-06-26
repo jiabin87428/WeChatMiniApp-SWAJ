@@ -78,7 +78,7 @@ Page({
       })
     } else {// 企业用户
       wx.navigateTo({
-        url: '../application/companyInfoList'
+        url: '../application/companyInfoList?qyid=' + app.globalData.userInfo.repRecordid
       })
     }
   },

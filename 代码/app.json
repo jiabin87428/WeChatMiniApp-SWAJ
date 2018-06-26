@@ -21,7 +21,8 @@
     "pages/application/companyInfoList",
     "pages/application/personInfo",
     "pages/application/standardInfo",
-    "pages/manger/companyFilter"
+    "pages/manger/companyFilter",
+    "pages/application/companyInfoDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

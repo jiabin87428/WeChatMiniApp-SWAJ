@@ -1,14 +1,14 @@
 <!--pages/application/companyInfoList.wxml-->
 <view class="baseView">
   <scroll-view scroll-y="true" class='scrollView'>
-    <view id='baseInfoView' class='scrollItem' bindtap='jumpCompanyInfo' wx:if="{{isqy == 'true'}}">
+     <view id='baseInfoView' class='scrollItem' bindtap='jumpCompanyInfo' wx:if="{{isqy == 'true'}}">
       <text class='cellText1'>注册企业用户基本信息</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view id='locationView' class='scrollItem' bindtap='jumpRadio' wx:if="{{isqy == 'true'}}">
+    <!-- <view id='locationView' class='scrollItem' bindtap='jumpRadio' wx:if="{{isqy == 'true'}}">
       <text class='cellText1'>地理位置信息</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
-    </view>
+    </view>  -->
     <view id='personView' class='scrollItem' bindtap='jumpPersonInfo' wx:if="{{isqy == 'true'}}">
       <text class='cellText1'>相关人员信息</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>

@@ -45,14 +45,14 @@
       <!-- <text class='cellText2'>{{contactEmail}}</text> -->
        <input id='contactEmail' class='input' placeholder="请输入联系人邮箱" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;'/> 
     </view>
-    <view id='address' class='scrollItem'>
+    <!-- <view id='address' class='scrollItem'>
       <text class='cellText1'>当前位置</text>
       <text class='cellText2'>{{address}}</text>
       <image class="arrow" mode="aspectFit"></image>
-    </view>
+    </view> -->
     <view id='address' class='scrollItem'  bindtap='jumpLocation'>
-      <text class='cellText1'>企业位置</text>
-      <text class='cellText2'>经度：{{longitude}}，纬度：{{latitude}}</text>
+      <text class='cellText1'>企业地址</text>
+      <text class='cellText2'>{{address}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
     <view id='submit' class='scrollButtonItem'>

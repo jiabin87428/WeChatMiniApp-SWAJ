@@ -45,7 +45,10 @@ var config = {
   loadYhPhoto: `${host}/getXx.so?action=loadYhPhoto&attid=`,
 
   // 修改企业信息
-  updateQyxx: `${host}/getXx.so?action=updateQyxx`
+  updateQyxx: `${host}/getXx.so?action=updateQyxx`,
+
+  // 获取企业信息
+  getQyxx: `${host}/getXx.so?action=getQyxx`
 };
 //对外把对象config返回
 module.exports = config

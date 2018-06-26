@@ -48,6 +48,9 @@ Page({
     dep: '所在部门',
     // 联系手机
     mobile: '联系手机',
+
+    longitude: '0',
+    latitude: '0',
   },
 
   /**
@@ -56,9 +59,18 @@ Page({
   onLoad: function (options) {
     this.checkLogin()
     var editable = options.editable
+    var longitude = options.longitude
+    var latitude = options.latitude
     if (editable != null) {
       this.setData({
         editable: editable
+      })
+    }
+
+    if (longitude != null && latitude != null) {
+      this.setData({
+        longitude: longitude,
+        latitude: latitude
       })
     }
   },
@@ -266,7 +278,10 @@ Page({
         "inChargePerson": this.data.contact,
         "email": this.data.email,
         "mobile": this.data.phone,
-        "address": this.data.address}
+        "address": this.data.address,
+        "mapx": this.data.longitude,
+        "mapy": this.data.latitude
+        }
     }else {
       params = {
         "qyid": this.data.qyid,
@@ -276,6 +291,8 @@ Page({
         "dep": this.data.dep,
         "mobile": this.data.mobile,
         "email": this.data.email,
+        "mapx": this.data.longitude,
+        "mapy": this.data.latitude
       }
     }
 
@@ -302,6 +319,12 @@ Page({
       wx.showToast({
         title: '加载数据失败',
       })
+    })
+  },
+  // 跳转地图坐标选择
+  jumpLocation: function (e) {
+    wx.navigateTo({
+      url: '../common/chooseLocation?longitude=' + this.data.longitude + '&latitude=' + this.data.latitude
     })
   }
 })

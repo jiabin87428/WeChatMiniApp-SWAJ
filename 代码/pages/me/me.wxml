@@ -39,6 +39,7 @@
       <text class='cellText1'>企业地址</text>
       <text class='cellText2'>{{showAddress}}</text>
     </view>
+    
 
     <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
       <text class='cellText1'>姓名</text>

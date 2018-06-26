@@ -43,7 +43,10 @@ Page({
     // 联系手机
     mobile: '联系手机',
     // 邮箱
-    email: '邮箱'
+    email: '邮箱',
+
+    longitude: '0',
+    latitude: '0',
   },
 
   /**
@@ -142,7 +145,7 @@ Page({
             roleName: '监管用户',
             qyid: app.globalData.userInfo.repRecordid,
             logo: config.logoImg + app.globalData.userInfo.repRecordid,
-            showCompanyName: app.globalData.userInfo.repName,
+            showCompanyName: app.globalData.userInfo.name,
             showCompanyPlace: "",
             showCompanyType: "",
             showContact: "",
@@ -160,7 +163,9 @@ Page({
             // 联系手机
             mobile: app.globalData.userInfo.mobile == null ? '' : app.globalData.userInfo.mobile,
             // 邮箱
-            email: app.globalData.userInfo.email == null ? '' : app.globalData.userInfo.email
+            email: app.globalData.userInfo.email == null ? '' : app.globalData.userInfo.email,
+            longitude: app.globalData.userInfo.mapx,
+            latitude: app.globalData.userInfo.mapy,
           })
         } else {
           that.setData({
@@ -175,6 +180,8 @@ Page({
             showPhone: app.globalData.userInfo.mobile,
             showEmail: app.globalData.userInfo.email,
             showAddress: app.globalData.userInfo.address,
+            longitude: app.globalData.userInfo.mapx,
+            latitude: app.globalData.userInfo.mapy,
 
             name: '',
             sex: '',
@@ -195,7 +202,7 @@ Page({
   // 跳转设置页面
   jumpSetting: function (e) {
     wx.navigateTo({
-      url: '../me/editMe'
+      url: '../me/editMe?longitude=' + this.data.longitude + '&latitude=' + this.data.latitude
     })
   }
 })

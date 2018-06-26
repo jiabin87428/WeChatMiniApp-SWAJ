@@ -113,7 +113,8 @@ Page({
     prevPage.setData({
       longitude: this.data.longitude,
       latitude: this.data.latitude,
-      keyword: e.currentTarget.dataset.keywords
+      keyword: e.currentTarget.dataset.keywords,
+      address: e.currentTarget.dataset.address
     })
     wx.navigateBack({
       delta: 1

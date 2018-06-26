@@ -14,9 +14,10 @@ Page({
         */
     winWidth: 0,
     winHeight: 0,
-    latitude: "",
-    longitude: "",
+    latitude: "0",
+    longitude: "0",
     keyword:"搜索地址",
+    address: "",
 
     markers: [],
     markerId: 0,
@@ -26,6 +27,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var longitude = options.longitude
+    var latitude = options.latitude
+
+    if (longitude != null && latitude != null) {
+      this.setData({
+        longitude: longitude,
+        latitude: latitude
+      })
+    }
+    
     var that = this;
 
     /**  
@@ -53,24 +64,22 @@ Page({
     })
 
     var myAmapFun = new amapFile.AMapWX({ key: 'f28afe6170399e78d1f7e1b672c1fa49' });
-    myAmapFun.getRegeo({
-      success: function (data) {
-        // that.setData({
-        //   markers: data
-        // })
-        if (data.length > 0) {
-          that.setData({
-            latitude: data[0].latitude,
-            longitude: data[0].longitude,
-            // currentLocation: '经度：' + data[0].longitude + '，纬度：' + data[0].latitude
-          })
+    if (that.data.longitude == "0" && that.data.latitude == "0") {
+      myAmapFun.getRegeo({
+        success: function (data) {
+          if (data.length > 0) {
+            that.setData({
+              latitude: data[0].latitude,
+              longitude: data[0].longitude,
+            })
+          }
+        },
+        fail: function (info) {
+          //失败回调
+          console.log(info)
         }
-      },
-      fail: function (info) {
-        //失败回调
-        console.log(info)
-      }
-    })
+      })
+    }
   },
 
   /**
@@ -211,6 +220,7 @@ Page({
     prevPage.setData({
       longitude: this.data.longitude,
       latitude: this.data.latitude,
+      address: this.data.address
     })
     wx.navigateBack({
       delta: 1

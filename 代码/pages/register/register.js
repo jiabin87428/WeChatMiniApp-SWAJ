@@ -31,7 +31,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCurrentAddress()
+    // this.getCurrentAddress()
   },
 
   /**
@@ -210,7 +210,7 @@ Page({
       "mobile": this.data.phone,
       "address": this.data.address,
       "mapx": this.data.longitude,
-      "mapY": this.data.latitude
+      "mapy": this.data.latitude
     }
     request.requestLoading(config.register, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据

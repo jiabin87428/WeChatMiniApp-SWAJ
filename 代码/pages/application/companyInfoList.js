@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isqy: 'true'
+    isqy: 'true',
+    qyid: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var qyid = options.qyid
+    this.setData({
+      qyid: qyid
+    })
   },
 
   /**
@@ -65,7 +69,7 @@ Page({
   },
   jumpCompanyInfo: function (e) {
     wx.navigateTo({
-      url: '../me/editMe?editable=false'
+      url: '../application/companyInfoDetail?qyid=' + this.data.qyid
     })
   },
   jumpPersonInfo: function (e) {

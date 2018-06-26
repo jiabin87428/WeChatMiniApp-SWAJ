@@ -1,0 +1,39 @@
+<!--pages/application/companyInfoDetail.wxml-->
+<!--pages/me/editMe.wxml-->
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <view id='companyName' class='scrollItem'>
+      <text class='cellText1'>企业全称</text>
+      <text class='cellText2'>{{companyName}}</text>
+    </view>
+    <view id='companyPlace' class='scrollItem'>
+      <text class='cellText1'>企业属地</text>
+      <text class='cellText2'>{{companyPlace}}</text>
+    </view>
+    <view id='companyType1' class='scrollItem'>
+      <text class='cellText1'>企业类型</text>
+      <text class='cellText2'>{{companyType}}</text>
+    </view>
+    <view id='contact' class='scrollItem'>
+      <text class='cellText1'>联系人</text>
+      <text class='cellText2'>{{contact}}</text>
+    </view>
+    <view id='phone' class='scrollItem'>
+      <text class='cellText1'>联系方式</text>
+      <text class='cellText2'>{{phone}}</text>
+    </view>
+    <view id='email' class='scrollItem'>
+      <text class='cellText1'>邮箱</text>
+      <text class='cellText2'>{{email}}</text>
+    </view>
+    <view class="map_container" style='height:{{winHeight-titleHeight-40}}px;'>
+      <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+      </map>
+    </view>
+    <text class='location'>企业地址:{{address}}</text>
+    <view>
+      <button class='submitButton' bindtap="submit">确定</button>
+    </view>
+  </scroll-view>
+</view>
+
