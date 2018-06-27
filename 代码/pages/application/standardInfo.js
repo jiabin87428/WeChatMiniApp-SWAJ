@@ -28,9 +28,6 @@ Page({
     psdwmc: "",
     // 证书颁发单位名称
     zsbfdwmc: "",
-    // 自评报告
-
-    // 标准等级证书图片
   },
 
   /**
@@ -121,9 +118,6 @@ Page({
         psdwmc: res.psdwmc == null ? "" : res.psdwmc,
         // 证书颁发单位名称
         zsbfdwmc: res.zsbfdwmc == null ? "" : res.zsbfdwmc,
-    // 自评报告
-
-    // 标准等级证书图片
       })
     })
   },

@@ -42,12 +42,4 @@
       <text class='cellText1'>证书颁发单位名称</text>
       <text class='cellText2'>{{zsbfdwmc}}</text>
     </view>
-    <view id='address' class='scrollItem'>
-      <text class='cellText1'>自评报告</text>
-      <text class='cellText2'>{{zsbfdwmc}}</text>
-    </view>
-    <view id='address' class='scrollItem'>
-      <text class='cellText1'>标准等级证书图片</text>
-      <text class='cellText2'>{{zsbfdwmc}}</text>
-    </view>
   </scroll-view>
