@@ -1,46 +1,44 @@
 <!--pages/application/personInfo.wxml-->
 <!--pages/me/me.wxml-->
-<view class="baseView">
-  <scroll-view scroll-y="true" class='scrollView'>
+<scroll-view scroll-y="true" class='scrollView'>
     <view id='companyName' class='scrollItem'>
       <text class='cellText1'>主要负责人</text>
-      <text class='cellText2'>{{showCompanyName}}</text>
+      <text class='cellText2'>{{zyfzr}}</text>
     </view>
     <view id='companyPlace' class='scrollItem'>
       <text class='cellText1'>主要负责人固定电话</text>
-      <text class='cellText2'>{{showCompanyPlace}}</text>
+      <text class='cellText2'>{{zyfzrgddh}}</text>
     </view>
     <view id='companyType1' class='scrollItem'>
       <text class='cellText1'>主要负责人移动电话</text>
-      <text class='cellText2'>{{showCompanyType}}</text>
+      <text class='cellText2'>{{zyfzryddh}}</text>
     </view>
     <view id='contact' class='scrollItem'>
       <text class='cellText1'>主要负责人电子邮箱</text>
-      <text class='cellText2'>{{showContact}}</text>
+      <text class='cellText2'>{{zyfzrdzyx}}</text>
     </view>
     <view id='phone' class='scrollItem'>
       <text class='cellText1'>从业人员数量</text>
-      <text class='cellText2'>{{showPhone}}</text>
+      <text class='cellText2'>{{cyrysl}}</text>
     </view>
     <view id='email' class='scrollItem'>
       <text class='cellText1'>特种作业人员数量</text>
-      <text class='cellText2'>{{showEmail}}</text>
+      <text class='cellText2'>{{tzzyrysl}}</text>
     </view>
     <view id='address' class='scrollItem'>
-      <text class='cellText1'>专职安全生产管理人员数量</text>
-      <text class='cellText2'>{{showAddress}}</text>
+      <text class='cellText1'>专职安全管理人员数量</text>
+      <text class='cellText2'>{{zzaqglrysl}}</text>
     </view>
     <view id='address' class='scrollItem'>
-      <text class='cellText1'>兼职安全生产管理人员数量</text>
-      <text class='cellText2'>{{showAddress}}</text>
+      <text class='cellText1'>兼职安全管理人员数量</text>
+      <text class='cellText2'>{{jzaqglrysl}}</text>
     </view>
     <view id='address' class='scrollItem'>
       <text class='cellText1'>专职应急管理人员数量</text>
-      <text class='cellText2'>{{showAddress}}</text>
+      <text class='cellText2'>{{zzyjglrysl}}</text>
     </view>
     <view id='address' class='scrollItem'>
-      <text class='cellText1'>注册安全工程师人员数量</text>
-      <text class='cellText2'>{{showAddress}}</text>
+      <text class='cellText1'>注册安全工程师数量</text>
+      <text class='cellText2'>{{zcaqgcsrysl}}</text>
     </view>
   </scroll-view>
-</view>

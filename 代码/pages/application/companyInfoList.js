@@ -74,12 +74,12 @@ Page({
   },
   jumpPersonInfo: function (e) {
     wx.navigateTo({
-      url: '../application/personInfo'
+      url: '../application/personInfo?qyid=' + this.data.qyid
     })
   },
   jumpStandardInfo: function (e) {
     wx.navigateTo({
-      url: '../application/standardInfo'
+      url: '../application/standardInfo?qyid=' + this.data.qyid
     })
   }
 })

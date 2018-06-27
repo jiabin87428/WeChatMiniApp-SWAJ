@@ -62,8 +62,8 @@
 }
 
 .dangerIcon {
-  width: 45px;
-  margin-left: 10px;
+  width: 30px;
+  margin-left: 15px;
 }
 
 .subView {

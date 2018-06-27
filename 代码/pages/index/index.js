@@ -111,7 +111,7 @@ Page({
         that.getStatistics()
         if (app.globalData.userInfo != null) {
           var callout = {
-            content: app.globalData.userInfo.repName,
+            content: app.globalData.userInfo.repIsqy == 'false' ? app.globalData.userInfo.name : app.globalData.userInfo.repName,
             color: '#FFFFFF',
             bgColor: '#018B0D',
             borderRadius: 5,
@@ -190,7 +190,7 @@ Page({
             display: 'ALWAYS'
           }
           var mark = {
-            id: i,
+            id: item.qyid,
             latitude: item.mapy,
             longitude: item.mapx,
             iconPath: '../../assets/danger_position.png',
@@ -277,7 +277,11 @@ Page({
   makertap: function (e) {
     console.log(e)
     if (app.globalData.userInfo.repIsqy == 'false') { // 监管用户
-
+      if (e.markerId != '99999') { // 点击的不是监管用户本身
+        wx.navigateTo({
+          url: '../application/companyInfoList?qyid=' + e.markerId
+        })
+      }
     }else {// 企业用户
       if (e.markerId != '99999') { // 点击的不是企业本身的坐标点
         var mark = this.data.markers[e.markerId+1]
