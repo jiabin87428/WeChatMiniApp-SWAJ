@@ -13,13 +13,18 @@ Page({
     sfyzg: "false",
     qyid: "",
     yhid: "",
+    // 缩略图
     imageList: [],
+    // 高清图
+    bigImageList: [],
     littleImageWidth: 0,
     imageViewHeight: 0,
     wcImageViewHeight: 100,
 
-    // 整改后照片列表
+    // 整改后照片列表 - 缩略图
     wcImageList:[],
+    // 高清图
+    bigWcImgList: [],
 
     // 隐患详情显示参数
     // 企业名称
@@ -138,13 +143,18 @@ Page({
       if (res.repCode == null || res.repCode != '500') {
         var imgList = []
         var wcImgList = []
+        var bigImgList = []
+        var bigWcImgList = []
         for (var i = 0; i < res.zplist.length; i++) {
           var id = config.loadYhPhoto + res.zplist[i].id
+          var bigId = config.loadBigPhoto + res.zplist[i].id
           var name = res.zplist[i].name
           if (name == 'zgqzp') {
             imgList.push(id)
+            bigImgList.push(bigId)
           }else{
             wcImgList.push(id)
+            bigWcImgList.push(bigId)
           }
         }
         that.setData({
@@ -173,6 +183,10 @@ Page({
           imageList: imgList,
           // 完成照片列表
           wcImageList: wcImgList,
+          // 高清图
+          bigImgList: bigImgList,
+          // 完成高清图
+          bigWcImgList: bigWcImgList,
           // 整改负责人
           zgr: res.zgfzr == null ? "" : res.zgfzr,
           // 整改完成日期
@@ -201,7 +215,7 @@ Page({
     var current = e.target.dataset.src;
     wx.previewImage({
       current: current, // 当前显示图片的http链接
-      urls: _this.data.imageList // 需要预览的图片http链接列表
+      urls: _this.data.bigImgList // 需要预览的图片http链接列表
     })
   },
   // 添加图片
@@ -225,7 +239,7 @@ Page({
     var current = e.target.dataset.src;
     wx.previewImage({
       current: current, // 当前显示图片的http链接
-      urls: _this.data.wcImageList // 需要预览的图片http链接列表
+      urls: _this.data.bigWcImgList // 需要预览的图片http链接列表
     })
   },
   // 删除图片

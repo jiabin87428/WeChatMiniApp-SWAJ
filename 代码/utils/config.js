@@ -41,8 +41,10 @@ var config = {
   // 头像默认链接
   logoImg: `${host}/getXx.so?action=loadQyxxPhoto&qyid=`,
 
-  // 加载隐患图片头部链接
+  // 加载隐患图片头部链接-小图
   loadYhPhoto: `${host}/getXx.so?action=loadYhPhoto&attid=`,
+  // 加载隐患图片头部链接-大图
+  loadBigPhoto: `${host}/getXx.so?action=loadPhoto&attid=`,
 
   // 修改企业信息
   updateQyxx: `${host}/getXx.so?action=updateQyxx`,
