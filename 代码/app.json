@@ -12,7 +12,17 @@
     "pages/common/inputPage",
     "pages/common/selectRadioList",
     "pages/common/selectCheckList",
-    "pages/danger/dangerCheckList"
+    "pages/danger/dangerCheckList",
+    "pages/me/editMe",
+    "pages/common/chooseLocation",
+    "pages/common/searchLocation",
+    "pages/application/application",
+    "pages/manger/companyManger",
+    "pages/application/companyInfoList",
+    "pages/application/personInfo",
+    "pages/application/standardInfo",
+    "pages/manger/companyFilter",
+    "pages/application/companyInfoDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,6 +47,12 @@
         "iconPath": "assets/dangerCheck_unselected.png",
         "selectedIconPath": "assets/dangerCheck.png",
         "text": "隐患排查"
+      },
+      {
+        "pagePath": "pages/application/application",
+        "iconPath": "assets/application_unselected.png",
+        "selectedIconPath": "assets/application.png",
+        "text": "应用"
       },
       {
         "pagePath": "pages/me/me",

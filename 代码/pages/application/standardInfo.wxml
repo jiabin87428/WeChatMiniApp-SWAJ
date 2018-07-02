@@ -1,0 +1,45 @@
+<!--pages/application/standardInfo.wxml-->
+<!--pages/application/personInfo.wxml-->
+<!--pages/me/me.wxml-->
+<scroll-view scroll-y="true" class='scrollView'>
+    <view id='companyName' class='scrollItem'>
+      <text class='cellText1'>标准化证书编号</text>
+      <text class='cellText2'>{{bzhzsbh}}</text>
+    </view>
+    <view id='companyPlace' class='scrollItem'>
+      <text class='cellText1'>标准化等级</text>
+      <text class='cellText2'>{{bzhdj}}</text>
+    </view>
+    <view id='companyType1' class='scrollItem'>
+      <text class='cellText1'>所属行业</text>
+      <text class='cellText2'>{{sshy}}</text>
+    </view>
+    <view id='contact' class='scrollItem'>
+      <text class='cellText1'>所属专业</text>
+      <text class='cellText2'>{{sszy}}</text>
+    </view>
+    <view id='phone' class='scrollItem'>
+      <text class='cellText1'>发证日期</text>
+      <text class='cellText2'>{{fzrq}}</text>
+    </view>
+    <view id='email' class='scrollItem'>
+      <text class='cellText1'>有效期限</text>
+      <text class='cellText2'>{{yxqx}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>撤销日期</text>
+      <text class='cellText2'>{{cxrq}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>评审组织单位名称</text>
+      <text class='cellText2'>{{pszzdwmc}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>评审单位名称</text>
+      <text class='cellText2'>{{psdwmc}}</text>
+    </view>
+    <view id='address' class='scrollItem'>
+      <text class='cellText1'>证书颁发单位名称</text>
+      <text class='cellText2'>{{zsbfdwmc}}</text>
+    </view>
+  </scroll-view>

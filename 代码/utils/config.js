@@ -26,12 +26,31 @@ var config = {
   // 隐患列表
   getYhList: `${host}/getXx.so?action=getYhList`,
 
+  // 隐患详情
+  getOneYh: `${host}/getXx.so?action=getOneYh`,
+
   // 统计接口
   getTj: `${host}/getXx.so?action=getTj`,
 
   // 插入隐患
-  insertYh: `${host}/insertYh.so`
+  insertYh: `${host}/getXx.so?action=insertYh`,
 
+  // 上传图片接口
+  uploadImg: `${host}/uploadImg`,
+
+  // 头像默认链接
+  logoImg: `${host}/getXx.so?action=loadQyxxPhoto&qyid=`,
+
+  // 加载隐患图片头部链接-小图
+  loadYhPhoto: `${host}/getXx.so?action=loadYhPhoto&attid=`,
+  // 加载隐患图片头部链接-大图
+  loadBigPhoto: `${host}/getXx.so?action=loadPhoto&attid=`,
+
+  // 修改企业信息
+  updateQyxx: `${host}/getXx.so?action=updateQyxx`,
+
+  // 获取企业信息
+  getQyxx: `${host}/getXx.so?action=getQyxx`
 };
 //对外把对象config返回
 module.exports = config

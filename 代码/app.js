@@ -3,6 +3,13 @@ var config = require('./utils/config.js')
 
 //app.js
 App({
+  // 公用弹出框
+  appShowToast: function (title,icon) {
+    wx.showToast({
+      title: title,
+      icon: icon
+    })
+  },
   // 判断是否登录
   checkLogin: function () {
     var that = this
@@ -10,8 +17,17 @@ App({
       key: 'userInfo',
       success: function (res) {
         that.globalData.userInfo = res.data
-        that.getStatistics()
-        console.log(that.globalData.userInfo)
+        
+        if (that.globalData.userInfo.repIsqy == 'false') {
+          that.setData({
+            isqy: false
+          })
+        } else {
+          that.setData({
+            isqy: true
+          })
+        }
+
       }, fail: function (res) {
         that.globalData.userInfo = null
         wx.navigateTo({
@@ -134,6 +150,37 @@ App({
       }
     })
   },
+  // 上传图片
+  uploadDIY(params, filePaths, successUp, failUp, i, length, cb) {
+    wx.uploadFile({
+      url: config.uploadImg + params,
+      filePath: filePaths[i],
+      name: 'fileData',
+      formData: {
+
+      },
+      success: (resp) => {
+        successUp++;
+      },
+      fail: (res) => {
+        failUp++;
+      },
+      complete: () => {
+        i++;
+        if (i == length) {
+          // wx.showToast({
+          //   title: '总共' + successUp + '张上传成功,' + failUp + '张上传失败！',
+          //   icon: 'none',
+          //   duration: 2000
+          // })
+          typeof cb == "function" && cb('200')
+        }
+        else {  //递归调用uploadDIY函数
+          this.uploadDIY(params,filePaths, successUp, failUp, i, length);
+        }
+      },
+    });
+  },
   globalData: {
     /** 
     行业类型
@@ -232,6 +279,17 @@ App({
       { id: "5019", name: "中毒和窒息" },
       { id: "5020", name: "其他伤害" },
     ],
+    /** 
+    整改类型
+    @param id   类型id
+    @param name 类型名称
+    */
+    rectifyType: [
+      { id: "6001", name: "立即整改" },
+      { id: "6002", name: "限期整改" },
+      { id: "6003", name: "停业停产整顿" },
+      { id: "6004", name: "其他" }
+    ],
     // 企业名称
     companyName: null,
     // 用户信息
@@ -241,6 +299,8 @@ App({
     // 企业一级类型
     companyType1: null,
     // 企业二级类型
-    companyType2: null
+    companyType2: null,
+    // 是否企业用户
+    isqy: true,
   }
 })

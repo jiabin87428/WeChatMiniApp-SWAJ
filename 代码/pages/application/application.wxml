@@ -1,0 +1,17 @@
+<!--pages/application/application.wxml-->
+<scroll-view scroll-y="true" class='scrollView'>
+  <view class="userinfo">
+    <view class='dangerView' bindtap='listClick'>
+      <view class='subView'>
+        <text class='dangerText'>企业管理</text>
+        <text class='subText'>可根据企业类型、企业属地查询</text>
+      </view>
+      <image class="dangerIcon" src="../../assets/companyManager.png" mode="widthFix"></image>
+    </view>
+
+    <!-- <view class='comingView' style='width:{{screenWidth}}px;height:{{screenHeight}}px;' wx:else>
+      <text class='comingText'>企业用户即将推出更多功能\n敬请期待！</text>
+    </view> -->
+  </view>
+</scroll-view>
+

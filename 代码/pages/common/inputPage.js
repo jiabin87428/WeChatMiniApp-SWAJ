@@ -99,9 +99,57 @@ Page({
       prevPage.setData({
         advise: this.data.inputstring
       })
+    } else if (this.data.viewId == "zgr") {
+      prevPage.setData({
+        zgr: this.data.inputstring
+      })
+    } else if (this.data.viewId == "zgcs") {
+      prevPage.setData({
+        zgcs: this.data.inputstring
+      })
+    } else if (this.data.viewId == "contact") {
+      prevPage.setData({
+        contact: this.data.inputstring
+      })
+    } else if (this.data.viewId == "phone") {
+      prevPage.setData({
+        phone: this.data.inputstring
+      })
+    } else if (this.data.viewId == "email") {
+      prevPage.setData({
+        email: this.data.inputstring
+      })
+    } else if (this.data.viewId == "address") {
+      prevPage.setData({
+        address: this.data.inputstring
+      })
+    } else if (this.data.viewId == "name") {
+      prevPage.setData({
+        name: this.data.inputstring
+      })
+    } else if (this.data.viewId == "sex") {
+      prevPage.setData({
+        sex: this.data.inputstring
+      })
+    } else if (this.data.viewId == "job") {
+      prevPage.setData({
+        job: this.data.inputstring
+      })
+    } else if (this.data.viewId == "dep") {
+      prevPage.setData({
+        dep: this.data.inputstring
+      })
+    } else if (this.data.viewId == "jgEmail") {
+      prevPage.setData({
+        email: this.data.inputstring
+      })
+    } else if (this.data.viewId == "mobile") {
+      prevPage.setData({
+        mobile: this.data.inputstring
+      })
     }
     wx.navigateBack({
-      delta: pages.length - 2
+      delta: 1
     })
   },
   /**

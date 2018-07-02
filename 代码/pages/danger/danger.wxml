@@ -4,8 +4,8 @@
     <view class='dangerView' bindtap='addClick'>
       <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
       <view class='subView'>
-        <text class='dangerText'>隐患快报</text>
-        <text class='subText'>企业隐患自查自报</text>
+        <text class='dangerText'>{{addDangerTitle}}</text>
+        <text class='subText'>{{addDangerDesc}}</text>
       </view>
     </view>
     <view class='dangerView' bindtap='listClick'>

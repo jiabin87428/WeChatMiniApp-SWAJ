@@ -15,21 +15,34 @@ Page({
     imageList: [],
     littleImageWidth: 0,
     imageViewHeight: 100,
+    // 是否企业用户
+    isqy: true,
+
     // 提交时间
     time:"",
     // 当前位置
     address:"",
     // 企业名称
     companyName: null,
+    // 隐患位置
+    latitude: "0",
+    longitude: "0",
     // 隐患描述
     desc: "",
     // 潜在隐患
     danger: null,
+    // 整改类型
+    rectifyType: "",
+    // 整改期限
+    date: "",
     // 整改建议
     advise: "",
 
     // 显示潜在事故字符串
-    dangerString: ""
+    dangerString: "",
+
+    // 第一次提交后返回的隐患id，用户上传图片用
+    dangerId: ""
   },
 
   /**
@@ -61,6 +74,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.checkLogin()
+
+
     if (this.data.danger != null) {
       this.setData({
         dangerString: ""
@@ -179,19 +195,34 @@ Page({
       url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
     })
   },
+  // 跳转地图坐标选择
+  jumpLocation: function (e) {
+    wx.navigateTo({
+      url: '../common/chooseLocation'
+    })
+  },
   // 跳转单选列表
   jumpRadio: function (e) {
     var viewId = e.currentTarget.id;
     var sourceData = null
     var selected = null
+
     if (viewId == "companyName") {
       selected = this.data.companyName
       //调用应用实例的方法获取全局数据
-      app.getCompanyName(null,function (companyName) {
+      app.getCompanyName(null, function (companyName) {
         sourceData = companyName
         wx.navigateTo({
           url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
         })
+      })
+    }
+
+    if (viewId == "rectifyType") {
+      selected = this.data.rectifyType
+      sourceData = app.globalData.rectifyType
+      wx.navigateTo({
+        url: '../common/selectRadioList?id=' + viewId + '&data=' + JSON.stringify(sourceData) + '&selected=' + JSON.stringify(selected)
       })
     }
   },
@@ -210,12 +241,15 @@ Page({
   },
   // 提交事件
   submitClick: function (e) {
+    var that = this
     var params = {
       "yhid": "",
       "qyid": app.globalData.userInfo.repRecordid,
       "qymc": this.data.companyName.name,
       "wtms": this.data.desc,
       "qzyh": this.data.dangerString,
+      "zglx": this.data.rectifyType.name,
+      "zgqx": this.data.date,
       "zgjy": this.data.advise,
       "tjsj": this.data.time,
       "dqwz": this.data.address,
@@ -223,15 +257,43 @@ Page({
       "zgwcqk": "",
       "zgfzr": "",
       "zgwcrq": "",
-      "repIsqy": app.globalData.userInfo.repIsqy
+      "repIsqy": app.globalData.userInfo.repIsqy,
+      "mapx": this.data.longitude,
+      "mapy": this.data.latitude
     }
     request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)
+      if (res.repCode == '200') {
+        that.setData({
+          dangerId: res.recordid
+        })
+        that.submitImage()
+      }else {
+        wx.showToast({
+          title: res.repMsg,
+          icon: 'none'
+        })
+      }
     }, function () {
       wx.showToast({
         title: '加载数据失败',
       })
+    })
+  },
+  // 提交图片事件
+  submitImage: function() {
+    app.uploadDIY('?yhid=' + this.data.dangerId + '&zptype=zgqzp', this.data.imageList, 0, 0, 0, this.data.imageList.length, function (resultCode) {
+      if (resultCode == '200') {
+        wx.showToast({
+          title: '新建成功',
+          complete: setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500)
+        })
+      }
     })
   },
   // 高德地图获取当前地址
@@ -253,5 +315,37 @@ Page({
         console.log(info)
       }
     })
-  }
+  },
+  // 判断是否登录
+  checkLogin: function () {
+    var that = this
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        app.globalData.userInfo = res.data
+        if (app.globalData.userInfo.repIsqy == 'false') {
+          that.setData({
+            isqy: false
+          })
+        } else {
+          that.setData({
+            isqy: true
+          })
+        }
+      }, fail: function (res) {
+        wx.navigateTo({
+          url: '../login/login'
+        })
+      }
+    })
+    // if (app.globalData.userInfo) {
+    //   return true
+    // }
+    // return false
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
 })

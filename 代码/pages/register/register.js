@@ -10,7 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 企业全称
     companyName: "",
+    // 企业简称
+    shortName: "",
     contactName: "",
     contactEmail: "",
     password: "",
@@ -19,15 +22,16 @@ Page({
     companyPlace: [],
     companyType1: [],
     companyType2: [],
-    range: [],
-    address: ""
+    address: "",
+    latitude: "0",
+    longitude: "0",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCurrentAddress()
+    // this.getCurrentAddress()
   },
 
   /**
@@ -86,6 +90,11 @@ Page({
     if (inputId == "companyName") {
       this.setData({
         companyName: val
+      });
+    }
+    if (inputId == "shortName") {
+      this.setData({
+        shortName: val
       });
     }
     if (inputId == "contactName") {
@@ -180,10 +189,17 @@ Page({
       }
     })
   },
+  // 跳转地图坐标选择
+  jumpLocation: function (e) {
+    wx.navigateTo({
+      url: '../common/chooseLocation'
+    })
+  },
   // 注册
   submitClick: function (e) {
     var params = {
       "companyName": this.data.companyName,
+      "shortName": this.data.shortName,
       "companyLocalid": this.data.companyPlace.id,
       "companyLocal": this.data.companyPlace.name,
       "companyTypeid": this.data.companyType2.id,
@@ -192,7 +208,9 @@ Page({
       "email": this.data.contactEmail,
       "password": this.data.password,
       "mobile": this.data.phone,
-      "address": this.data.address
+      "address": this.data.address,
+      "mapx": this.data.longitude,
+      "mapy": this.data.latitude
     }
     request.requestLoading(config.register, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据

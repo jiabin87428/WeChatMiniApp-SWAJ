@@ -8,6 +8,11 @@
     <!-- <input class='flex-item input' placeholder="请输入企业名称" placeholder-style='font-size:14px;font-weight: initial;'/> -->
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image> 
   </view>
+  <view id='address' class='scrollItem'  bindtap='jumpLocation'>
+      <text class='cellText1'>隐患位置</text>
+      <text class='cellText2'>经度：{{longitude}}，纬度：{{latitude}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
   <view id='desc' class='scrollItem' bindtap='jumpInput'>
     <text class='cellText1'>隐患描述</text>
     <text class='mustText'>*</text>
@@ -34,9 +39,25 @@
     </view>
   </view>
   <view id='danger' class='scrollItem' bindtap='jumpCheckBox'>
-    <text class='cellText1'>潜在隐患</text>
+    <text class='cellText1'>潜在事故</text>
     <text class='mustText'>*</text>
     <text class='cellText2'>{{dangerString}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='rectifyType' class='scrollItem' bindtap='jumpRadio' wx:if='{{isqy == false}}'>
+    <text class='cellText1'>整改类型</text>
+    <text class='mustText'>*</text>
+    <text class='cellText2'>{{rectifyType.name}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view class='scrollItem' bindtap='jumpRadio'>
+    <text class='cellText1'>整改期限</text>
+    <text class='mustText'>*</text>
+    <picker class='dateChoose' mode="date" value="{{date}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view id='advise' class='scrollItem' bindtap='jumpInput'>

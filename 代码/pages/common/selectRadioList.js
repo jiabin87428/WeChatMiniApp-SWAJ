@@ -109,6 +109,10 @@ Page({
       prevPage.setData({
         companyName: this.data.sourceList[e.detail.value]
       })
+    } else if (this.data.viewId == "rectifyType") {
+      prevPage.setData({
+        rectifyType: this.data.sourceList[e.detail.value]
+      })
     } else if (this.data.viewId == "companyPlace") {
       prevPage.setData({
         companyPlace: this.data.sourceList[e.detail.value]

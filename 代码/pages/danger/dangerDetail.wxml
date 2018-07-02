@@ -3,63 +3,92 @@
 <scroll-view scroll-y="true" class='scrollView'>
   <view id='1' class='scrollItem'>
     <text class='cellText1'>企业名称</text>
-    <text class='flex-item cellText2'>上海歌略软件科技有限公司</text>
+    <text class='flex-item cellText2'>{{qymc}}</text>
   </view>
-  <view id='2' class='scrollItem'>
+  <!-- <view id='2' class='scrollItem'>
     <text class='cellText1'>行业类型</text>
-    <text class='flex-item cellText2'>道路交通</text>
+    <text class='flex-item cellText2'>{{hylx}}</text>
   </view>
   <view id='3' class='scrollItem'>
     <text class='cellText1'>隐患类别</text>
-    <text class='flex-item cellText2'>基础管理-安全生产责任制</text>
+    <text class='flex-item cellText2'>{{yhlb}}</text>
   </view>
   <view id='3' class='scrollItem'>
     <text class='cellText1'>存在问题</text>
-    <text class='flex-item cellText2'>其他</text>
-  </view>
+    <text class='flex-item cellText2'>{{czwt}}</text>
+  </view> -->
   <view id='3' class='scrollItem'>
     <text class='cellText1'>问题描述</text>
-    <text class='flex-item cellText2'>111111111</text>
+    <text class='flex-item cellText2'>{{wtms}}</text>
   </view>
   <view class='imageBaseView' style='height:{{58+imageViewHeight}}px;'>
     <view class='titleView'>
-      <text class='cellText2'>隐患照片</text>
+      <text class='cellText1'>隐患照片</text>
       <text class='cellText3'>{{imageList.length}}</text>
     </view>
     <view id='imageView' style='height:{{imageViewHeight}}px;' class='imageView'>
       <block wx:for="{{imageList}}" wx:for-item="image" wx:for-index='idx'>
         <view class="littleImageView" style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
           <image class="littleImage" bindtap='viewPhoto' src="{{image}}" data-id="{{idx}}" data-src="{{image}}" mode="aspectFit"></image>
-          <image class='littleImageDelete' src='../../assets/delete.png' bindtap='deleteImage' id='{{idx}}'></image>
         </view>
       </block> 
-      <view class="littleImageView" bindtap='addPhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
-        <image class="littleImage" src="../../assets/addImage.png" mode="aspectFit"></image>
-      </view>
     </view>
   </view>
-  <view id='4' class='scrollItem'>
-    <text class='cellText1'>可造成后果</text>
-    <text class='flex-item cellText2'>测试问题测试问题测试问题测试问题</text>
-  </view>
   <view id='5' class='scrollItem'>
-    <text class='cellText1'>潜在事故</text>
-    <text class='flex-item cellText2'>起重伤害 机械伤害 车辆伤害 物体打击</text>
+    <text class='cellText1'>潜在隐患</text>
+    <text class='flex-item cellText2'>{{qzyh}}</text>
   </view>
   <view id='6' class='scrollItem'>
     <text class='cellText1'>整改建议</text>
-    <text class='flex-item cellText2'>111111111</text>
+    <text class='flex-item cellText2'>{{zgjy}}</text>
   </view>
   <view id='7' class='scrollItem'>
     <text class='cellText1'>提交时间</text>
-    <text class='cellText2'>{{time}}</text>
+    <text class='cellText2'>{{tjsj}}</text>
   </view>
-  <view id='8' class='scrollItem'>
-    <text class='cellText1'>提交位置</text>
-    <text class='flex-item cellText2'>上海市浦东新区临沂北路266号</text>
+  <view id='zgr' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>整改人</text>
+    <text class='mustText' wx:if="{{sfyzg=='false'}}">*</text>
+    <text class='cellText2'>{{zgr}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{sfyzg=='false'}}"></image>
+  </view>
+  <view id='zgcs' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>整改情况</text>
+    <text class='mustText' wx:if="{{sfyzg=='false'}}">*</text>
+    <text class='cellText2'>{{zgcs}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{sfyzg=='false'}}"></image>
+  </view>
+  <view class='imageBaseView' style='height:{{58+wcImageViewHeight}}px;'>
+    <view class='titleView'>
+      <text class='cellText1'>整改后照片</text>
+      <text class='mustText' wx:if="{{sfyzg=='false'}}">*</text>
+      <text class='cellText3'>{{wcImageList.length}}</text>
+    </view>
+    <view id='imageView' style='height:{{wcImageViewHeight}}px;' class='imageView'>
+      <block wx:for="{{wcImageList}}" wx:for-item="image" wx:for-index='idx'>
+        <view class="littleImageView" style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
+          <image class="littleImage" bindtap='viewWcPhoto' src="{{image}}" data-id="{{idx}}" data-src="{{image}}" mode="aspectFit"></image>
+          <image class='littleImageDelete' src='../../assets/delete.png' bindtap='deleteImage' id='{{idx}}' wx:if="{{sfyzg=='false'}}"></image>
+        </view>
+      </block> 
+      <view class="littleImageView" bindtap='addPhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
+        <image class="littleImage" src="../../assets/addImage.png" mode="aspectFit" wx:if="{{sfyzg=='false'}}"></image>
+      </view>
+    </view>
+  </view>
+  <view id='zgwcrq' class='scrollItem'>
+    <text class='cellText1'>完成日期</text>
+    <text class='mustText' wx:if="{{sfyzg=='false'}}">*</text>
+    <picker class='dateChoose' mode="date" value="{{date}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange" wx:if="{{sfyzg=='false'}}">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"  wx:if="{{sfyzg=='false'}}"></image>
+    <text class='cellText2' wx:else>{{date}}</text>
   </view>
   <view id='9' class='scrollButtonItem'>
-    <button type='default' class='submitButton' bindtap="submitClick">处理隐患</button>
+    <button class='submitButton' bindtap="submitClick" wx:if="{{sfyzg=='false'}}">处理隐患</button>
   </view>
 </scroll-view>
 </view>
