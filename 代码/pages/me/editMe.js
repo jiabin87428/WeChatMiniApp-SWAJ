@@ -251,7 +251,6 @@ Page({
             job: '',
             dep: '',
             mobile: '',
-            email: ''
           })
         }
         console.log(app.globalData.userInfo)

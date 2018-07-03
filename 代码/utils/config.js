@@ -12,7 +12,7 @@ var config = {
   login: `${host}/wxlogin.so`,
 
   // 注册
-  register: `${host}/register.so`,
+  register: `${host}/register.so?action=Register`,
 
   // 企业名称列表
   getCompanyName: `${host}/getXx.so?action=getQyList`,

@@ -225,6 +225,7 @@ Page({
       }else {
         wx.showToast({
           title: '注册失败',
+          icon: 'none'
         })
       }
     }, function () {
