@@ -1,0 +1,47 @@
+<view class="baseView">
+  <view class="searchView">
+    <view id='1' class='tapBarItem' wx:if="{{currentTab != 1}}" bindtap='changeTap'>
+      <text class='tapText1'>进行中({{jxzsl}})</text>
+    </view>
+    <view id='1' class='tapBarItem2' wx:if="{{currentTab == 1}}" bindtap='changeTap'>
+      <text class='tapText2'>进行中({{jxzsl}})</text>
+    </view>    
+    <view id='2' class='tapBarItem' wx:if="{{currentTab != 2}}" bindtap='changeTap'>
+      <text class='tapText1'>已归档({{ygdsl}})</text>
+    </view>
+    <view id='2' class='tapBarItem2' wx:if="{{currentTab == 2}}" bindtap='changeTap'>
+      <text class='tapText2'>已归档({{ygdsl}})</text>
+    </view>
+    <view id='0' class='tapBarItem' wx:if="{{currentTab != 0}}" bindtap='changeTap'>
+      <text class='tapText1'>全部({{allsl}})</text>
+    </view>
+    <view id='0' class='tapBarItem2' wx:if="{{currentTab == 0}}" bindtap='changeTap'>
+      <text class='tapText2'>全部({{allsl}})</text>
+    </view>
+    <view class='searchItem' bindtap='jumpProjectSearch'>
+      <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40-70}}px;">
+    <block wx:for="{{repXmlist}}" wx:for-item="item" wx:for-index="index">
+      <view class='scrollItem'>
+        <view class="posit" data-item="{{item}}" data-index="{{index}}" bindtap='deleteProject'>
+          <view class="del" data-addressid="{{item.address.ID}}" data-index="{{index}}">删除</view>
+        </view>
+
+        <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-item="{{item}}" bindtap='selectItem'>
+          <view class='subscrollItem'>
+            <text class='dangerText'>{{item.qymc}}</text>
+            <text class='subText'>{{item.xmmc}}</text>
+            <text class='subText'>录入时间：{{item.lrsj}}</text>
+            <text class='subText'>检查日期：{{item.jcrq}}</text>
+          </view>
+          <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view id='9' class='scrollButtonItem' wx:if="{{xmzt != '1'}}">
+    <button class='submitButton' bindtap="addClick">新建项目</button>
+  </view>
+</view>

@@ -80,7 +80,7 @@ Page({
       })
     } else {// 企业用户
       wx.navigateTo({
-        url: '../application/companyInfoList?qyid=' + app.globalData.userInfo.repRecordid
+        url: '../application/companyInfoList?qyid=' + app.globalData.userInfo.userid
       })
     }
   },
@@ -107,7 +107,7 @@ Page({
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
         wx.navigateTo({
-          url: '../login/login'
+          url: '../login/chooseLoginType'
         })
       }
     })

@@ -1,0 +1,2 @@
+<!--pages/common/webView.wxml-->
+<web-view class='baseView' src="{{url}}"></web-view>

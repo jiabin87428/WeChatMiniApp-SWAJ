@@ -1,0 +1,15 @@
+<view class="baseView">
+  <view class="searchView">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入隐患描述' confirm-type='search' bindconfirm="searchLB"></input>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+    <block wx:for="{{repLb}}" wx:for-item="item" wx:for-index="idx">
+      <view class='scrollItem' data-item="{{item}}" bindtap='jumpDetail'>
+        <text class='cellText1'>{{item.lb}}</text>
+        <text class='cellText2'>({{item.sl}})</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+    </view>
+    </block>
+  </scroll-view>
+</view>

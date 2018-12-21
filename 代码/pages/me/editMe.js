@@ -10,8 +10,8 @@ Page({
   data: {
     // 是否可编辑
     editable: 'true',
-    // 是否企业用户
-    isqy: 'false',
+    // 用户类型
+    yhlx: 0,
     // 修改的参数
     // 企业ID
     qyid: '',
@@ -206,11 +206,13 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == 'false') {
+        that.setData({
+          yhlx: app.globalData.userInfo.yhlx
+        })
+        if (app.globalData.userInfo.yhlx == 1) {
           that.setData({
-            isqy: 'false',
-            qyid: app.globalData.userInfo.repRecordid,
-            companyName: app.globalData.userInfo.repName,
+            qyid: app.globalData.userInfo.userid,
+            companyName: "",
             companyPlace: "",
             companyLocalid: "",
             companyType1: "",
@@ -234,8 +236,7 @@ Page({
           })
         } else {
           that.setData({
-            isqy: 'true',
-            qyid: app.globalData.userInfo.repRecordid,
+            qyid: app.globalData.userInfo.userid,
             companyName: app.globalData.userInfo.repName,
             companyPlace: { name: app.globalData.userInfo.companyLocal},
             companyLocalid: app.globalData.userInfo.companyLocalid,
@@ -256,7 +257,7 @@ Page({
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
         wx.navigateTo({
-          url: '../login/login'
+          url: '../login/chooseLoginType'
         })
       }
     })
@@ -266,7 +267,7 @@ Page({
     var that = this
     var params = {}
 
-    if (that.data.isqy == 'true') {
+    if (that.data.yhlx == 0) {
       params = {
         "qyid": this.data.qyid,
         "companyName": this.data.companyName,
@@ -312,11 +313,13 @@ Page({
       } else {
         wx.showToast({
           title: res.repMsg,
+          icon: 'none'
         })
       }
     }, function () {
       wx.showToast({
         title: '加载数据失败',
+        icon: 'none'
       })
     })
   },

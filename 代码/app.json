@@ -22,7 +22,28 @@
     "pages/application/personInfo",
     "pages/application/standardInfo",
     "pages/manger/companyFilter",
-    "pages/application/companyInfoDetail"
+    "pages/application/companyInfoDetail",
+    "pages/danger/dangerTypeSelect",
+    "pages/danger/dangerDetailSelect",
+    "pages/login/chooseLoginType",
+    "pages/danger/dangerSearchList",
+    "pages/laws/laws",
+    "pages/laws/lawsDetail",
+    "pages/laws/lawsInfoSearch",
+    "pages/danger/projectList",
+    "pages/danger/addProject",
+    "pages/danger/danger4JG",
+    "pages/laws/lawList",
+    "pages/laws/lawGrab",
+    "pages/common/webView",
+    "pages/danger/projectSearch",
+    "pages/danger/dangerSearch",
+    "pages/me/companyList",
+    "pages/me/companyEdit",
+    "pages/danger/clauseList",
+    "pages/check/editPage",
+    "pages/check/safetyManage",
+    "pages/danger/dangerClassify"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -49,10 +70,10 @@
         "text": "隐患排查"
       },
       {
-        "pagePath": "pages/application/application",
+        "pagePath": "pages/laws/laws",
         "iconPath": "assets/application_unselected.png",
         "selectedIconPath": "assets/application.png",
-        "text": "应用"
+        "text": "法律法规"
       },
       {
         "pagePath": "pages/me/me",

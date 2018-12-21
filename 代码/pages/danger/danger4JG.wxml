@@ -1,0 +1,26 @@
+<scroll-view scroll-y="true" class='scrollView'>
+  <image bindtap="userClick" class="titleImage" src="../../assets/dangerBG.png" mode="widthFix"></image> 
+  <view class="userinfo">
+    <view class='dangerView' bindtap='addClick'>
+      <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
+      <view class='subView'>
+        <text class='dangerText'>{{addDangerTitle}}</text>
+        <text class='subText'>{{addDangerDesc}}</text>
+      </view>
+    </view>
+    <view class='dangerView' bindtap='listClick'>
+      <image class="dangerIcon" src="../../assets/list.png" mode="widthFix"></image>
+      <view class='subView'>
+        <text class='dangerText'>隐患排查列表</text>
+        <text class='subText'>对企业进行地毯式排查</text>
+      </view>
+    </view>
+    <view class='dangerView' bindtap='projectClick'>
+      <image class="dangerIcon" src="../../assets/project.png" mode="widthFix"></image>
+      <view class='subView'>
+        <text class='dangerText'>项目详情</text>
+        <text class='subText'>查看修改项目信息</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -24,13 +24,18 @@ Page({
    */
   onLoad: function (options) {
     var viewId = options.id
-    var data = options.data
     var selected = options.selected
     this.setData({
       viewId: viewId,
-      sourceList: JSON.parse(data),
       selected: JSON.parse(selected)
     })
+
+    var data = options.data
+    if (data != null) {
+      this.setData({
+        sourceList: JSON.parse(data)
+      })
+    }
 
     if (viewId == 'companyType1' || viewId == 'companyType2') {
       this.setData({

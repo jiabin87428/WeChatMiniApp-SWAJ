@@ -1,0 +1,15 @@
+<!--pages/manger/companyManger.wxml-->
+<!--pages/danger/dangerCheckList.wxml-->
+<view class='baseView'>
+  <view class="searchView">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入企业名称' confirm-type='search' bindconfirm="searchClick"></input>
+    <text class='filterText' bindtap='jumpFilter'>筛选</text>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+    <view wx:for="{{companyList}}" class='scrollItem' bindtap='jumpCompanyInfoPage' data-id='{{item.id}}'>
+      <text class='cellText1'>{{item.name}}</text>
+    </view>
+  </scroll-view>
+</view>
+

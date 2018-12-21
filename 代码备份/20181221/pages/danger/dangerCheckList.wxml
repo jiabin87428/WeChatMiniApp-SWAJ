@@ -1,0 +1,46 @@
+<!--pages/danger/dangerCheckList.wxml-->
+<view class='baseView'>
+  <view class="searchView">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入隐患名称'></input>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+    <view wx:for="{{dangerList}}" class='scrollItem'>
+      <view class='dangerView' data-id='{{item.yhid}}' data-name='{{item.sfyzg}}' bindtap='getDetail'>
+      <view class='typeView'>
+        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix" wx:if="{{item.sfyzg == 'true'}}"></image>
+        <image class="dangerIcon" src="../../assets/dangerTypeBG2.png" mode="widthFix" wx:else></image>
+        <text class='typeText' wx:if="{{item.sfyzg == 'true'}}">已整改</text>
+        <text class='typeText' wx:else>未整改</text>
+      </view>
+      <view class='subView'>
+        <text class='dangerText'>{{item.wtms}}</text>
+        <text class='subText'>{{item.tjsj}}</text>
+      </view>
+    </view>
+    </view>
+
+
+    <!-- <view class='dangerView' bindtap='getDetail'>
+      <view class='typeView'>
+        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix"></image>
+        <text class='typeText'>基础</text>
+      </view>
+      <view class='subView'>
+        <text class='dangerText'>安全生产责任制</text>
+        <text class='subText'>2018-05-29 23:56</text>
+      </view>
+    </view>
+    <view class='dangerView' bindtap='getDetail'>
+      <view class='typeView'>
+        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix"></image>
+        <text class='typeText'>基础</text>
+      </view>
+      <view class='subView'>
+        <text class='dangerText'>安全生产责任制</text>
+        <text class='subText'>2018-05-23 08:11</text>
+      </view>
+    </view> -->
+  </scroll-view>
+</view>
+

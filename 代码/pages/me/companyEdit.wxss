@@ -1,0 +1,171 @@
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  /*垂直居中*/
+  /* align-items:center; */
+  /*水平居中*/
+  /* justify-content: center; */
+}
+
+.scrollView {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.scrollItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+   /* height: 58px;  */
+  background-color: white; 
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.scrollButtonItem {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70px;
+  margin-bottom: 0px;
+  background-color: white; 
+  align-items:center;/*垂直居中*/
+  /*水平居中*/
+  justify-content: center; 
+}
+
+.mainImage {
+  width: 100%;
+}
+
+.cellText1 {
+  font-size: 14px;
+  color: #060606;
+  margin-left: 10px;
+  width: 90px;
+}
+.cellText2 {
+  font-size: 14px;
+  color: #696969;
+  margin-left: 20px;
+  margin-right: 5px;
+  width: 100%;
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.dateChoose {
+  width: 100%;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  font-size: 14px;
+  color: #696969;
+}
+
+.mustText {
+  font-size: 14px;
+  color: red;
+  width: 5px;
+}
+.cellText3 {
+  text-align: right;
+  font-size: 14px;
+  color: #D3D3D3;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.input {
+  /* background-color: red; */
+  margin-left: 10px;
+  width: 90%;
+  height: 100%;
+  font-size: 14px; 
+}
+
+.arrow {
+  width: 10px;
+  height: 58px;
+  margin-right: 16px;
+}
+
+.submitButton {
+  background-color: #0B6BD9;
+  color: white;
+  width: 90%;
+  height: 48px;
+  margin: 5px 5px 5px 5px;
+}
+
+.resetPasswordButton {
+  background-color: #FE604F;
+  color: white;
+  width: 90%;
+  height: 48px;
+  margin: 5px 5px 5px 5px;
+}
+
+.imageBaseView {
+  display:flex;
+  flex-direction:column;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.imageView {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  /* height: 100px; */
+  background-color: white;
+  align-items: flex-start;/*垂直居中*/
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+
+.titleView {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  align-items:center;/*垂直居中*/
+}
+
+.littleImageView {
+  display:flex;
+  flex-direction:row;
+  margin: 5px 0px 0px 10px;
+}
+
+.littleImageDelete {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.littleImage {
+  width: 100%;
+  height: 100%; 
+}

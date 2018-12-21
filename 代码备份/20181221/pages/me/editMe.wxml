@@ -1,0 +1,69 @@
+<!--pages/me/editMe.wxml-->
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <view id='companyName' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>企业全称</text>
+      <text class='cellText2'>{{companyName}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+    <view id='companyPlace' class='scrollItem' bindtap='jumpRadio' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>企业属地</text>
+      <text class='cellText2'>{{companyPlace.name}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+    <view id='companyType1' class='scrollItem' bindtap='jumpRadio' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>企业类型</text>
+      <text class='cellText2'>{{companyType1.name + companyType2.name}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+    <view id='contact' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>联系人</text>
+      <text class='cellText2'>{{contact}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+    <view id='phone' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>联系方式</text>
+      <text class='cellText2'>{{phone}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+    <view id='email' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>邮箱</text>
+      <text class='cellText2'>{{email}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+    <view id='address' class='scrollItem' bindtap='jumpLocation' wx:if="{{isqy == 'true'}}">
+      <text class='cellText1'>企业地址</text>
+      <text class='cellText2'>{{address}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
+    </view>
+
+    <view id='name' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'false'}}">
+      <text class='cellText1'>姓名</text>
+      <text class='cellText2'>{{name}}</text>
+    </view>
+    <view id='sex' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'false'}}">
+      <text class='cellText1'>性别</text>
+      <text class='cellText2'>{{sex}}</text>
+    </view>
+    <view id='job' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'false'}}">
+      <text class='cellText1'>岗位</text>
+      <text class='cellText2'>{{job}}</text>
+    </view>
+    <view id='dep' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'false'}}">
+      <text class='cellText1'>所在部门</text>
+      <text class='cellText2'>{{dep}}</text>
+    </view>
+    <view id='mobile' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'false'}}">
+      <text class='cellText1'>联系手机</text>
+      <text class='cellText2'>{{mobile}}</text>
+    </view>
+    <view id='jgEmail' class='scrollItem' bindtap='jumpInput' wx:if="{{isqy == 'false'}}">
+      <text class='cellText1'>邮箱</text>
+      <text class='cellText2'>{{email}}</text>
+    </view>
+    
+    <view>
+      <button class='submitButton' bindtap="submit" wx:if="{{editable =='true'}}">保存信息</button>
+    </view>
+  </scroll-view>
+</view>

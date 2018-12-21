@@ -1,0 +1,17 @@
+<view class="baseView">
+  <view class="searchView" bindtap='infoSearch'>
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder="请输入法规名称" confirm-type='search' bindconfirm="searchLaw"></input>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;" bindscrolltoupper="refreshList" bindscrolltolower="loadMore" bindscroll="didScroll">
+    <block wx:for="{{repFglist}}" wx:for-item="item" wx:for-index="idx">
+      <view class='scrollItem' data-item="{{item}}" bindtap='selectItem'>
+        <view class='subscrollItem'>
+          <text class='cellText1'>{{item.title}}</text>
+          <text class='cellText2'>({{item.fbrq}})</text>
+        </view>
+        <!-- <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image> -->
+    </view>
+    </block>
+  </scroll-view>
+</view>

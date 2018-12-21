@@ -91,6 +91,14 @@ Page({
       prevPage.setData({
         desc: this.data.inputstring
       })
+    } else if (this.data.viewId == "clause") {
+      prevPage.setData({
+        clause: this.data.inputstring
+      })
+    } else if (this.data.viewId == "clauseInfo") {
+      prevPage.setData({
+        clauseInfo: this.data.inputstring
+      })
     } else if (this.data.viewId == "result") {
       prevPage.setData({
         result: this.data.inputstring
@@ -146,6 +154,11 @@ Page({
     } else if (this.data.viewId == "mobile") {
       prevPage.setData({
         mobile: this.data.inputstring
+      })
+    } else {// 优化内容，只要页面的key和viewId传一样，就可以使key动态赋值，上面的内容慢慢优化
+      var key = this.data.viewId
+      prevPage.setData({
+        [key]: this.data.inputstring
       })
     }
     wx.navigateBack({

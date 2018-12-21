@@ -1,0 +1,153 @@
+/* pages/danger/dangerDetail.wxss */
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.scrollView {
+  width: 100%;
+  height: 100%;
+  background-color: #D3D3D3;
+}
+
+.scrollItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 58px;
+  background-color: white; 
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.scrollButtonItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 70px;
+  background-color: white; 
+  align-items:center;/*垂直居中*/
+}
+
+.mainImage {
+  width: 100%;
+}
+
+.cellText1 {
+  font-size: 14px;
+  color: #060606;
+  margin-left: 10px;
+  width: 90px;
+}
+.cellText2 {
+  font-size: 14px;
+  color: #696969;
+  margin-left: 20px;
+  width: 100%;
+}
+.cellText3 {
+  text-align: right;
+  font-size: 14px;
+  color: #D3D3D3;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.input {
+  /* background-color: red; */
+  margin-left: 10px;
+  width: 90%;
+  height: 100%;
+  font-size: 14px; 
+}
+
+.arrow {
+  width: 10px;
+  margin-right: 16px;
+}
+
+.submitButton {
+  background-color: #0B6BD9;
+  color: white;
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
+}
+
+.imageBaseView {
+  display:flex;
+  flex-direction:column;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.imageView {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  /* height: 100px; */
+  background-color: white;
+  align-items: flex-start;/*垂直居中*/
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+
+.titleView {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 58px;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  align-items:center;/*垂直居中*/
+}
+
+.littleImageView {
+  display:flex;
+  flex-direction:row;
+  margin: 5px 0px 0px 10px;
+}
+
+.littleImageDelete {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.littleImage {
+  width: 100%;
+  height: 100%; 
+}
+
+.dateChoose {
+  display:flex;
+  flex-direction: row; 
+  width: 100%;
+  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+  align-items:center;/*垂直居中*/
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  font-size: 14px;
+  color: #696969;
+}
+
+.mustText {
+  font-size: 14px;
+  color: red;
+  width: 5px;
+}

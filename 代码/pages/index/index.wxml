@@ -1,74 +1,60 @@
 <!--index.wxml-->
 <view class='baseView'>
-  <view class="subBaseView3" wx:if="{{isqy == true}}">
+  <view class="subBaseView3" wx:if="{{yhlx == 0}}">
     <view class='scrollItem'>
       <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
-      <text class='cellText1'>隐患总数</text>
+      <text class='cellText1'>隐患总数/已整改/未整改</text>
+      <text class='cellText2'>{{yhzs}}/{{yzgyhs}}/{{wzgyhs}}</text>
+    </view>
+  </view>
+  <view class="subBaseView5" wx:elif="{{yhlx == 2}}">
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
+      <text class='cellText1'>监管范围内企业数</text>
+      <text class='cellText2'>{{qysl}}</text>
+    </view>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
+      <text class='cellText1'>监管范围内企业检查出隐患总数</text>
       <text class='cellText2'>{{yhzs}}</text>
     </view>
     <view class='scrollItem'>
       <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
-      <text class='cellText1'>已整改隐患</text>
-      <text class='cellText2'>{{yzgyhs}}</text>
+      <text class='cellText1'>监管范围内企业已整改隐患总数</text>
+      <text class='cellText2'>{{yzg}}</text>
     </view>
     <view class='scrollItem'>
-      <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
-      <text class='cellText1'>未整改隐患</text>
-      <text class='cellText2'>{{wzgyhs}}</text>
+      <text class='cellText3'>开始时间:</text>
+      <picker class='dateChoose' mode="date" value="{{startDate}}" start="2015-09-01" end="2118-12-31" bindchange="startDateChange">
+        <view class="picker">
+          {{startDate}}
+        </view>
+      </picker>
+      <view class='line'></view>
+      <text class='cellText3'>结束时间:</text>
+      <picker class='dateChoose' mode="date" value="{{endDate}}" start="2015-09-01" end="2118-12-31" bindchange="endDateChange">
+        <view class="picker">
+          {{endDate}}
+        </view>
+      </picker>
     </view>
   </view>
   <view class="subBaseView4" wx:else>
     <view class='scrollItem'>
       <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
-      <text class='cellText1'>企业总数</text>
-      <text class='cellText2'>{{qyzs}}</text>
+      <text class='cellText1'>隐患库总数</text>
+      <text class='cellText2'>{{yhkzs}}</text>
     </view>
     <view class='scrollItem'>
       <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
-      <text class='cellText1'>企业隐患总数</text>
-      <text class='cellText2'>{{qyyhzs}}</text>
-    </view>
-    <view class='scrollItem'>
-      <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
-      <text class='cellText1'>企业已整改隐患</text>
-      <text class='cellText2'>{{qyyzgyh}}</text>
-    </view>
-    <view class='scrollItem'>
-      <image class="point" src="../../assets/point_blue.png" mode="aspectFit"></image>
-      <text class='cellText1'>企业未整改隐患</text>
-      <text class='cellText2'>{{qywzgyh}}</text>
+      <text class='cellText1'>法律法规总数</text>
+      <text class='cellText2'>{{flfgzs}}</text>
     </view>
   </view>
   <view class="map_container" style='height:{{winHeight-titleHeight}}px;'>
-    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
-       <cover-image class="add" style='left:{{winWidth/2-25}}px;' src="../../assets/mainAdd_blue.png" mode="aspectFit" bindtap='addClick'></cover-image> 
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="markertap" bindcallouttap='callouttap'>
+       <!-- <cover-image class="add" style='left:{{winWidth/2-25}}px;' src="../../assets/mainAdd_blue.png" mode="aspectFit" bindtap='addClick'></cover-image>  -->
     </map>
   </view>
   <text class='location'>{{currentLocation}}</text>
 </view>
-<!-- <view class="subBaseView2">
-  <view class='locationView'>
-    <text class='location'>{{currentLocation}}</text>
-  </view>
-</view>
-<image class="add" style='left:{{winWidth/2-20}}px;' src="../../assets/mainAdd.png" mode="aspectFit" bindtap='addClick'></image> -->
-
-
-<!-- <scroll-view scroll-y="true" class='scrollView'>
-  <image class="mainImage" src="../../assets/dangerBG.png" mode="widthFix"></image>
-  <view id='1' class='scrollItem'>
-    <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
-    <text class='cellText1'>隐患总数</text>
-    <text class='cellText2'>{{yhzs}}</text>
-  </view>
-  <view id='2' class='scrollItem'>
-    <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
-    <text class='cellText1'>已整改隐患</text>
-    <text class='cellText2'>{{yzgyhs}}</text>
-  </view>
-  <view id='3' class='scrollItem'>
-    <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
-    <text class='cellText1'>未整改隐患</text>
-    <text class='cellText2'>{{wzgyhs}}</text>
-  </view>
-</scroll-view> -->

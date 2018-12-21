@@ -8,8 +8,8 @@ Page({
     addDangerDesc: "企业隐患自查自报",
     winWidth: 0,
     winHeight: 0,
-    // 是否企业用户
-    isqy: true,
+    // 用户类型
+    yhlx: 0,
     // tab切换    
     currentTab: 0,
     //用户名
@@ -43,7 +43,7 @@ Page({
   // 点击用户头像
   userClick: function () {
     wx.navigateTo({
-      url: '../login/login'
+      url: '../login/chooseLoginType'
     })
   },
   // 点击添加隐患
@@ -51,32 +51,24 @@ Page({
     wx.navigateTo({
       url: '../danger/addDanger'
     })
-    // if (!this.checkLogin()) {
-    //   wx.navigateTo({
-    //     url: '../login/login'
-    //   })
-    //   return
-    // } else {
-    //   wx.navigateTo({
-    //     url: '../danger/addDanger'
-    //   })
-    // }
   },
   // 点击隐患列表
   listClick: function () {
     wx.navigateTo({
       url: '../danger/dangerCheckList'
     })
-    // if (!this.checkLogin()) {
-    //   wx.navigateTo({
-    //     url: '../login/login'
-    //   })
-    //   return
-    // } else {
-    //   wx.navigateTo({
-    //     url: '../danger/dangerList'
-    //   })
-    // }
+  },
+  // 点击新建项目
+  addProjectClick: function (e) {
+    wx.navigateTo({
+      url: '../danger/addProject'
+    })
+  },
+  // 点击查看项目列表
+  projectListClick: function (e) {
+    wx.navigateTo({
+      url: '../danger/projectList?userid=' + app.globalData.userInfo.userid
+    })
   },
 
   // 判断是否登录
@@ -93,22 +85,14 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == 'false') {
-          that.setData({
-            addDangerTitle: "隐患督察",
-            addDangerDesc: "对企业进行隐患排查",
-            isqy: false
-          })
-        } else {
-          that.setData({
-            addDangerTitle: "隐患快报",
-            addDangerDesc: "企业隐患自查自报",
-            isqy: true
-          })
-        }
+        that.setData({
+          addDangerTitle: "隐患快报",
+          addDangerDesc: "企业隐患自查自报",
+          yhlx: app.globalData.userInfo.yhlx
+        })
       }, fail: function (res) {
         wx.navigateTo({
-          url: '../login/login'
+          url: '../login/chooseLoginType'
         })
       }
     })

@@ -1,0 +1,13 @@
+<!--pages/danger/dangerList.wxml-->
+<scroll-view scroll-y="true" class='scrollView'>
+  <view class="swiper-tab">    
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待处理</view>    
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已处理</view>       
+  </view>
+  <view wx:for="{{dangerList}}" class='scrollItem'>  
+    {{index}} {{item.title}}   
+  </view> 
+</scroll-view>
+ <view class='addDangerView'>
+  <image class="addDangerIcon" bindtap='addDangerClick' src="../../assets/addDanger.png" mode="aspectFit"></image>
+</view> 

@@ -1,0 +1,23 @@
+<view class="baseView">
+  <view class="searchView">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入您要搜索的法律法规' confirm-type='search' bindconfirm="searchInfo" focus='true'></input>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+    <block wx:for="{{sslist}}" wx:for-item="item">
+      <view class='scrollItem' data-item="{{item}}" bindtap='downLoadAndView'>
+        <view class='subscrollItem'>
+          <text class='cellText1'>{{item.nr}}</text>
+          <block wx:for="{{item.nrlist}}" wx:for-item="item2" wx:for-index="idx">
+            <rich-text class='cellText2' nodes="{{idx + 1}}.{{item2.nr}}"></rich-text>
+          </block>
+        </view>
+        <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+    </view>
+    </block>
+  </scroll-view>
+
+  <view class='downLoadView' wx:if="{{progress != 100 && progress != 0}}">
+    <text class='downLoadText'>{{progress}}/100</text>
+  </view>
+</view>

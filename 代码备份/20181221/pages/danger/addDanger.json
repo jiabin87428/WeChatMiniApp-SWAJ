@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "imageView":"/component/cells/imageSelectedCell"
+  },
+  "navigationBarTitleText": "添加隐患"
+}

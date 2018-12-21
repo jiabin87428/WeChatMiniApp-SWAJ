@@ -1,0 +1,98 @@
+/**index.wxss**/
+.baseView {
+  background-color: #2D68AA;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+}
+
+.loginImage {
+  width: 100%;
+}
+
+.userinfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 150rpx;
+}
+
+.userinfo-avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.userNameBaseView {
+  margin-top: 100rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputView {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 80%;
+  height: 40px;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-bottom: 40rpx;
+  border-radius: 10rpx;
+}
+
+.buttonView {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 50px; 
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin-top: 10rpx;
+}
+
+.loginButton {
+  background-color: #5777E6;
+  color: white;
+  font-weight: 200;
+  font-size: 16px;
+  width: 100%;
+  height: 40px;
+}
+.loginButton text {
+  vertical-align:middle;
+  display: table-cell;
+}
+
+.text {
+  font-weight: 200;
+  color: white;
+  font-size: 14px;
+}
+
+.registerText {
+  font-weight: 200;
+  color: #E5D000;
+  font-size: 14px;
+}
+
+.input {
+  /* background-color: red; */
+  width: 90%;
+  height: 100%;
+  font-size: 14px; 
+}
+
+.usermotto {
+  margin-top: 200px;
+}

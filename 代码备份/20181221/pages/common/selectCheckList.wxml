@@ -1,0 +1,16 @@
+<!--pages/common/selectCheckList.wxml-->
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <checkbox-group bindchange="checkboxChange">
+      <block wx:for="{{sourceList}}" wx:for-item="item" wx:for-index='idx'>
+        <view class='scrollItem'>
+          <text class='cellText1'>{{item.name}}</text>
+          <checkbox value="{{idx}}" checked="{{selected[item.id]}}"/>
+        </view>
+      </block>
+    </checkbox-group>
+    <view class='buttonView'>
+      <button class='submitButton' bindtap="submitClick">确定</button>
+    </view>
+  </scroll-view>
+</view>

@@ -5,7 +5,7 @@
     <input bindinput="bindInput" placeholder="搜索" focus="true" auto-focus/>
    </view> 
   <scroll-view scroll-y="true" class='scrollView' style='height:{{winHeight - 40}}px'>
-    <view bindtap="bindSearch" wx:key="searchId" data-keywords="{{item.name}}" data-location="{{item.location}}"  data-address="{{item.address}}" class="map-box" wx:for="{{tips}}">
+    <view bindtap="bindSearch" wx:key="searchId" data-keywords="{{item.name}}" data-location="{{item.location}}"  data-address="{{item.district + item.address + item.name}}" data-item="{{item}}" class="map-box" wx:for="{{tips}}">
         <text class='title'>{{item.name}}</text>
         <text class='subtitle'>{{item.district}}{{item.address}}</text>
       </view>

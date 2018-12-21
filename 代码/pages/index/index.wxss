@@ -12,7 +12,7 @@
 }
 
 .subBaseView3 {
-  height: 144px; 
+  height: 48px; 
   width: 100%;
   display:flex;
   flex-direction:column;
@@ -20,6 +20,14 @@
 }
 
 .subBaseView4 {
+  height: 96px; 
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  margin-top: 0px;
+}
+
+.subBaseView5 {
   height: 192px; 
   width: 100%;
   display:flex;
@@ -108,12 +116,36 @@
   font-size: 14px;
   color: #696969;
   margin-right: 20px;
-  width: 100%;
+  width: 80px;
   text-align: right;
+}
+.cellText3 {
+  font-size: 14px;
+  color: #696969;
+  width: 250px;
+  margin-left: 20px;
+}
+
+.line {
+  width: 1px;
+  background-color: #D2D2D2;
+  height: 30px;
 }
 
 .point {
   width: 24px;
   height: 24px;
   margin: 20rpx;
+}
+
+.dateChoose {
+  width: 100%;
+  height: 100%;
+}
+.picker{
+  width: 100%;
+  height: 100%;
+  padding: 13px;
+  font-size: 14px;
+  color: #696969;
 }

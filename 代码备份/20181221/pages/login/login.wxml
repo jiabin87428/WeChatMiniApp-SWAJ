@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="baseView">
+  <view class='userNameBaseView'>
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="../../assets/logo_white.png" mode="aspectFit"></image>
+    </view>
+    <view class="inputView">
+      <input class='input' placeholder="请输入企业简称" placeholder-style='color:#D8D8D8;' bindinput="getUserName" confirm-type='next'/>
+    </view>
+    <view class="inputView">
+      <input class='input'  placeholder="请输入密码" placeholder-style='color:#D8D8D8;' bindinput="getPassWord" password/>
+    </view>
+    <view class="buttonView">
+      <button class='loginButton' bindtap="login">登录</button>
+    </view>   
+    <view class="buttonView">
+      <text class='text'>没有账号？</text>
+      <text class='registerText' bindtap='registerClick'>现在注册</text>
+    </view>          
+  </view>
+</view> 

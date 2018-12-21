@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class='baseView'>
+  <view class="subBaseView3" wx:if="{{isqy == true}}">
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
+      <text class='cellText1'>隐患总数</text>
+      <text class='cellText2'>{{yhzs}}</text>
+    </view>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
+      <text class='cellText1'>已整改隐患</text>
+      <text class='cellText2'>{{yzgyhs}}</text>
+    </view>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
+      <text class='cellText1'>未整改隐患</text>
+      <text class='cellText2'>{{wzgyhs}}</text>
+    </view>
+  </view>
+  <view class="subBaseView4" wx:else>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
+      <text class='cellText1'>企业总数</text>
+      <text class='cellText2'>{{qyzs}}</text>
+    </view>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
+      <text class='cellText1'>企业隐患总数</text>
+      <text class='cellText2'>{{qyyhzs}}</text>
+    </view>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
+      <text class='cellText1'>企业已整改隐患</text>
+      <text class='cellText2'>{{qyyzgyh}}</text>
+    </view>
+    <view class='scrollItem'>
+      <image class="point" src="../../assets/point_blue.png" mode="aspectFit"></image>
+      <text class='cellText1'>企业未整改隐患</text>
+      <text class='cellText2'>{{qywzgyh}}</text>
+    </view>
+  </view>
+  <view class="map_container" style='height:{{winHeight-titleHeight}}px;'>
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+       <cover-image class="add" style='left:{{winWidth/2-25}}px;' src="../../assets/mainAdd_blue.png" mode="aspectFit" bindtap='addClick'></cover-image> 
+    </map>
+  </view>
+  <text class='location'>{{currentLocation}}</text>
+</view>
+<!-- <view class="subBaseView2">
+  <view class='locationView'>
+    <text class='location'>{{currentLocation}}</text>
+  </view>
+</view>
+<image class="add" style='left:{{winWidth/2-20}}px;' src="../../assets/mainAdd.png" mode="aspectFit" bindtap='addClick'></image> -->
+
+
+<!-- <scroll-view scroll-y="true" class='scrollView'>
+  <image class="mainImage" src="../../assets/dangerBG.png" mode="widthFix"></image>
+  <view id='1' class='scrollItem'>
+    <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
+    <text class='cellText1'>隐患总数</text>
+    <text class='cellText2'>{{yhzs}}</text>
+  </view>
+  <view id='2' class='scrollItem'>
+    <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
+    <text class='cellText1'>已整改隐患</text>
+    <text class='cellText2'>{{yzgyhs}}</text>
+  </view>
+  <view id='3' class='scrollItem'>
+    <image class="point" src="../../assets/point_violet.png" mode="aspectFit"></image>
+    <text class='cellText1'>未整改隐患</text>
+    <text class='cellText2'>{{wzgyhs}}</text>
+  </view>
+</scroll-view> -->

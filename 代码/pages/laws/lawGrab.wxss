@@ -1,0 +1,150 @@
+/* pages/me/me.wxss */
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.searchView {
+  display:flex;
+  flex-direction:row;
+  background-color: white;
+  width: 100%;
+  height: 40px;
+  align-items:center;/*垂直居中*/
+  border-bottom: 1rpx solid #D8D8D8;
+}
+
+.searchIcon {
+  width: 20px;
+  margin-left: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.scrollView {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.scrollItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.subscrollItem {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  align-items:center;/*垂直居中*/
+}
+
+.mustText {
+  font-size: 14px;
+  color: red;
+  width: 5px;
+}
+
+.cellText1 {
+  font-size: 14px;
+  color: #696969;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 100%;
+  height: 48px;
+  line-height: 48px; /*垂直居中*/
+}
+
+.cellText2 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #B5B5B5;
+  margin-left: 10px;
+  margin-right: 5px;
+  height: 48px;
+  line-height: 48px; /*垂直居中*/
+  text-align: right;
+}
+
+.arrow {
+  width: 10px;
+  height: 48px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx 50rpx 20rpx 50rpx;
+  /* border-radius: 50%; */
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-weight: initial;
+}
+
+.userinfo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #2D68AA;
+}
+.userinfoSub {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.userinfoSubRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items:center;/*垂直居中*/
+}
+
+.setting {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.userinfoTitle {
+  color: white;
+  font-size: 35rpx;
+  font-weight: 300;
+}
+
+.userinfoSubTitle {
+  width: 100%;
+  color: #CDCDCD;
+  font-size: 32rpx;
+  font-weight: 300;
+}
+
+.submitButton {
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #0B6BD9;
+  color: white;
+}

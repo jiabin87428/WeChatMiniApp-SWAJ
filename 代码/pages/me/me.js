@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 是否企业用户
-    isqy: 'false',
+    // 用户类型
+    yhlx: 0,
     // 企业ID
     qyid: '',
     // 用户头像链接
@@ -18,10 +18,6 @@ Page({
     // 企业用户显示
     // 企业全称
     showCompanyName: '企业名称',
-    // 企业属地
-    showCompanyPlace: null,
-    // 企业类型
-    showCompanyType: '企业类型',
     // 联系人
     showContact: '企业联系人',
     // 联系方式
@@ -124,11 +120,21 @@ Page({
   },
   // 退出登录
   loginOut: function () {
-    var that = this
-    wx.removeStorage({
-      key: 'userInfo',
-      success: function (res) {
-        app.checkLogin()
+    wx.showModal({
+      title: '提示',
+      content: '是否确认退出登录？',
+      success:function (res){
+        if (res.confirm) {
+          var that = this
+          wx.removeStorage({
+            key: 'userInfo',
+            success: function (res) {
+              app.checkLogin()
+            }
+          })
+        }else if (res.cancel) {
+          
+        }
       }
     })
   },
@@ -139,15 +145,15 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == 'false') {
+        that.setData({
+          yhlx: app.globalData.userInfo.yhlx
+        })
+        if (app.globalData.userInfo.yhlx == '1') {
           that.setData({
-            isqy: 'false',
-            roleName: '监管用户',
-            qyid: app.globalData.userInfo.repRecordid,
-            logo: config.logoImg + app.globalData.userInfo.repRecordid,
+            roleName: '检查用户',
+            qyid: app.globalData.userInfo.userid,
+            logo: config.logoImg + app.globalData.userInfo.userid,
             showCompanyName: app.globalData.userInfo.name,
-            showCompanyPlace: "",
-            showCompanyType: "",
             showContact: "",
             showPhone: "",
             showEmail: "",
@@ -161,25 +167,28 @@ Page({
             // 所在部门
             dep: app.globalData.userInfo.dep == null ? '' : app.globalData.userInfo.dep,
             // 联系手机
-            mobile: app.globalData.userInfo.mobile == null ? '' : app.globalData.userInfo.mobile,
+            mobile: app.globalData.userInfo.mobile == null ? '' : app.globalData.userInfo.phone,
             // 邮箱
             email: app.globalData.userInfo.email == null ? '' : app.globalData.userInfo.email,
             longitude: app.globalData.userInfo.mapx,
             latitude: app.globalData.userInfo.mapy,
           })
-        } else {
+        } else if (app.globalData.userInfo.yhlx == '2'){
           that.setData({
-            isqy: 'true',
-            qyid: app.globalData.userInfo.repRecordid,
-            logo: config.logoImg + app.globalData.userInfo.repRecordid,
+            logo: config.logoImg + app.globalData.userInfo.userid,
+            roleName: '监管用户',
+            showCompanyName: app.globalData.userInfo.name,
+          })
+        }else {
+          that.setData({
+            qyid: app.globalData.userInfo.userid,
+            logo: config.logoImg + app.globalData.userInfo.userid,
             roleName: '企业用户',
-            showCompanyName: app.globalData.userInfo.repName,
-            showCompanyPlace: app.globalData.userInfo.companyLocal,
-            showCompanyType: app.globalData.userInfo.companyType,
-            showContact: app.globalData.userInfo.inChargePerson,
-            showPhone: app.globalData.userInfo.mobile,
+            showCompanyName: app.globalData.userInfo.name,
+            showContact: app.globalData.userInfo.lxr,
+            showPhone: app.globalData.userInfo.lxfs,
             showEmail: app.globalData.userInfo.email,
-            showAddress: app.globalData.userInfo.address,
+            showAddress: app.globalData.userInfo.qydz,
             longitude: app.globalData.userInfo.mapx,
             latitude: app.globalData.userInfo.mapy,
 
@@ -194,7 +203,7 @@ Page({
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
         wx.navigateTo({
-          url: '../login/login'
+          url: '../login/chooseLoginType'
         })
       }
     })
@@ -204,5 +213,11 @@ Page({
     wx.navigateTo({
       url: '../me/editMe?longitude=' + this.data.longitude + '&latitude=' + this.data.latitude
     })
-  }
+  },
+  // 挑战企业管理
+  companyManagerClick: function (e) {
+    wx.navigateTo({
+      url: '../me/companyList?userid=' + app.globalData.userInfo.userid
+    })
+  },
 })

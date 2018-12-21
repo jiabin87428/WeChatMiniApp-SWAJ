@@ -1,0 +1,52 @@
+<!--pages/danger/addDanger.wxml-->
+<view class="baseView">
+<scroll-view scroll-y="true" class='scrollView'>
+  <view id='companyName' class='scrollItem' bindtap='jumpRadio' wx:if='{{yhlx != 0}}'>
+    <text class='cellText1'>企业名称</text>
+    <text class='mustText'>*</text>
+    <text class='cellText2'>{{companyName.name}}</text>
+    <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
+  </view>
+  <view id='projectName' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>项目名称</text>
+    <text class='mustText'>*</text>
+    <text class='cellText2'>{{projectName}}</text>
+    <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
+  </view>
+  <view id='projectNumber' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>项目编号</text>
+    <text class='mustText'></text>
+    <text class='cellText2'>{{projectNumber}}</text>
+    <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
+  </view>
+  <view id='projectInCharge' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>负责人</text>
+    <text class='mustText'></text>
+    <text class='cellText2'>{{projectInCharge}}</text>
+    <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
+  </view>
+  <!-- <view id='danger' class='scrollItem' bindtap='jumpDanger'>
+    <text class='cellText1'>隐患处理</text>
+    <text class='mustText'></text>
+    <text class='cellText2'></text>
+    <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
+  </view> -->
+  <view id='8' class='scrollButtonItem' wx:if="{{xmid != ''}}">
+    <button class='submitButtonGreen' bindtap="jumpDanger">隐患列表</button>
+  </view>
+  <view id='8' class='scrollButtonItem' wx:if="{{xmid != ''}}">
+    <button class='submitButtonSkyBlue' bindtap="addDanger">新建隐患</button>
+  </view>
+  <view id='9' class='scrollButtonItem' wx:if="{{xmzt != '1'}}">
+    <button class='submitButton' bindtap="submitClick">保存项目</button>
+  </view>
+  <view id='10' class='scrollButtonItem' wx:if="{{xmid != '' && xmzt != '1'}}">
+    <button class='submitButtonRed' bindtap="fileClick">项目归档</button>
+  </view>
+</scroll-view>
+</view>

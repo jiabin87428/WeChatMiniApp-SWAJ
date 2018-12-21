@@ -1,0 +1,63 @@
+.baseView {
+  display:flex;
+  flex-direction:column;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.titleView {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  align-items:center;/*垂直居中*/
+}
+
+.imageView {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  /* height: 100px; */
+  background-color: white;
+  align-items: flex-start;/*垂直居中*/
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+
+.mainImage {
+  width: 100%;
+}
+
+.cellText1 {
+  font-size: 16px;
+  color: #696969;
+  margin-left: 20px;
+  width: 100%;
+}
+.cellText2 {
+  font-size: 16px;
+  color: #696969;
+  margin-right: 20px;
+  width: 100%;
+  text-align: right;
+}
+
+.arrow {
+  width: 10px;
+  margin-right: 16px;
+}
+
+.littleImageView {
+  padding: 5px 0px 0px 10px;
+}
+
+.littleImage {
+  width: 100%;
+  height: 100%; 
+}

@@ -1,0 +1,62 @@
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <view class='scrollItem'>
+      <text class='cellText1'>企业全称</text>
+      <!-- <text class='cellText2'>{{companyName}}</text> -->
+      <input id='companyName' class='input' placeholder="请输入企业全称" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;'/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>企业简称</text>
+      <!-- <text class='cellText2'>{{companyName}}</text> -->
+      <input id='shortName' class='input' placeholder="请输入企业简称或英文缩写 将作为登录名" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;'/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>密码</text>
+      <!-- <text class='cellText2'>{{password}}</text> -->
+       <input id='password' class='input' placeholder="请输入密码" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' password/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>确认密码</text>
+      <!-- <text class='cellText2'>{{comformPassword}}</text> -->
+       <input id='comformPassword' class='input' placeholder="请再次输入密码" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;' password/> 
+    </view>
+    <view id='companyPlace' class='scrollItem' bindtap='jumpRadio'>
+      <text class='cellText1'>企业属地</text>
+      <text class='cellText2'>{{companyPlace.name}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view id='companyType1' class='scrollItem' bindtap='jumpRadio'>
+      <text class='cellText1'>企业类型</text>
+      <text class='cellText2'>{{companyType1.name}}/{{companyType2.name}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>企业联系人</text>
+      <!-- <text class='cellText2'>{{contactName}}</text> -->
+       <input id='contactName' class='input' placeholder="请输入企业联系人" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;'/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>联系人手机</text>
+      <!-- <text class='cellText2'>{{phone}}</text> -->
+       <input id='phone' class='input' placeholder="请输入手机号码" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;'/> 
+    </view>
+    <view class='scrollItem'>
+      <text class='cellText1'>联系人邮箱</text>
+      <!-- <text class='cellText2'>{{contactEmail}}</text> -->
+       <input id='contactEmail' class='input' placeholder="请输入联系人邮箱" bindinput='textInput' placeholder-style='font-size:14px;font-weight: initial; color: #D0D0D0;'/> 
+    </view>
+    <!-- <view id='address' class='scrollItem'>
+      <text class='cellText1'>当前位置</text>
+      <text class='cellText2'>{{address}}</text>
+      <image class="arrow" mode="aspectFit"></image>
+    </view> -->
+    <view id='address' class='scrollItem'  bindtap='jumpLocation'>
+      <text class='cellText1'>企业地址</text>
+      <text class='cellText2'>{{address}}</text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+    </view>
+    <view id='submit' class='scrollButtonItem'>
+      <button class='submitButton' bindtap="submitClick">注册</button>
+    </view>
+  </scroll-view>
+</view>
