@@ -364,4 +364,17 @@ Page({
       url: '../danger/dangerDetail?yhid=' + dangerId + '&zgzt=' + zgzt
     })
   },
+
+  // 跳转企业列表
+  jumpCompanyList: function (e) {
+    wx.navigateTo({
+      url: '../me/companyList?userid=' + app.globalData.userInfo.userid + '&addable=false'
+    })
+  },
+  // 跳转企业列表 - 加载企业隐患用
+  jumpYHList: function (e) {
+    wx.navigateTo({
+      url: '../me/companyList?userid=' + app.globalData.userInfo.userid + '&addable=false&pagetype=1'
+    })
+  },
 })    

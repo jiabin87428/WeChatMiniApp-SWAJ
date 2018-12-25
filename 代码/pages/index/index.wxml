@@ -8,12 +8,12 @@
     </view>
   </view>
   <view class="subBaseView5" wx:elif="{{yhlx == 2}}">
-    <view class='scrollItem'>
+    <view class='scrollItem' bindtap='jumpCompanyList'>
       <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
       <text class='cellText1'>监管范围内企业数</text>
       <text class='cellText2'>{{qysl}}</text>
     </view>
-    <view class='scrollItem'>
+    <view class='scrollItem' bindtap='jumpYHList'>
       <image class="point" src="../../assets/point_yellow.png" mode="aspectFit"></image>
       <text class='cellText1'>监管范围内企业检查出隐患总数</text>
       <text class='cellText2'>{{yhzs}}</text>

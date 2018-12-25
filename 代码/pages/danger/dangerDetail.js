@@ -238,7 +238,7 @@ Page({
   },
   // 添加图片
   addPhoto: function () {
-    if (this.data.xmzt == '1' && this.data.editable == false) {
+    if (this.data.xmzt == '1' || this.data.editable == false) {
       return
     }
     var _this = this;

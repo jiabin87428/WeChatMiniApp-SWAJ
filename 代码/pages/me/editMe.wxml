@@ -1,7 +1,7 @@
 <!--pages/me/editMe.wxml-->
 <view class="baseView">
   <scroll-view scroll-y="true" class='scrollView'>
-    <view id='companyName' class='scrollItem' bindtap='jumpInput' wx:if="{{yhlx == 0}}">
+    <!-- <view id='companyName' class='scrollItem' bindtap='jumpInput' wx:if="{{yhlx == 0}}">
       <text class='cellText1'>企业全称</text>
       <text class='cellText2'>{{companyName}}</text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{editable =='true'}}"></image>
@@ -61,10 +61,19 @@
     <view id='jgEmail' class='scrollItem' bindtap='jumpInput' wx:if="{{yhlx == 1}}">
       <text class='cellText1'>邮箱</text>
       <text class='cellText2'>{{email}}</text>
-    </view>
+    </view> -->
     
-    <view>
+    <view id='password' class='scrollItem' bindtap='changePassword'>
+      <text class='cellText1'>修改密码</text>
+      <text class='cellText2'></text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+    </view>
+
+    <!-- <view>
       <button class='submitButton' bindtap="submit" wx:if="{{editable =='true'}}">保存信息</button>
+    </view> -->
+    <view>
+      <button class='submitButton' bindtap="loginOut">退出登录</button>
     </view>
   </scroll-view>
 </view>

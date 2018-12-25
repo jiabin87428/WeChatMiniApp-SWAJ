@@ -55,8 +55,13 @@
   </view>
   <view id='7' class='scrollItem'>
     <text class='cellText1'>检查时间</text>
-    <text class='cellText2'>{{time}}</text>
-    <image class="arrow" mode="aspectFit"></image>
+    <!-- <text class='cellText2'>{{time}}</text> -->
+    <picker class='dateChoose' mode="date" value="{{time}}" start="2015-09-01" end="2118-12-31" bindchange="bindSubmitDateChange">
+      <view class="picker">
+        {{time}}
+      </view>
+    </picker>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view id='8' class='scrollItem'>
     <text class='cellText1'>检查人</text>
@@ -69,7 +74,7 @@
     <text class='cellText2'>{{rectifyType.name}}</text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>-->
-  <view class='scrollItem' bindtap='jumpRadio'>
+  <view class='scrollItem'>
     <text class='cellText1'>整改期限</text>
     <!-- <text class='mustText'>*</text> -->
     <picker class='dateChoose' mode="date" value="{{date}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange">

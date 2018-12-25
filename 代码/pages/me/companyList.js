@@ -8,7 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 页面用途：0-正常企业编辑新建用，1-加载企业隐患用
+    pagetype: 0,
     scrollHeight: 0,
+    bottomHeight: 70,
     searchText: "",
     userid: "",
     repCompany: [],
@@ -17,6 +20,9 @@ Page({
     delBtnWidth: 80,  //删除按钮宽度单位（rpx）m
     // 当前选中tab页 0-全部 1-未整改 2-已整改 3-草稿
     currentTab: 0,
+
+    // 是否可以新建
+    addable: true,
   },
 
   /**
@@ -25,9 +31,22 @@ Page({
   onLoad: function (options) {
     var that = this
     var userid = options.userid
+    var addable = options.addable == null ? true : options.addable
+    var pagetype = options.pagetype == null ? 0 : options.pagetype
     that.setData({
-      userid: userid
+      userid: userid,
+      addable: addable,
+      pagetype: pagetype
     });
+    if (addable == true) {
+      that.setData({
+        bottomHeight: 70
+      })
+    }else {
+      that.setData({
+        bottomHeight: 0
+      })
+    }
     wx.getSystemInfo({
       success: function (res) {
         console.info(res.windowHeight);
@@ -125,9 +144,19 @@ Page({
 
   // 选择企业进入编辑
   selectItem: function (e) {
-    wx.navigateTo({
-      url: '../me/companyEdit?userid=' + this.data.userid + '&item=' + JSON.stringify(e.currentTarget.dataset.item)
-    })
+    var that = this
+    if (that.data.pagetype == 0) {
+      wx.navigateTo({
+        url: '../me/companyEdit?userid=' + that.data.userid + '&item=' + JSON.stringify(e.currentTarget.dataset.item)
+      })
+    }else {
+      var item = {
+        qyid: e.currentTarget.dataset.item.id + ""
+      }
+      wx.navigateTo({
+        url: '../danger/dangerCheckList?item=' + JSON.stringify(item) + '&pageType=1'
+      })
+    }
   },
 
   // 删除企业

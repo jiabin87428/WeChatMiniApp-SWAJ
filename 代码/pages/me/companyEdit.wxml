@@ -32,6 +32,11 @@
     <text class='cellText2'></text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
+  <view class='scrollItem' bindtap='jumpReport'>
+    <text class='cellText1'>企业报告</text>
+    <text class='cellText2'></text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
   <view id='9' class='scrollButtonItem'>
     <button class='submitButton' bindtap="saveClick">保存</button>
   </view>

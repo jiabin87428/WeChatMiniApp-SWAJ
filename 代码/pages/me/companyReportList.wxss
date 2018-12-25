@@ -19,44 +19,6 @@
   border-bottom: 1rpx solid #D8D8D8;
 }
 
-.searchItem {
-  display:flex;
-  flex-direction:row;
-  align-items: center;
-  width: 150px;
-}
-
-.tapBarItem {
-  width: 100%;
-  text-align: center;
-  color: #A7A7A7;
-  font-size: 14px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.tapBarItem2 {
-  display:flex;
-  flex-direction:row;
-  width: 100%;
-  height: 39px;
-  justify-content: center;/*水平居中*/
-  align-items: center;
-  color: #2D68AA;
-  font-size: 14px;
-  border-bottom: 1rpx solid #2D68AA;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.tapText1 {
-  color: #A7A7A7;
-}
-
-.tapText2 {
-  color: #2D68AA;
-}
-
 .searchIcon {
   width: 20px;
   margin-left: 20px;
@@ -85,62 +47,13 @@
   align-items:center;/*垂直居中*/
 }
 
-.posit {
-  position: absolute;
-  right: 0px;
-  width: 80px;
-  height: 48px;
-  background-color: red;
-  z-index: 0;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;/*垂直居中*/
-  justify-content: center;/*水平居中*/
-}
-
-.del {
-  color: white;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.subscrollBG {
-  display:flex;
-  flex-direction: row;
-  width: 100%;
-  background-color: white;
-  z-index: 1;
-}
-
 .subscrollItem {
   display:flex;
-  flex-direction: column;
+  flex-direction:column;
   width: 100%;
   background-color: white;
-  justify-content: center;/*水平居中*/
-  z-index: 1;
-}
-
-.dangerText {
-  font-size: 15px;
-  color: #6D6D6D;
-  margin-left: 15px;
-}
-
-.subText {
-  font-size: 12px;
-  color: #AFAFAF;
-  margin-left: 15px;
-  margin-right: 5px;
-  /* width: 100%; */
-  display: -webkit-box;
-  line-height: 40rpx;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:10;
-  overflow: hidden;
-  text-overflow:ellipsis;
+  /* margin-bottom: 10px; */
+  align-items:center;/*垂直居中*/
 }
 
 .mustText {
@@ -151,32 +64,34 @@
 
 .cellText1 {
   font-size: 14px;
-  color: #696969;
+  color: #060606;
+  margin-top: 5px;
   margin-left: 10px;
-  margin-right: 5px;
   width: 100%;
-  height: 48px;
-  line-height: 48px; /*垂直居中*/
 }
 
 .cellText2 {
   font-size: 14px;
-  font-weight: 300;
-  color: #B5B5B5;
-  margin-left: 10px;
+  color: #A3A3A3;
+  margin-left: 20px;
   margin-right: 5px;
-  height: 48px;
-  line-height: 48px; /*垂直居中*/
-  text-align: right;
+  margin-bottom: 5px;
+  width: 100%;
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  font-weight: 300;
 }
 
 .arrow {
   width: 10px;
   height: 48px;
-  background-color: white;
   margin-left: 5px;
   margin-right: 10px;
-  z-index: 1;
 }
 
 .userinfo-avatar {
@@ -238,19 +153,18 @@
   color: white;
 }
 
-.scrollButtonItem {
-  display:flex;
-  flex-direction:row;
-  width: 100%;
-  height: 70px;
-  background-color: white; 
+.downLoadView {
+  background-color: #A3A3A3;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 50px;
+  height: 50px;
   align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
 }
 
-.submitButton {
-  background-color: #0B6BD9;
+.downLoadText {
+  font-size: 14px;
   color: white;
-  width: 90%;
-  height: 48px;
-  margin-top: 10px;
 }

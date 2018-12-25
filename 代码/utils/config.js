@@ -14,6 +14,9 @@ var config = {
   // 注册
   register: `${host}/register.do?action=Register`,
 
+  // 修改密码
+  changePassword: `${host}/getXx.do?action=updatePwd`,
+
   // 企业名称列表
   getCompanyName: `${host}/getXx.do?action=getQyList`,
 
@@ -119,6 +122,8 @@ var config = {
   deleteCompany: `${host}/getXx.do?action=delQy`,
   // 重置企业密码
   resetCompanyPassword: `${host}/getXx.do?action=resetPwd`,
+  // 获取企业报告
+  getBgList: `${host}/getXx.do?action=getBgList`,
 
   // 下载文件
   downLoadFile: `${host}/getfile?fileid=`,

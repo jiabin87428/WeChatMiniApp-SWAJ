@@ -164,6 +164,12 @@ Page({
       url: '../common/chooseLocation'
     })
   },
+  // 跳转企业报告列表
+  jumpReport: function (e){
+    wx.navigateTo({
+      url: '../me/companyReportList?qyid=' + this.data.qyid
+    })
+  },
   // 点击了所属区域
   choosePlace: function (e) {
     wx.showToast({

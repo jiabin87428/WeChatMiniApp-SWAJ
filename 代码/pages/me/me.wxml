@@ -7,7 +7,7 @@
         <text class='userinfoTitle'>{{showCompanyName}}</text>
         <view class='userinfoSubRow'>
           <text class='userinfoSubTitle'>{{roleName}}</text>
-          <!-- <image class="setting" src="../../assets/setting.png" mode="aspectFit" bindtap='jumpSetting'></image> -->
+          <image class="setting" src="../../assets/setting.png" mode="aspectFit" bindtap='jumpSetting'></image>
         </view>
       </view>
     </view>
@@ -67,8 +67,8 @@
       <text class='cellText2'></text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
-    <view>
+    <!-- <view>
       <button class='submitButton' bindtap="loginOut">退出登录</button>
-    </view>
+    </view> -->
   </scroll-view>
 </view>

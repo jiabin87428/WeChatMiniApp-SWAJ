@@ -57,7 +57,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.checkLogin()
+    // this.checkLogin()
     var editable = options.editable
     var longitude = options.longitude
     var latitude = options.latitude
@@ -328,5 +328,33 @@ Page({
     wx.navigateTo({
       url: '../common/chooseLocation?longitude=' + this.data.longitude + '&latitude=' + this.data.latitude
     })
-  }
+  },
+
+  // 修改密码
+  changePassword: function (e) {
+    wx.navigateTo({
+      url: '../me/changePassword'
+    })
+  },
+
+  // 退出登录
+  loginOut: function () {
+    wx.showModal({
+      title: '提示',
+      content: '是否确认退出登录？',
+      success: function (res) {
+        if (res.confirm) {
+          var that = this
+          wx.removeStorage({
+            key: 'userInfo',
+            success: function (res) {
+              app.checkLogin()
+            }
+          })
+        } else if (res.cancel) {
+
+        }
+      }
+    })
+  },
 })

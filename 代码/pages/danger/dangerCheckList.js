@@ -52,10 +52,14 @@ Page({
         qyid: item.qyid == null ? "" : item.qyid
       })
     }
-    if(that.pageType == 1) {
-      bottomHeight = 0
+    if(that.data.pageType == 1) {
+      that.setData({
+        bottomHeight: 0
+      })
     }else {
-      bottomHeight = 70
+      that.setData({
+        bottomHeight: 70
+      })
     }
     wx.getSystemInfo({
       success: function (res) {
