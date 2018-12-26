@@ -7,7 +7,7 @@
       <text class='cellText2'>{{yhzs}}/{{yzgyhs}}/{{wzgyhs}}</text>
     </view>
   </view>
-  <view class="subBaseView5" wx:elif="{{yhlx == 2}}">
+  <view class="subBaseView5" wx:elif="{{yhlx == 2 || yhlx == 3}}">
     <view class='scrollItem' bindtap='jumpCompanyList'>
       <image class="point" src="../../assets/point_green.png" mode="aspectFit"></image>
       <text class='cellText1'>监管范围内企业数</text>
@@ -53,7 +53,7 @@
   </view>
   <view class="map_container" style='height:{{winHeight-titleHeight}}px;'>
     <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="markertap" bindcallouttap='callouttap'>
-       <!-- <cover-image class="add" style='left:{{winWidth/2-25}}px;' src="../../assets/mainAdd_blue.png" mode="aspectFit" bindtap='addClick'></cover-image>  -->
+       <cover-image class="add" style='left:{{winWidth/2-25}}px;' src="../../assets/filter.png" mode="aspectFit" bindtap='filterClick' wx:if="{{yhlx == 3}}"></cover-image> 
     </map>
   </view>
   <text class='location'>{{currentLocation}}</text>

@@ -45,7 +45,8 @@
     "pages/check/safetyManage",
     "pages/danger/dangerClassify",
     "pages/me/changePassword",
-    "pages/me/companyReportList"
+    "pages/me/companyReportList",
+    "pages/index/fliter"
   ],
   "window": {
     "backgroundTextStyle": "light",

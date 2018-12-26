@@ -11,7 +11,7 @@
         </view>
       </view>
     </view>
-    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '2'}}">
+    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '2' || yhlx == '3'}}">
       <text class='cellText1'>监管区域</text>
       <text class='cellText2'>{{showCompanyName}}</text>
     </view>

@@ -1,0 +1,18 @@
+<!--pages/index/fliter.wxml-->
+<view class="baseView">
+  <view class="searchView" bindtap='infoSearch'>
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <text class='searchText'>请输入您要搜索的法律法规</text>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+    <block wx:for="{{companyList}}" wx:for-item="item" wx:for-index="idx">
+      <view class='scrollItem' data-item="{{item}}" bindtap='selectItem'>
+        <view class='subscrollItem'>
+          <text class='cellText1'>{{item.name}}</text>
+          <!-- <text class='cellText2'>({{item.sl}})</text> -->
+        </view>
+        <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+    </view>
+    </block>
+  </scroll-view>
+</view>

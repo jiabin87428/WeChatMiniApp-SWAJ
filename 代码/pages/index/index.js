@@ -43,7 +43,10 @@ Page({
     yhzs: 0,
     yzg: 0,
     startDate: "",
-    endDate: ""
+    endDate: "",
+
+    // 组织ID-用于查询地图目标范围内坐标点
+    orgid: ""
   },
   onLoad: function (e) {
     var that = this;
@@ -161,7 +164,8 @@ Page({
               titleHeight: 116,
               markers: mark
             })
-          } else if (app.globalData.userInfo.yhlx == '2') {
+          } else if (app.globalData.userInfo.yhlx == '2' ||
+                      app.globalData.userInfo.yhlx == '3') {
             that.setData({
               // longitude: app.globalData.userInfo.mapx,
               // latitude: app.globalData.userInfo.mapy,
@@ -201,13 +205,34 @@ Page({
       "userid": app.globalData.userInfo.userid,
       "beginTime": that.data.yhlx == "1" ? that.data.startDate : "",
       "endTime": that.data.yhlx == "1" ? that.data.endDate : "",
+      "orgid": that.data.orgid
     }
     request.requestLoading(config.getTj, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)
       if (res.repCode == "200") {
         var markList = that.data.markers
-        if (app.globalData.userInfo.yhlx == '1' || app.globalData.userInfo.yhlx == '2') {
+        if (app.globalData.userInfo.yhlx == '1' || app.globalData.userInfo.yhlx == '2' || app.globalData.userInfo.yhlx == '3') {
+          if (res.sxqy != null && res.sxqy != "") {
+            var sxlongitude = 0
+            var sxlatitude = 0
+            if (res.list.length > 0) {
+              var item = res.list[0]
+              sxlongitude = parseFloat(item.mapx)
+              sxlatitude = parseFloat(item.mapy)
+              if (sxlongitude != 0 && sxlatitude != 0) {
+                that.setData({
+                  longitude: sxlongitude,
+                  latitude: sxlatitude
+                })
+              }
+            }
+            that.setData({
+              currentLocation: "当前筛选区域:" + res.sxqy
+            })
+          }else {
+            that.getCurrentLocation()
+          }
           for (var i = 0; i < res.list.length; i++) {
             var item = res.list[i]
             var callout = {
@@ -294,9 +319,9 @@ Page({
     })
   },
   // 添加隐患
-  addClick: function (e) {
+  filterClick: function (e) {
     wx.navigateTo({
-      url: '../danger/addDanger'
+      url: '../index/fliter'
     })
   },
   // 获取当前位置

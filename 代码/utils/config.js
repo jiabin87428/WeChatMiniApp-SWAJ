@@ -75,8 +75,8 @@ var config = {
   // 获取设备信息
   getSb: `${host}/getXx.do?action=getSb&qyid=`,
 
-  // 获取区、街道（总共有3层：市、区、镇）
-  getLocal: `${host}/getXx.do?action=getLocal&orgid=`,
+  // // 获取区、街道（总共有3层：市、区、镇）
+  // getLocal: `${host}/getXx.do?action=getLocal&orgid=`,
 
   // 获取模板隐患类别
   getCategory: `${host}/getXx.do?action=getLb`,
