@@ -23,8 +23,8 @@
       </view>
     </view>
 
-    <!-- 检查人（原监管） -->
-    <view class="userinfo" wx:if="{{yhlx == 1}}">
+    <!-- 检查人（原监管）和 管理 -->
+    <view class="userinfo" wx:if="{{yhlx == 1 || yhlx == 3}}">
       <view class='dangerView' bindtap='addProjectClick'>
         <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
         <view class='subView'>

@@ -11,8 +11,13 @@
         </view>
       </view>
     </view>
-    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '2' || yhlx == '3'}}">
+    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '2'}}">
       <text class='cellText1'>监管区域</text>
+      <text class='cellText2'>{{showCompanyName}}</text>
+    </view>
+
+    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '3'}}">
+      <text class='cellText1'>用户名称</text>
       <text class='cellText2'>{{showCompanyName}}</text>
     </view>
 
@@ -42,27 +47,27 @@
       <text class='cellText1'>姓名</text>
       <text class='cellText2'>{{name}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{yhlx == '1'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>性别</text>
       <text class='cellText2'>{{sex}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{yhlx == '1'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>岗位</text>
       <text class='cellText2'>{{job}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{yhlx == '1'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>所在部门</text>
       <text class='cellText2'>{{dep}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{yhlx == '1'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>联系手机</text>
       <text class='cellText2'>{{mobile}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{yhlx == '1'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>邮箱</text>
       <text class='cellText2'>{{email}}</text>
     </view>
-    <view id='companyManager' class='scrollItem' wx:if="{{yhlx == '1'}}" bindtap='companyManagerClick'>
+    <view id='companyManager' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}" bindtap='companyManagerClick'>
       <text class='cellText1'>企业管理</text>
       <text class='cellText2'></text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>

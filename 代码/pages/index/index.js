@@ -231,7 +231,9 @@ Page({
               currentLocation: "当前筛选区域:" + res.sxqy
             })
           }else {
-            that.getCurrentLocation()
+            that.setData({
+              currentLocation: "当前筛选区域: 全部"
+            })
           }
           for (var i = 0; i < res.list.length; i++) {
             var item = res.list[i]

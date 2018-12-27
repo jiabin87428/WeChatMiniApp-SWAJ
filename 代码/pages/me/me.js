@@ -148,9 +148,9 @@ Page({
         that.setData({
           yhlx: app.globalData.userInfo.yhlx
         })
-        if (app.globalData.userInfo.yhlx == '1') {
+        if (app.globalData.userInfo.yhlx == '1' || app.globalData.userInfo.yhlx == '3') {
           that.setData({
-            roleName: '检查用户',
+            roleName: app.globalData.userInfo.yhlx == '3' ? '管理用户' : '检查用户',
             qyid: app.globalData.userInfo.userid,
             logo: config.logoImg + app.globalData.userInfo.userid,
             showCompanyName: app.globalData.userInfo.name,
@@ -179,7 +179,7 @@ Page({
             roleName: '监管用户',
             showCompanyName: app.globalData.userInfo.name,
           })
-        }else {
+        } else {
           that.setData({
             qyid: app.globalData.userInfo.userid,
             logo: config.logoImg + app.globalData.userInfo.userid,
