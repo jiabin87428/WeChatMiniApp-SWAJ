@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sfyzg: "false",
+    editable: true,
+    yhzt: "",
     qyid: "",
     yhid: "",
     // 缩略图
@@ -27,33 +28,37 @@ Page({
     bigWcImgList: [],
 
     // 隐患详情显示参数
+    // 项目id
+    xmid: "",
+    // 项目名称
+    xmmc: "",
+    // 项目状态
+    xmzt: "",
     // 企业名称
     qymc: "",
-    // 行业类型
-    hylx: "",
-    // 隐患类别
-    yhlb: "",
-    // 存在问题
-    czwt: "",
+    // 隐患级别
+    yhjb: "",
+    // 隐患分类
+    yhfl: "",    
     // 问题描述
     wtms: "",
+    // 法律依据
+    clause: "",
     // 可造成后果
     kzchg: "",
-    // 潜在隐患
-    qzyh: "",
-    // 整改期限
-    xqzgrq: "",
     // 整改建议
     zgjy: "",
     // 提交时间
     tjsj: "",
+    // 整改期限
+    zgqx: "",
 
 
     // 隐患处理参数
     // 整改负责人
     zgr: "",
     // 整改完成日期
-    date: "",
+    date: "请选择完成日期",
     // 整改完成情况
     zgcs: ""
   },
@@ -68,10 +73,12 @@ Page({
     })
 
     var yhid = options.yhid
-    var sfyzg = options.sfyzg
+    var yhzt = options.yhzt
+    var editable = options.editable == null ? true : Boolean(options.editable)
     this.setData({
       yhid: yhid,
-      sfyzg: sfyzg
+      yhzt: yhzt,
+      editable: editable
     })
 
     this.getDetail()
@@ -157,28 +164,35 @@ Page({
             bigWcImgList.push(bigId)
           }
         }
+        var zgqx = res.zgwcrq
+        if (zgqx == "") {
+          if (res.xmzt != "1" && res.yhzt != "0") {
+            zgqx = "请选择完成日期"
+          }
+        }
         that.setData({
+          xmid: res.xmid,
+          xmmc: res.xmmc,
+          xmzt: res.xmzt,
           qyid: res.qyid,
           // 企业名称
           qymc: res.qymc,
-          // 行业类型
-          hylx: "",
-          // 隐患类别
-          yhlb: "",
-          // 存在问题
-          czwt: "",
+          // 隐患级别
+          yhjb: res.yhjb,
+          // 隐患分类
+          yhfl: res.yhfl,
           // 问题描述
           wtms: res.wtms,
+          // 对应条款
+          clause: res.dytk,
           // 可造成后果
           kzchg: "",
-          // 潜在隐患
-          qzyh: res.qzyh == null ? '' : res.qzyh,
-          // 整改期限
-          xqzgrq: res.xqzgrq,
           // 整改建议
           zgjy: res.zgjy == null ? '' : res.zgjy,
           // 提交时间
           tjsj: res.tjsj,
+          // 整改期限
+          zgqx: res.zgqx,
           // 照片列表
           imageList: imgList,
           // 完成照片列表
@@ -190,13 +204,17 @@ Page({
           // 整改负责人
           zgr: res.zgfzr == null ? "" : res.zgfzr,
           // 整改完成日期
-          date: res.zgwcrq == null ? "" : res.zgwcrq,
+          date: zgqx,
           // 整改完成情况
           zgcs: res.zgwcqk == null ? "" : res.zgwcqk
         });
+        var num = 1
+        if (that.data.yhzt == "0" || that.data.xmzt == "1") {
+          num = 0
+        }
         that.setData({
           imageViewHeight: Math.ceil((that.data.imageList.length) / 4) * (that.data.littleImageWidth + 8),
-          wcImageViewHeight: Math.ceil((that.data.wcImageList.length + 1) / 4) * (that.data.littleImageWidth + 8)
+          wcImageViewHeight: Math.ceil((that.data.wcImageList.length + num) / 4) * (that.data.littleImageWidth + 8)
         })
       } else {
         wx.showToast({
@@ -220,6 +238,9 @@ Page({
   },
   // 添加图片
   addPhoto: function () {
+    if (this.data.xmzt == '1' || this.data.editable == false) {
+      return
+    }
     var _this = this;
     wx.chooseImage({
       success: function (res) {
@@ -244,6 +265,9 @@ Page({
   },
   // 删除图片
   deleteImage: function (e) {
+    if (this.data.editable == false) {
+      return
+    }
     var _this = this
     var currentIdx = e.currentTarget.id;
     var list = _this.data.wcImageList;
@@ -257,7 +281,13 @@ Page({
   },
   // 跳转输入页面
   jumpInput: function (e) {
-    if (this.data.sfyzg == 'true') {
+    if (this.data.editable == false) {
+      return
+    }
+    if (this.data.xmzt == '1') {
+      return
+    }
+    if (this.data.yhzt == '0') {
       return
     }
     var viewId = e.currentTarget.id;
@@ -285,26 +315,41 @@ Page({
   submitClick: function (e) {
     var that = this
     var params = {
+      "xmid": that.data.xmid,
+      "xmmc": that.data.xmmc,
       "yhid": that.data.yhid,
-      "sfyzg": "true",
+      "yhzt": "0",
       "qyid": that.data.qyid,
       "zgwcqk": that.data.zgcs,
       "zgfzr": that.data.zgr,
-      "zgwcrq": that.data.date,
+      "zgwcrq": that.data.date == "请选择完成日期" ? "" : that.data.date,
     }
     request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       console.log(res)
       if (res.repCode == '200') {
-        that.submitImage()
+        if (that.data.wcImageList.length > 0) {
+          that.submitImage()
+        }else {
+          wx.showToast({
+            title: '隐患处理成功',
+            complete: setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1500)
+          })
+        }
       } else {
         wx.showToast({
           title: res.repMsg,
+          icon: 'none'
         })
       }
     }, function () {
       wx.showToast({
         title: '加载数据失败',
+        icon: 'none'
       })
     })
   },
@@ -314,9 +359,11 @@ Page({
       if (resultCode == '200') {
         wx.showToast({
           title: '隐患处理成功',
-          complete: wx.navigateBack({
-            delta: 1
-          })
+          complete: setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500)
         })
       }
     })

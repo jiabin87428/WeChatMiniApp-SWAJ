@@ -1,0 +1,19 @@
+<scroll-view scroll-y="true" class='scrollView'>
+  <image class="titleImage" src="../../assets/fgBG.png" mode="widthFix"></image> 
+  <view class="userinfo">
+    <view class='dangerView' bindtap='getList'>
+      <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
+      <view class='subView'>
+        <text class='dangerText'>法规清单</text>
+        <text class='subText'>收录全面的安全生产相关的法律法规</text>
+      </view>
+    </view>
+    <view class='dangerView' bindtap='grabClick'>
+      <image class="dangerIcon" src="../../assets/list.png" mode="widthFix"></image>
+      <view class='subView'>
+        <text class='dangerText'>法规抓取</text>
+        <text class='subText'>通过网络爬虫技术智能抓取最新更新的法律法规</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

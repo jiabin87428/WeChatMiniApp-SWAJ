@@ -94,16 +94,6 @@ Page({
     wx.navigateTo({
       url: '../danger/addDanger'
     })
-    // if (!this.checkLogin()) {
-    //   wx.navigateTo({
-    //     url: '../login/login'
-    //   })
-    //   return
-    // } else {
-    //   wx.navigateTo({
-    //     url: '../danger/addDanger'
-    //   })
-    // }
   },
   // 点击查看隐患详情
   getDetail: function () {

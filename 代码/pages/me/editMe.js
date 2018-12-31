@@ -10,8 +10,8 @@ Page({
   data: {
     // 是否可编辑
     editable: 'true',
-    // 是否企业用户
-    isqy: 'false',
+    // 用户类型
+    yhlx: 0,
     // 修改的参数
     // 企业ID
     qyid: '',
@@ -57,7 +57,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.checkLogin()
+    // this.checkLogin()
     var editable = options.editable
     var longitude = options.longitude
     var latitude = options.latitude
@@ -206,11 +206,13 @@ Page({
       key: 'userInfo',
       success: function (res) {
         app.globalData.userInfo = res.data
-        if (app.globalData.userInfo.repIsqy == 'false') {
+        that.setData({
+          yhlx: app.globalData.userInfo.yhlx
+        })
+        if (app.globalData.userInfo.yhlx == 1) {
           that.setData({
-            isqy: 'false',
-            qyid: app.globalData.userInfo.repRecordid,
-            companyName: app.globalData.userInfo.repName,
+            qyid: app.globalData.userInfo.userid,
+            companyName: "",
             companyPlace: "",
             companyLocalid: "",
             companyType1: "",
@@ -234,8 +236,7 @@ Page({
           })
         } else {
           that.setData({
-            isqy: 'true',
-            qyid: app.globalData.userInfo.repRecordid,
+            qyid: app.globalData.userInfo.userid,
             companyName: app.globalData.userInfo.repName,
             companyPlace: { name: app.globalData.userInfo.companyLocal},
             companyLocalid: app.globalData.userInfo.companyLocalid,
@@ -251,13 +252,12 @@ Page({
             job: '',
             dep: '',
             mobile: '',
-            email: ''
           })
         }
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
         wx.navigateTo({
-          url: '../login/login'
+          url: '../login/chooseLoginType'
         })
       }
     })
@@ -267,7 +267,7 @@ Page({
     var that = this
     var params = {}
 
-    if (that.data.isqy == 'true') {
+    if (that.data.yhlx == 0) {
       params = {
         "qyid": this.data.qyid,
         "companyName": this.data.companyName,
@@ -313,11 +313,13 @@ Page({
       } else {
         wx.showToast({
           title: res.repMsg,
+          icon: 'none'
         })
       }
     }, function () {
       wx.showToast({
         title: '加载数据失败',
+        icon: 'none'
       })
     })
   },
@@ -326,5 +328,33 @@ Page({
     wx.navigateTo({
       url: '../common/chooseLocation?longitude=' + this.data.longitude + '&latitude=' + this.data.latitude
     })
-  }
+  },
+
+  // 修改密码
+  changePassword: function (e) {
+    wx.navigateTo({
+      url: '../me/changePassword'
+    })
+  },
+
+  // 退出登录
+  loginOut: function () {
+    wx.showModal({
+      title: '提示',
+      content: '是否确认退出登录？',
+      success: function (res) {
+        if (res.confirm) {
+          var that = this
+          wx.removeStorage({
+            key: 'userInfo',
+            success: function (res) {
+              app.checkLogin()
+            }
+          })
+        } else if (res.cancel) {
+
+        }
+      }
+    })
+  },
 })

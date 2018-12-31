@@ -3,8 +3,8 @@
   <view class="userinfo">
     <view class='dangerView' bindtap='listClick'>
       <view class='subView'>
-        <text class='dangerText'>企业管理</text>
-        <text class='subText'>可根据企业类型、企业属地查询</text>
+        <text class='dangerText'>{{menuName}}</text>
+        <text class='subText'>{{subTitle}}</text>
       </view>
       <image class="dangerIcon" src="../../assets/companyManager.png" mode="widthFix"></image>
     </view>

@@ -1,0 +1,12 @@
+/* pages/common/webView.wxss */
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  /*垂直居中*/
+  /* align-items:center; */
+  /*水平居中*/
+  /* justify-content: center; */
+}

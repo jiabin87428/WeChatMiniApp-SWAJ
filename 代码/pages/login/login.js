@@ -41,7 +41,12 @@ Page({
           data: res
         })
         wx.navigateBack({
-          delta: 1
+          delta: 2
+        })
+      }else {
+        wx.showToast({
+          title: res.repMsg,
+          icon: 'none'
         })
       }
     }, function () {

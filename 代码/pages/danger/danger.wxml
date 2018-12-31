@@ -1,19 +1,61 @@
-<scroll-view scroll-y="true" class='scrollView'>
-  <image bindtap="userClick" class="titleImage" src="../../assets/dangerBG.png" mode="widthFix"></image> 
-  <view class="userinfo">
-    <view class='dangerView' bindtap='addClick'>
-      <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
-      <view class='subView'>
-        <text class='dangerText'>{{addDangerTitle}}</text>
-        <text class='subText'>{{addDangerDesc}}</text>
-      </view>
-    </view>
-    <view class='dangerView' bindtap='listClick'>
-      <image class="dangerIcon" src="../../assets/list.png" mode="widthFix"></image>
-      <view class='subView'>
-        <text class='dangerText'>隐患排查列表</text>
-        <text class='subText'>对企业进行地毯式排查</text>
-      </view>
-    </view>
+<view class="baseView">
+  <view class="searchView" wx:if="{{yhlx == 2}}">
+      <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+      <input class='searchInput' placeholder='请输入企业名称' confirm-type='search' bindconfirm="searchCompany"></input>
   </view>
-</scroll-view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-searchViewHeight}}px;">
+    <image bindtap="userClick" class="titleImage" src="../../assets/dangerBG.png" mode="widthFix" wx:if="{{yhlx != 2}}"></image> 
+    <!-- 企业用户 -->
+    <view class="userinfo" wx:if="{{yhlx == 0}}">
+      <view class='dangerView' bindtap='addClick'>
+        <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
+        <view class='subView'>
+          <text class='dangerText'>{{addDangerTitle}}</text>
+          <text class='subText'>{{addDangerDesc}}</text>
+        </view>
+      </view>
+      <view class='dangerView' bindtap='listClick'>
+        <image class="dangerIcon" src="../../assets/list.png" mode="widthFix"></image>
+        <view class='subView'>
+          <text class='dangerText'>隐患排查列表</text>
+          <text class='subText'>对企业进行地毯式排查</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 检查人（原监管）和 管理 -->
+    <view class="userinfo" wx:if="{{yhlx == 1 || yhlx == 3}}">
+      <view class='dangerView' bindtap='addProjectClick'>
+        <image class="dangerIcon" src="../../assets/add.png" mode="widthFix"></image>
+        <view class='subView'>
+          <text class='dangerText'>新建项目</text>
+          <text class='subText'>建立目标企业对应项目</text>
+        </view>
+      </view>
+      <view class='dangerView' bindtap='projectListClick'>
+        <image class="dangerIcon" src="../../assets/list.png" mode="widthFix"></image>
+        <view class='subView'>
+          <text class='dangerText'>项目列表</text>
+          <text class='subText'>对企业进行地毯式排查</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 监管（原政府） -->
+    <block wx:for="{{repCompany}}" wx:for-item="item" wx:for-index="index" wx:if="{{yhlx == 2}}">
+        <view class='scrollItem'>
+          <view class="posit" data-item="{{item}}" data-index="{{index}}" bindtap='deleteCompany'>
+            <view class="del" data-addressid="{{item.address.ID}}" data-index="{{index}}">删除</view>
+          </view>
+
+          <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-item="{{item}}" bindtap='selectItem'>
+            <view class='subscrollItem'>
+              <text class='dangerText'>{{item.name}}</text>
+              <text class='subText'>{{item.qydz}}</text>
+            </view>
+            <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+          </view>
+        </view>
+      </block>
+  </scroll-view>
+</view>

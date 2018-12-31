@@ -11,62 +11,69 @@
         </view>
       </view>
     </view>
-    <view id='companyName' class='scrollItem' wx:if="{{isqy == 'true'}}">
+    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '2'}}">
+      <text class='cellText1'>监管区域</text>
+      <text class='cellText2'>{{showCompanyName}}</text>
+    </view>
+
+    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '3'}}">
+      <text class='cellText1'>用户名称</text>
+      <text class='cellText2'>{{showCompanyName}}</text>
+    </view>
+
+    <view id='companyName' class='scrollItem' wx:if="{{yhlx == '0'}}">
       <text class='cellText1'>企业全称</text>
       <text class='cellText2'>{{showCompanyName}}</text>
     </view>
-    <view id='companyPlace' class='scrollItem' wx:if="{{isqy == 'true'}}">
-      <text class='cellText1'>企业属地</text>
-      <text class='cellText2'>{{showCompanyPlace}}</text>
-    </view>
-    <view id='companyType1' class='scrollItem' wx:if="{{isqy == 'true'}}">
-      <text class='cellText1'>企业类型</text>
-      <text class='cellText2'>{{showCompanyType}}</text>
-    </view>
-    <view id='contact' class='scrollItem' wx:if="{{isqy == 'true'}}">
+    <view id='contact' class='scrollItem' wx:if="{{yhlx == '0'}}">
       <text class='cellText1'>联系人</text>
       <text class='cellText2'>{{showContact}}</text>
     </view>
-    <view id='phone' class='scrollItem' wx:if="{{isqy == 'true'}}">
+    <view id='phone' class='scrollItem' wx:if="{{yhlx == '0'}}">
       <text class='cellText1'>联系方式</text>
       <text class='cellText2'>{{showPhone}}</text>
     </view>
-    <view id='email' class='scrollItem' wx:if="{{isqy == 'true'}}">
+    <view id='email' class='scrollItem' wx:if="{{yhlx == '0'}}">
       <text class='cellText1'>邮箱</text>
       <text class='cellText2'>{{showEmail}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'true'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '0'}}">
       <text class='cellText1'>企业地址</text>
       <text class='cellText2'>{{showAddress}}</text>
     </view>
     
 
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1'}}">
       <text class='cellText1'>姓名</text>
       <text class='cellText2'>{{name}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>性别</text>
       <text class='cellText2'>{{sex}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>岗位</text>
       <text class='cellText2'>{{job}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>所在部门</text>
       <text class='cellText2'>{{dep}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>联系手机</text>
       <text class='cellText2'>{{mobile}}</text>
     </view>
-    <view id='address' class='scrollItem' wx:if="{{isqy == 'false'}}">
+    <view id='address' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}">
       <text class='cellText1'>邮箱</text>
       <text class='cellText2'>{{email}}</text>
     </view>
-    <view>
-      <button class='submitButton' bindtap="loginOut">退出登录</button>
+    <view id='companyManager' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}" bindtap='companyManagerClick'>
+      <text class='cellText1'>企业管理</text>
+      <text class='cellText2'></text>
+      <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
     </view>
+    <!-- <view>
+      <button class='submitButton' bindtap="loginOut">退出登录</button>
+    </view> -->
   </scroll-view>
 </view>

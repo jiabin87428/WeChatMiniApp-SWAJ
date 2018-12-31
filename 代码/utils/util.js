@@ -22,7 +22,25 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function mergeObject(to, source) {
+  var from;
+  var symbols;
+
+  for (var s = 1; s < arguments.length; s++) {
+    from = Object(arguments[s]);
+
+    for (var key in from) {
+      if (hasOwnProperty.call(from, key)) {
+        to[key] = from[key];
+      }
+    }
+  }
+
+  return to;
+}
+
 module.exports = {
+  mergeObject: mergeObject,
   formatTime: formatTime,
   formatDate: formatDate
 }

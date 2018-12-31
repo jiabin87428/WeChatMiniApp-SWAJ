@@ -14,16 +14,44 @@
   background-color: white;
 }
 
+.posit {
+  position: absolute;
+  right: 0px;
+  width: 80px;
+  height: 48px;
+  background-color: red;
+  z-index: 0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.del {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.subscrollBG {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
 .dangerView {
   display:flex;
   flex-direction:row;
   width: 100%;
-  height: 60px;
+  /* height: 60px; */
   background-color: white;
   border-bottom: 1rpx solid #D8D8D8;
   margin-left: 20px;
   align-items:center;/*垂直居中*/
-  
+  z-index: 1;
 }
 
 .titleImage{
@@ -35,10 +63,21 @@
   /* margin-left: 10px; */
 }
 
+.scrollItem {
+  display:flex;
+  flex-direction:row;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+   /* height: 58px;  */
+  background-color: red; 
+  align-items:center;/*垂直居中*/
+}
+
 .subView {
   display:flex;
   flex-direction:column;
-  height: 80%;
+  /* height: 80%; */
   justify-content: center;/*水平居中*/
 }
 
@@ -52,11 +91,20 @@
   font-size: 12px;
   color: #AFAFAF;
   margin-left: 15px;
-  margin-top: 5px;
+  margin-right: 5px;
+  /* width: 100%; */
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 
 .typeView {
   display:flex;
+  height: 60px;
   flex-direction:column;
   align-items:center;/*垂直居中*/
   justify-content: center;/*水平居中*/
@@ -81,9 +129,50 @@
   border-bottom: 1rpx solid #D8D8D8;
 }
 
+.tapBarItem {
+  width: 100%;
+  text-align: center;
+  color: #A7A7A7;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.tapBarItem2 {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 39px;
+  justify-content: center;/*水平居中*/
+  align-items: center;
+  color: #2D68AA;
+  font-size: 14px;
+  border-bottom: 1rpx solid #2D68AA;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.tapText1 {
+  color: #A7A7A7;
+  font-size: 12px;
+}
+
+.tapText2 {
+  color: #2D68AA;
+  font-size: 12px;
+}
+
+.searchItem {
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+}
+
 .searchIcon {
-  width: 20px;
-  margin-left: 20px;
+  width: 100%;
+  margin-right: 5px;
 }
 
 .searchInput {
@@ -91,4 +180,29 @@
   height: 100%;
   font-size: 14px;
   margin-left: 10px;
+}
+
+.scrollButtonItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  height: 70px;
+  background-color: white; 
+  align-items:center;/*垂直居中*/
+}
+
+.submitButton {
+  background-color: #0B6BD9;
+  color: white;
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
+}
+
+.submitButtonDisable {
+  background-color: #D8D8D8;
+  color: white;
+  width: 90%;
+  height: 48px;
+  margin-top: 10px;
 }

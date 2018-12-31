@@ -9,7 +9,9 @@ Page({
   data: {
     isqy: false,
     screenWidth: 0,
-    screenHeight: 0
+    screenHeight: 0,
+    menuName: '企业管理',
+    subTitle: '可根据企业类型、企业属地查询'
   },
 
   /**
@@ -78,7 +80,7 @@ Page({
       })
     } else {// 企业用户
       wx.navigateTo({
-        url: '../application/companyInfoList?qyid=' + app.globalData.userInfo.repRecordid
+        url: '../application/companyInfoList?qyid=' + app.globalData.userInfo.userid
       })
     }
   },
@@ -91,17 +93,21 @@ Page({
         app.globalData.userInfo = res.data
         if (app.globalData.userInfo.repIsqy == 'false') {
           that.setData({
-            isqy: false
+            isqy: false,
+            menuName: "企业管理",
+            subTitle: "可根据企业类型、企业属地查询"
           })
         } else {
           that.setData({
-            isqy: true
+            isqy: true,
+            menuName: "企业信息",
+            subTitle: "查询企业基本信息"
           })
         }
         console.log(app.globalData.userInfo)
       }, fail: function (res) {
         wx.navigateTo({
-          url: '../login/login'
+          url: '../login/chooseLoginType'
         })
       }
     })

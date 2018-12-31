@@ -1,4 +1,35 @@
 /**index.wxss**/
+.baseView {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.searchView {
+  display:flex;
+  flex-direction:row;
+  background-color: white;
+  width: 100%;
+  height: 40px;
+  align-items:center;/*垂直居中*/
+  border-bottom: 1rpx solid #D8D8D8;
+}
+
+.searchIcon {
+  width: 20px;
+  margin-left: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  margin-left: 10px;
+}
 
 .userinfo-avatar {
   width: 128rpx;
@@ -70,4 +101,81 @@
   color: #767676;
   margin-left: 20px;
   margin-top: 5px;
+}
+
+.scrollItem {
+  display:flex;
+  flex-direction:row;
+  width: 100%;
+  background-color: white;
+  /* margin-bottom: 10px; */
+  border-bottom: 1rpx solid #D3D3D3;
+  align-items:center;/*垂直居中*/
+}
+
+.posit {
+  position: absolute;
+  right: 0px;
+  width: 80px;
+  height: 48px;
+  background-color: red;
+  z-index: 0;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.del {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.subscrollBG {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.subscrollItem {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  justify-content: center;/*水平居中*/
+  z-index: 1;
+}
+
+.dangerText {
+  font-size: 15px;
+  color: #6D6D6D;
+  margin-left: 15px;
+}
+
+.subText {
+  font-size: 12px;
+  color: #AFAFAF;
+  margin-left: 15px;
+  margin-right: 5px;
+  /* width: 100%; */
+  display: -webkit-box;
+  line-height: 40rpx;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+.arrow {
+  width: 10px;
+  height: 48px;
+  background-color: white;
+  margin-left: 5px;
+  margin-right: 10px;
+  z-index: 1;
 }

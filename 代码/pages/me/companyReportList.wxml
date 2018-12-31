@@ -1,0 +1,23 @@
+<!--pages/me/companyReportList.wxml-->
+<view class="baseView">
+  <view class="searchView">
+    <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    <input class='searchInput' placeholder='请输入报告名称' confirm-type='search' bindconfirm="searchBG"></input>
+  </view>
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+    <block wx:for="{{repBg}}" wx:for-item="item" wx:for-index="idx">
+      <view class='scrollItem' data-item="{{item}}" bindtap='downLoadAndView'>
+        <view class='subscrollItem'>
+          <text class='cellText1'>{{item.sfileName}}</text>
+          <text class='cellText2'>({{item.createtime}})</text>
+        </view>
+        <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>
+    </view>
+    </block>
+  </scroll-view>
+
+  <view class='downLoadView' wx:if="{{progress != 100 && progress != 0}}">
+    <text class='downLoadText'>{{progress}}/100</text>
+  </view>
+</view>
+

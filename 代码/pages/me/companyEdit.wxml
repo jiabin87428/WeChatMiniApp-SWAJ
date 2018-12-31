@@ -1,0 +1,47 @@
+<!--pages/danger/addDanger.wxml-->
+<view class="baseView">
+<scroll-view scroll-y="true" class='scrollView'>
+  <view id='qymc' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>企业名称</text>
+    <text class='mustText'>*</text>
+    <text class='cellText2'>{{qymc}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='address' class='scrollItem'  bindtap='jumpLocation'>
+    <text class='cellText1'>企业地址</text>
+    <text class='cellText2'>{{address}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='address' class='scrollItem' bindtap='choosePlace'>
+    <text class='cellText1'>所属区域</text>
+    <text class='cellText2'>{{province}}-{{city}}-{{district}}</text>
+    <image class="arrow" src="" mode="aspectFit"></image>
+  </view>
+  <view id='zyfzr' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>主要负责人</text>
+    <text class='cellText2'>{{zyfzr}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='zyfzrdh' class='scrollItem' bindtap='jumpInput'>
+    <text class='cellText1'>负责人电话</text>
+    <text class='cellText2'>{{zyfzrdh}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='zyfzrdh' class='scrollItem' bindtap='jumpSafteyManage'>
+    <text class='cellText1'>更多信息</text>
+    <text class='cellText2'></text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view class='scrollItem' bindtap='jumpReport'>
+    <text class='cellText1'>企业报告</text>
+    <text class='cellText2'></text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view id='9' class='scrollButtonItem'>
+    <button class='submitButton' bindtap="saveClick">保存</button>
+  </view>
+  <view id='9' class='scrollButtonItem'>
+    <button class='resetPasswordButton' bindtap="resetPasswordClick">重置密码</button>
+  </view>
+</scroll-view>
+</view>

@@ -1,46 +1,65 @@
 <!--pages/danger/dangerCheckList.wxml-->
 <view class='baseView'>
-  <view class="searchView">
+  <!-- <view class="searchView">
     <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
     <input class='searchInput' placeholder='请输入隐患名称'></input>
+  </view> -->
+  <view class="searchView">
+    <view id='0' class='tapBarItem' wx:if="{{currentTab != 0}}" bindtap='changeTap'>
+      <text class='tapText1'>全部({{allsl}})</text>
+    </view>
+    <view id='0' class='tapBarItem2' wx:if="{{currentTab == 0}}" bindtap='changeTap'>
+      <text class='tapText2'>全部({{allsl}})</text>
+    </view>
+    <view id='1' class='tapBarItem' wx:if="{{currentTab != 1}}" bindtap='changeTap'>
+      <text class='tapText1'>未整改({{wzgsl}})</text>
+    </view>
+    <view id='1' class='tapBarItem2' wx:if="{{currentTab == 1}}" bindtap='changeTap'>
+      <text class='tapText2'>未整改({{wzgsl}})</text>
+    </view>    
+    <view id='2' class='tapBarItem' wx:if="{{currentTab != 2}}" bindtap='changeTap'>
+      <text class='tapText1'>已整改({{yzgsl}})</text>
+    </view>
+    <view id='2' class='tapBarItem2' wx:if="{{currentTab == 2}}" bindtap='changeTap'>
+      <text class='tapText2'>已整改({{yzgsl}})</text>
+    </view>
+    <view id='3' class='tapBarItem' wx:if="{{currentTab != 3}}" bindtap='changeTap'>
+      <text class='tapText1'>草稿({{cgsl}})</text>
+    </view>
+    <view id='3' class='tapBarItem2' wx:if="{{currentTab == 3}}" bindtap='changeTap'>
+      <text class='tapText2'>草稿({{cgsl}})</text>
+    </view>
+    <view class='searchItem' bindtap='jumpDangerSearch'>
+      <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+    </view>
   </view>
-  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40}}px;">
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-40-bottomHeight}}px;">
     <view wx:for="{{dangerList}}" class='scrollItem'>
-      <view class='dangerView' data-id='{{item.yhid}}' data-name='{{item.sfyzg}}' bindtap='getDetail'>
-      <view class='typeView'>
-        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix" wx:if="{{item.sfyzg == 'true'}}"></image>
-        <image class="dangerIcon" src="../../assets/dangerTypeBG2.png" mode="widthFix" wx:else></image>
-        <text class='typeText' wx:if="{{item.sfyzg == 'true'}}">已整改</text>
-        <text class='typeText' wx:else>未整改</text>
+      <view class="posit" data-item="{{item}}" data-index="{{index}}" bindtap='deleteYH'>
+        <view class="del" data-addressid="{{item.address.ID}}" data-index="{{index}}">删除</view>
       </view>
-      <view class='subView'>
-        <text class='dangerText'>{{item.wtms}}</text>
-        <text class='subText'>{{item.tjsj}}</text>
-      </view>
-    </view>
-    </view>
 
-
-    <!-- <view class='dangerView' bindtap='getDetail'>
-      <view class='typeView'>
-        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix"></image>
-        <text class='typeText'>基础</text>
-      </view>
-      <view class='subView'>
-        <text class='dangerText'>安全生产责任制</text>
-        <text class='subText'>2018-05-29 23:56</text>
+      <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-item="{{item}}" data-id='{{item.yhid}}' data-name='{{item.yhzt}}' bindtap='getDetail'>
+        <view class='dangerView'>
+          <view class='typeView'>
+            <!-- <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix" wx:if="{{item.yhzt == '0'}}"></image> -->
+            <image class="dangerIcon" src="../../assets/dangerTypeBG2.png" mode="widthFix" wx:if="{{item.yhjb == '重大隐患'}}"></image>
+            <image class="dangerIcon" src="../../assets/dangerTypeBG3.png" mode="widthFix" wx:if="{{item.yhjb == '一般隐患'}}"></image>
+            <text class='typeText' wx:if="{{item.yhzt == '0'}}">已整改</text>
+            <text class='typeText' wx:if="{{item.yhzt == '1'}}">未整改</text>
+            <text class='typeText' wx:if="{{item.yhzt == '2'}}">草稿</text>
+          </view>
+          <view class='subView'>
+            <text class='dangerText'>{{item.xcwt}}</text>
+            <text class='subText'>{{item.flyj}}</text>
+          </view>
+        </view>
       </view>
     </view>
-    <view class='dangerView' bindtap='getDetail'>
-      <view class='typeView'>
-        <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix"></image>
-        <text class='typeText'>基础</text>
-      </view>
-      <view class='subView'>
-        <text class='dangerText'>安全生产责任制</text>
-        <text class='subText'>2018-05-23 08:11</text>
-      </view>
-    </view> -->
   </scroll-view>
+  <view id='9' class='scrollButtonItem' wx:if="{{xmzt != '1' && pageType == 0}}">
+    <button class='submitButton' bindtap="addClick" wx:if="{{item.xmzt != '1'}}">新建隐患</button>
+    <button class='submitButtonDisable' bindtap="addClickDisable" wx:else>新建隐患</button>
+  </view>
 </view>
 
