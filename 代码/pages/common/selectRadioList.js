@@ -153,7 +153,11 @@ Page({
   searchClick: function (e) {
     var that = this
     if (this.data.viewId == "companyName") {
-      app.getCompanyName({"companyName":e.detail.value}, function (companyName) {
+      var param = {
+        "searchText": e.detail.value,
+        "userid": app.globalData.userInfo.userid
+      }
+      app.getCompanyName(param, function (companyName) {
         that.setData({
           sourceList: companyName
         })
