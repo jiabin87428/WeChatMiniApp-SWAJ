@@ -10,6 +10,7 @@ Page({
   data: {
     // 0-正常检查人用户通过隐患排查进入的
     // 1-监管用户通过首页点击企业进入的
+    // 2-管理用户通过首页嗲集企业进入-和0一样，开放处理隐患权限
     pageType: 0,
     scrollHeight: 0,
     bottomHeight: 70, // 底部按钮位置，如果不能新建隐患，则置为0
@@ -201,7 +202,7 @@ Page({
         url: '../danger/addDanger?item=' + JSON.stringify(e.currentTarget.dataset.item)
       })
     }else {// 已整改 未整改
-      var editable = this.data.pageType == 0 ? true : false
+      var editable = this.data.pageType == 1 ? false : true
       wx.navigateTo({
         url: '../danger/dangerDetail?yhid=' + e.currentTarget.dataset.id + '&yhzt=' + e.currentTarget.dataset.name + '&editable=' + editable
       })
@@ -242,29 +243,40 @@ Page({
   },
   // 删除隐患
   deleteYH: function (e) {
-    var item = e.currentTarget.dataset.item
     var that = this
-    var param = {
-      "yhid": item.yhid,
-    }
-    //调用接口
-    request.requestLoading(config.deleteYH, param, '正在加载数据', function (res) {
-      console.log(res)
-      if (res.repCode == "200") {
-        var newList = that.data.dangerList
-        newList.splice(e.currentTarget.dataset.index, 1)
-        that.setData({
-          dangerList: newList
-        })
-        wx.showToast({
-          title: res.repMsg
-        })
+    wx.showModal({
+      title: '提示',
+      content: '是否确认删除隐患？',
+      success: function (res) {
+        if (res.confirm) {
+          var item = e.currentTarget.dataset.item
+          // var that = this
+          var param = {
+            "yhid": item.yhid,
+          }
+          //调用接口
+          request.requestLoading(config.deleteYH, param, '正在加载数据', function (res) {
+            console.log(res)
+            if (res.repCode == "200") {
+              var newList = that.data.dangerList
+              newList.splice(e.currentTarget.dataset.index, 1)
+              that.setData({
+                dangerList: newList
+              })
+              wx.showToast({
+                title: res.repMsg
+              })
+            }
+          }, function () {
+            wx.showToast({
+              title: '加载数据失败',
+              icon: 'none'
+            })
+          })
+        } else if (res.cancel) {
+
+        }
       }
-    }, function () {
-      wx.showToast({
-        title: '加载数据失败',
-        icon: 'none'
-      })
     })
   },
   //手指刚放到屏幕触发

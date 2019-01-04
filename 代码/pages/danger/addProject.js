@@ -27,7 +27,9 @@ Page({
     // 项目id
     xmid: "",
     // 项目状态
-    xmzt: ""
+    xmzt: "",
+    // 检查日期
+    checkTime: "",
   },
 
   /**
@@ -205,6 +207,7 @@ Page({
       "xmbh": that.data.projectNumber,
       "xmfzr": that.data.projectInCharge,
       "xmzt": that.data.xmzt,
+      "jcrq": that.data.checkTime,
     }
     request.requestLoading(config.createProjcet, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
@@ -276,6 +279,12 @@ Page({
           url: '../login/chooseLoginType'
         })
       }
+    })
+  },
+  // 选择时间
+  bindDateChange: function (e) {
+    this.setData({
+      checkTime: e.detail.value
     })
   },
 })

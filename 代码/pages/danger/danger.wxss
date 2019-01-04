@@ -90,6 +90,15 @@
   justify-content: center;/*水平居中*/
 }
 
+.haveMajor {
+  font-size: 14px;
+  color: red;
+}
+.noMajor {
+  font-size: 14px;
+  color: green;
+}
+
 .dangerText {
   font-size: 16px;
   color: #256FBD;
@@ -150,10 +159,14 @@
   z-index: 1;
 }
 
+.itemTitle {
+  width: 100%;
+  background-color: white;
+}
+
 .dangerText {
   font-size: 15px;
   color: #6D6D6D;
-  margin-left: 15px;
 }
 
 .subText {

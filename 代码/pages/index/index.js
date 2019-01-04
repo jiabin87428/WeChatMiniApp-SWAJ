@@ -249,7 +249,7 @@ Page({
               id: item.qyid,
               latitude: item.mapy,
               longitude: item.mapx,
-              iconPath: '../../assets/danger_position.png',
+              iconPath: item.sfyzdyh == "N" ? '../../assets/danger_position.png' : '../../assets/danger_undo.png',
               width: 30,
               height: 30,
               callout: callout
@@ -376,12 +376,18 @@ Page({
         var mark = this.data.markers[e.markerId + 1]
         this.getDetail(mark.yhid, mark.zgzt)
       }
-    } else if (app.globalData.userInfo.yhlx == "2") {// 监管(政府)
+    } else if (app.globalData.userInfo.yhlx == "2" || app.globalData.userInfo.yhlx == "3") {// 监管(政府)/管理者
       var item = {
         qyid: e.markerId + ""
       }
+      var pagetype = 0
+      if (app.globalData.userInfo.yhlx == "2") {
+        pagetype = 1
+      } else if (app.globalData.userInfo.yhlx == "3") {
+        pagetype = 2
+      }
       wx.navigateTo({
-        url: '../danger/dangerCheckList?item=' + JSON.stringify(item) + '&pageType=1'
+        url: '../danger/dangerCheckList?item=' + JSON.stringify(item) + '&pageType=' + pagetype
       })
     }
   },
@@ -400,8 +406,14 @@ Page({
   },
   // 跳转企业列表 - 加载企业隐患用
   jumpYHList: function (e) {
+    var pagetype = 0
+    if (app.globalData.userInfo.yhlx == "2") {
+      pagetype = 1
+    } else if (app.globalData.userInfo.yhlx == "3") {
+      pagetype = 2
+    }
     wx.navigateTo({
-      url: '../me/companyList?userid=' + app.globalData.userInfo.userid + '&addable=false&pagetype=1'
+      url: '../me/companyList?userid=' + app.globalData.userInfo.userid + '&addable=false&pagetype=' + pagetype
     })
   },
 })    

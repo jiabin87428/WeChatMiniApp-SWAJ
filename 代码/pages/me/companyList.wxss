@@ -111,6 +111,7 @@
   width: 100%;
   background-color: white;
   z-index: 1;
+  align-items:center;/*垂直居中*/
 }
 
 .subscrollItem {
@@ -253,4 +254,13 @@
   width: 90%;
   height: 48px;
   margin-top: 10px;
+}
+
+.haveMajor {
+  font-size: 14px;
+  color: red;
+}
+.noMajor {
+  font-size: 14px;
+  color: green;
 }

@@ -130,16 +130,8 @@ Page({
     request.requestLoading(config.getCompanyList, param, '正在加载数据', function (res) {
       console.log(res)
       if (res.repCompany != null) {
-        var newList = []
-        for (var i = 0; i < res.repCompany.length; i++) {
-          var item = res.repCompany[i]
-          if (item.name == "A1九亭镇") {
-            newList.push(item)
-          }
-        }
-        newList = newList.concat(res.repCompany)
         that.setData({
-          repCompany: newList
+          repCompany: res.repCompany
         })
       }
     }, function () {

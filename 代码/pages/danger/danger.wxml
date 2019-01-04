@@ -50,7 +50,9 @@
 
           <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-item="{{item}}" bindtap='selectItem'>
             <view class='subscrollItem'>
-              <text class='dangerText'>{{item.name}}</text>
+              <view class='itemTitle'>
+                <text class='dangerText'><text class='haveMajor' wx:if="{{item.sfyzdyh == 'Y'}}">[有重大隐患]</text><text class='noMajor' wx:if="{{item.sfyzdyh == 'N'}}">[无重大隐患]</text>{{item.name}}({{item.yhsl}})</text>
+              </view>
               <text class='subText'>{{item.qydz}}</text>
             </view>
             <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>

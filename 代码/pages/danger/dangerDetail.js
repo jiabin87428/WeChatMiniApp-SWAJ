@@ -14,6 +14,7 @@ Page({
     yhzt: "",
     qyid: "",
     yhid: "",
+    yhlx: 0,
     // 缩略图
     imageList: [],
     // 高清图
@@ -37,21 +38,21 @@ Page({
     // 企业名称
     qymc: "",
     // 隐患级别
-    yhjb: "",
+    level: "",
     // 隐患分类
-    yhfl: "",    
-    // 问题描述
-    wtms: "",
+    classify: "",    
+    // 隐患描述
+    desc: "",
     // 法律依据
     clause: "",
     // 可造成后果
     kzchg: "",
     // 整改建议
-    zgjy: "",
+    advise: "",
     // 提交时间
-    tjsj: "",
+    checkTime: "",
     // 整改期限
-    zgqx: "",
+    doneTime: "",
 
 
     // 隐患处理参数
@@ -60,7 +61,9 @@ Page({
     // 整改完成日期
     date: "请选择完成日期",
     // 整改完成情况
-    zgcs: ""
+    zgcs: "",
+
+    newaddImagelist: [],
   },
 
   /**
@@ -74,11 +77,12 @@ Page({
 
     var yhid = options.yhid
     var yhzt = options.yhzt
-    var editable = options.editable == null ? true : false
+    var editable = options.editable == null ? true : Boolean(options.editable)
     this.setData({
       yhid: yhid,
       yhzt: yhzt,
-      editable: editable
+      editable: editable,
+      yhlx: app.globalData.userInfo.yhlx,
     })
 
     this.getDetail()
@@ -178,21 +182,21 @@ Page({
           // 企业名称
           qymc: res.qymc,
           // 隐患级别
-          yhjb: res.yhjb,
+          level: res.yhjb,
           // 隐患分类
-          yhfl: res.yhfl,
+          classify: res.yhfl,
           // 问题描述
-          wtms: res.wtms,
+          desc: res.wtms,
           // 对应条款
           clause: res.dytk,
           // 可造成后果
           kzchg: "",
           // 整改建议
-          zgjy: res.zgjy == null ? '' : res.zgjy,
+          advise: res.zgjy == null ? '' : res.zgjy,
           // 提交时间
-          tjsj: res.tjsj,
+          checkTime: res.tjsj,
           // 整改期限
-          zgqx: res.zgqx,
+          doneTime: res.zgqx,
           // 照片列表
           imageList: imgList,
           // 完成照片列表
@@ -216,6 +220,12 @@ Page({
           imageViewHeight: Math.ceil((that.data.imageList.length) / 4) * (that.data.littleImageWidth + 8),
           wcImageViewHeight: Math.ceil((that.data.wcImageList.length + num) / 4) * (that.data.littleImageWidth + 8)
         })
+
+        if(that.data.yhlx == 3) {
+          that.setData({
+            imageViewHeight: Math.ceil((that.data.imageList.length + num) / 4) * (that.data.littleImageWidth + 8)
+          })
+        }
       } else {
         wx.showToast({
           title: res.repMsg
@@ -299,6 +309,15 @@ Page({
     } else if (viewId == "zgcs") {
       placeholder = "请输入整改措施"
       inputstring = this.data.zgcs
+    } else if (viewId == "classify") {
+      placeholder = "请输入隐患分类"
+      inputstring = this.data.classify
+    } else if (viewId == "advise") {
+      if (this.data.yhlx != 3) {
+        return
+      }
+      placeholder = "请输入整改建议"
+      inputstring = this.data.advise
     }
     wx.navigateTo({
       url: '../common/inputPage?id=' + viewId + '&placeholder=' + placeholder + '&inputstring=' + inputstring
@@ -366,6 +385,209 @@ Page({
           }, 1500)
         })
       }
+    })
+  },
+
+  // -------------管理用户编辑-------------
+  // 选择隐患级别
+  selectLevel: function (e) {
+    if(this.data.yhlx != 3) {
+      return
+    }
+    var viewId = e.currentTarget.id
+    var that = this
+    wx.showActionSheet({
+      itemList: ['一般隐患', '重大隐患'],
+      success: function (res) {
+        if (res.tapIndex == 0) {// 一般隐患
+          that.setData({
+            level: '一般隐患'
+          })
+        } else if (res.tapIndex == 1) {// 重大隐患
+          that.setData({
+            level: '重大隐患'
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  // 选择隐患分类
+  selectClassify: function (e) {
+    if (this.data.yhlx != 3) {
+      return
+    }
+    var viewId = e.currentTarget.id
+    var that = this
+    wx.showActionSheet({
+      itemList: ['自行输入分类', '从分类库选择'],
+      success: function (res) {
+        if (res.tapIndex == 0) {// 自行输入分类
+          that.jumpInput(e)
+        } else if (res.tapIndex == 1) {// 从隐患库检索
+          wx.navigateTo({
+            url: '../danger/dangerClassify'
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  // 选择现场问题输入方式：通过模板选择or直接输入
+  selectInputType: function (e) {
+    if (this.data.yhlx != 3) {
+      return
+    }
+    var viewId = e.currentTarget.id
+    var that = this
+    wx.showActionSheet({
+      itemList: viewId == "clause" ? ['从隐患库选择', '自行输入问题', '从隐患库检索', '从法规库选择'] : ['从隐患库选择', '自行输入问题', '从隐患库检索'],
+      success: function (res) {
+        if (res.tapIndex == 0) {// 从模板选择
+          wx.navigateTo({
+            url: '../danger/dangerTypeSelect'
+          })
+        } else if (res.tapIndex == 1) {// 自行输入
+          that.jumpInput(e)
+        } else if (res.tapIndex == 2) {// 从隐患库检索
+          wx.navigateTo({
+            url: '../danger/dangerDetailSelect'
+          })
+        } else {// 法规库选择
+          wx.navigateTo({
+            url: '../danger/clauseList'
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  bindSubmitDateChange: function (e) {
+    if (this.data.yhlx != 3) {
+      return
+    }
+    this.setData({
+      checkTime: e.detail.value
+    })
+  },
+  // 添加图片
+  addPhoto: function () {
+    if (this.data.yhlx != 3) {
+      return
+    }
+    var _this = this;
+    wx.chooseImage({
+      success: function (res) {
+        _this.setData({
+          imageList: _this.data.imageList.concat(res.tempFilePaths),
+          newaddImagelist: _this.data.newaddImagelist.concat(res.tempFilePaths),
+        })
+
+        _this.setData({
+          imageViewHeight: Math.ceil((_this.data.imageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
+        })
+      }
+    })
+  },
+  // 删除图片
+  deleteDangerImage: function (e) {
+    if (this.data.yhlx != 3) {
+      return
+    }
+    var _this = this
+    var currentIdx = e.currentTarget.id;
+    var list = _this.data.imageList;
+
+    var item = list[currentIdx]
+    var reg = RegExp(/www.gelure.com/);
+    if (item.match(reg) == null) {// 不包含, 说明是新增的图片，这时候也要去newaddImagelist里找到并删除对应的
+      var newlist = _this.data.newaddImagelist
+      for (var i = 0; i < newlist.length; i++) {
+        var newItem = newlist[i]
+        if (item == newItem) {
+          newlist.splice(i, 1)
+          i--
+        }
+      }
+      _this.setData({
+        newaddImagelist: newlist
+      })
+    }
+
+    list.splice(currentIdx, 1)
+    _this.setData({
+      imageList: list
+    })
+    _this.setData({
+      imageViewHeight: Math.ceil((_this.data.imageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
+    })
+  },
+  // 提交图片事件
+  submitDangerImage: function () {
+    app.uploadDIY('?yhid=' + this.data.yhid + '&zptype=zgqzp', this.data.newaddImagelist, 0, 0, 0, this.data.newaddImagelist.length, function (resultCode) {
+      if (resultCode == '200') {
+        wx.showToast({
+          title: '成功',
+          complete: setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1500)
+        })
+      }
+    })
+  },
+  // 调用新增隐患接口
+  submitYH: function () {
+    var that = this
+    var params = {
+      "xmid": this.data.xmid,
+      "xmmc": this.data.xmmc,
+      "yhid": this.data.yhid,
+      "userid": app.globalData.userInfo.userid,
+      "qyid": this.data.qyid,
+      "qymc": this.data.qymc,
+      "yhjb": this.data.level,
+      "yhfl": this.data.classify,
+      "wtms": this.data.desc,
+      "dytk": this.data.clause,
+      "zgqx": this.data.doneTime,
+      "zgjy": this.data.advise,
+      "tjsj": this.data.checkTime,
+      "yhzt": 1,
+    }
+    request.requestLoading(config.insertYh, params, '正在加载数据', function (res) {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+      if (res.repCode == '200') {
+        if (that.data.newaddImagelist.length > 0) {
+          that.submitDangerImage()
+        } else {
+          wx.showToast({
+            title: res.repMsg,
+            complete: setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1500)
+          })
+        }
+      } else {
+        wx.showToast({
+          title: res.repMsg,
+          icon: 'none'
+        })
+      }
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
     })
   },
 })

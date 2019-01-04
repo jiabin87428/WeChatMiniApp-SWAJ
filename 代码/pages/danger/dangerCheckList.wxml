@@ -42,9 +42,9 @@
       <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-item="{{item}}" data-id='{{item.yhid}}' data-name='{{item.yhzt}}' bindtap='getDetail'>
         <view class='dangerView'>
           <view class='typeView'>
-            <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix" wx:if="{{item.yhzt == '0'}}"></image>
-            <image class="dangerIcon" src="../../assets/dangerTypeBG2.png" mode="widthFix" wx:if="{{item.yhzt == '1'}}"></image>
-            <image class="dangerIcon" src="../../assets/dangerTypeBG3.png" mode="widthFix" wx:if="{{item.yhzt == '2'}}"></image>
+            <!-- <image class="dangerIcon" src="../../assets/dangerTypeBG.png" mode="widthFix" wx:if="{{item.yhzt == '0'}}"></image> -->
+            <image class="dangerIcon" src="../../assets/dangerTypeBG2.png" mode="widthFix" wx:if="{{item.yhjb == '重大隐患'}}"></image>
+            <image class="dangerIcon" src="../../assets/dangerTypeBG3.png" mode="widthFix" wx:if="{{item.yhjb == '一般隐患'}}"></image>
             <text class='typeText' wx:if="{{item.yhzt == '0'}}">已整改</text>
             <text class='typeText' wx:if="{{item.yhzt == '1'}}">未整改</text>
             <text class='typeText' wx:if="{{item.yhzt == '2'}}">草稿</text>
