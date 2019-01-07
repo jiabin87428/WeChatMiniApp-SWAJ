@@ -29,8 +29,17 @@ Page({
     // 区
     district: "区",
 
+    // 风险等级
+    level: "",
+    // 风险对应传给后台的值
+    fxdj: "",
+    items: ['重大风险', '较大风险', '一般风险', '低风险'],
+
     // 基本信息和安全管理信息对象
     baseAndSaftyObj: {},
+
+    // 账号列表
+    zhlist: []
   },
 
   /**
@@ -59,6 +68,21 @@ Page({
         province: item.province,
         city: item.city,
         district: item.district,
+        fxdj: item.fxdj,
+        zhlist: item.zhlist
+      })
+      var level = ""
+      if (item.fxdj == 'A(红色)') {
+        level = that.data.items[0]
+      } else if (item.fxdj == 'B(橙色)') {
+        level = that.data.items[1]
+      } else if (item.fxdj == 'C(黄色)') {
+        level = that.data.items[2]
+      } else if (item.fxdj == 'D(蓝色)') {
+        level = that.data.items[3]
+      }
+      that.setData({
+        level: level
       })
     }
   },
@@ -177,6 +201,33 @@ Page({
       icon: 'none'
     })
   },
+  // 选择风险等级
+  chooseLevel: function (e) {
+    var that = this
+    wx.showActionSheet({
+      itemList: that.data.items,
+      success: function (res) {
+        var level = that.data.items[res.tapIndex]
+        var fxdj = ""
+        if (res.tapIndex == 0) {// 重大风险[红色]
+          fxdj = "A(红色)"
+        }else if (res.tapIndex == 1) {// 较大风险[橙色]
+          fxdj = "B(橙色)"
+        }else if (res.tapIndex == 2) {// 一般风险[黄色]
+          fxdj = "C(黄色)"
+        }else if (res.tapIndex == 3) {// 低风险[蓝色]
+          fxdj = "D(蓝色)"
+        }
+        that.setData({
+          level: level,
+          fxdj: fxdj
+        })
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
   // 保存
   saveClick: function (e) {
     var that = this
@@ -192,6 +243,7 @@ Page({
       "province": that.data.province,
       "city": that.data.city,
       "district": that.data.district,
+      "fxdj": that.data.fxdj,
     }
     request.requestLoading(config.editCompany, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
@@ -256,6 +308,15 @@ Page({
       wx.showToast({
         title: '重置密码失败',
       })
+    })
+  },
+
+
+  // 跳转企业账号页面
+  jumpAccount: function (e) {
+
+    wx.navigateTo({
+      url: '../me/companyAccounts?qyid=' + this.data.qyid + '&zhlist=' + JSON.stringify(this.data.zhlist)
     })
   },
 })

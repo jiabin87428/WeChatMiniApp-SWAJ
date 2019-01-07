@@ -17,6 +17,11 @@
     <text class='cellText2'>{{province}}-{{city}}-{{district}}</text>
     <image class="arrow" src="" mode="aspectFit"></image>
   </view>
+  <view id='address' class='scrollItem' bindtap='chooseLevel'>
+    <text class='cellText1'>风险等级</text>
+    <text class='cellText2'>{{level}}</text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
   <view id='zyfzr' class='scrollItem' bindtap='jumpInput'>
     <text class='cellText1'>主要负责人</text>
     <text class='cellText2'>{{zyfzr}}</text>
@@ -28,12 +33,17 @@
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view id='zyfzrdh' class='scrollItem' bindtap='jumpSafteyManage'>
-    <text class='cellText1'>更多信息</text>
+    <text class='cellText1'>安全基础信息</text>
     <text class='cellText2'></text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>
   <view class='scrollItem' bindtap='jumpReport'>
     <text class='cellText1'>企业报告</text>
+    <text class='cellText2'></text>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
+  <view class='scrollItem' bindtap='jumpAccount'>
+    <text class='cellText1'>企业账号</text>
     <text class='cellText2'></text>
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
   </view>

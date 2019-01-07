@@ -149,3 +149,13 @@
   font-size: 14px;
   color: #696969;
 }
+
+.tip {
+  position: absolute; 
+  justify-content: center; 
+  align-items: center;
+  bottom: 5px;
+  width: 70px;
+  height: 52px;
+  /* margin-top: -25px; */
+}

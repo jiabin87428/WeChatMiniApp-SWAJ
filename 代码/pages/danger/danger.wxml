@@ -50,7 +50,17 @@
 
           <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-item="{{item}}" bindtap='selectItem'>
             <view class='subscrollItem'>
-              <text class='dangerText'>{{item.name}}</text>
+              <view class='titleViewBG'>
+                <image class='rect' src="../../assets/redRect.png" mode="aspectFit" wx:if="{{item.fxdj == 'A(红色)'}}"></image>
+                <text class='levelText' wx:if="{{item.fxdj == 'A(红色)'}}">(A级)</text>
+                <image class='rect' src="../../assets/orangeRect.png" mode="aspectFit" wx:if="{{item.fxdj == 'B(橙色)'}}"></image>
+                <text class='levelText' wx:if="{{item.fxdj == 'B(橙色)'}}">(B级)</text>
+                <image class='rect' src="../../assets/yellowRect.png" mode="aspectFit" wx:if="{{item.fxdj == 'C(黄色)'}}"></image>
+                <text class='levelText' wx:if="{{item.fxdj == 'C(黄色)'}}">(C级)</text>
+                <image class='rect' src="../../assets/blueRect.png" mode="aspectFit" wx:if="{{item.fxdj == 'D(蓝色)'}}"></image>
+                <text class='levelText' wx:if="{{item.fxdj == 'D(蓝色)'}}">(D级)</text>
+                <text class='dangerText'>{{item.name}}({{item.yhsl}})</text>
+              </view>
               <text class='subText'>{{item.qydz}}</text>
             </view>
             <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" ></image>

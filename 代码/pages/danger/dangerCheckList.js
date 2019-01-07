@@ -243,29 +243,48 @@ Page({
   },
   // 删除隐患
   deleteYH: function (e) {
-    var item = e.currentTarget.dataset.item
     var that = this
-    var param = {
-      "yhid": item.yhid,
-    }
-    //调用接口
-    request.requestLoading(config.deleteYH, param, '正在加载数据', function (res) {
-      console.log(res)
-      if (res.repCode == "200") {
-        var newList = that.data.dangerList
-        newList.splice(e.currentTarget.dataset.index, 1)
-        that.setData({
-          dangerList: newList
-        })
-        wx.showToast({
-          title: res.repMsg
-        })
-      }
-    }, function () {
+    if (app.globalData.userInfo.yhsc == "false") {
       wx.showToast({
-        title: '加载数据失败',
+        title: '没有删除权限',
         icon: 'none'
       })
+      return
+    }
+
+    wx.showModal({
+      title: '提示',
+      content: '是否确认删除隐患？',
+      success: function (res) {
+        if (res.confirm) {
+          var item = e.currentTarget.dataset.item
+          // var that = this
+          var param = {
+            "yhid": item.yhid,
+          }
+          //调用接口
+          request.requestLoading(config.deleteYH, param, '正在加载数据', function (res) {
+            console.log(res)
+            if (res.repCode == "200") {
+              var newList = that.data.dangerList
+              newList.splice(e.currentTarget.dataset.index, 1)
+              that.setData({
+                dangerList: newList
+              })
+              wx.showToast({
+                title: res.repMsg
+              })
+            }
+          }, function () {
+            wx.showToast({
+              title: '加载数据失败',
+              icon: 'none'
+            })
+          })
+        } else if (res.cancel) {
+
+        }
+      }
     })
   },
   //手指刚放到屏幕触发

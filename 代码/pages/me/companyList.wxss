@@ -126,7 +126,7 @@
 .dangerText {
   font-size: 15px;
   color: #6D6D6D;
-  margin-left: 15px;
+  margin-left: 3px;
 }
 
 .subText {
@@ -178,6 +178,12 @@
   margin-left: 5px;
   margin-right: 10px;
   z-index: 1;
+}
+
+.rect {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
 }
 
 .userinfo-avatar {
@@ -254,4 +260,30 @@
   width: 90%;
   height: 48px;
   margin-top: 10px;
+}
+
+.haveMajor {
+  font-size: 14px;
+  color: red;
+}
+.noMajor {
+  font-size: 14px;
+  color: green;
+}
+
+.titleViewBG {
+  /* display:flex;
+  flex-direction: row; */
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  align-items:center;/*垂直居中*/
+}
+
+.levelText {
+  width: 30px;
+  height: 20px;
+  font-size: 15px;
+  color: #6D6D6D;
+  margin-left: 3px;
 }

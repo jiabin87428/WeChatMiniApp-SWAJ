@@ -29,6 +29,15 @@
     <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
   </view>
+  <view id='checkTime' class='scrollItem'>
+    <text class='cellText1'>检查日期</text>
+    <picker class='dateChoose' mode="date" value="{{checkTime}}" start="2015-09-01" end="2118-12-31" bindchange="bindDateChange">
+      <view class="picker">
+        {{checkTime}}
+      </view>
+    </picker>
+    <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>
+  </view>
   <!-- <view id='danger' class='scrollItem' bindtap='jumpDanger'>
     <text class='cellText1'>隐患处理</text>
     <text class='mustText'></text>

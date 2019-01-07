@@ -46,12 +46,14 @@
     "pages/danger/dangerClassify",
     "pages/me/changePassword",
     "pages/me/companyReportList",
-    "pages/index/fliter"
+    "pages/index/fliter",
+    "pages/me/companyAccounts",
+    "pages/me/addCompanyAccount"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2D68AA",
-    "navigationBarTitleText": "沙湾安监",
+    "navigationBarTitleText": "纪杰安管家",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

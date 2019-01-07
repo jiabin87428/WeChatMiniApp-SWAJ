@@ -124,6 +124,8 @@ var config = {
   resetCompanyPassword: `${host}/getXx.do?action=resetPwd`,
   // 获取企业报告
   getBgList: `${host}/getXx.do?action=getBgList`,
+  // 企业编辑，新建账号
+  createAccount: `${host}/getXx.do?action=register`,
 
   // 下载文件
   downLoadFile: `${host}/getfile?fileid=`,

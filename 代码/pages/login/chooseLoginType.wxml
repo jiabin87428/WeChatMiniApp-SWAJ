@@ -2,7 +2,7 @@
 <view class="baseView">
   <view class='userNameBaseView'>
     <view class="userinfo">
-      <image class="userinfo-avatar" src="../../assets/logo_white.png" mode="aspectFit"></image>
+      <image class="userinfo-avatar" src="../../assets/logo.png" mode="aspectFit"></image>
     </view>
     <!-- <view class="buttonView">
       <button class='weLoginButton' bindtap="weChartLogin">微信登录</button>

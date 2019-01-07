@@ -2,7 +2,7 @@
 <view class="baseView">
   <view class='userNameBaseView'>
     <view class="userinfo">
-      <image class="userinfo-avatar" src="../../assets/logo_white.png" mode="aspectFit"></image>
+      <image class="userinfo-avatar" src="../../assets/logo.png" mode="aspectFit"></image>
     </view>
     <view class="inputView">
       <input class='input' placeholder="请输入企业简称" placeholder-style='color:#D8D8D8;' bindinput="getUserName" confirm-type='next'/>
