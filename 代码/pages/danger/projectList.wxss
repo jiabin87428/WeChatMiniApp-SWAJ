@@ -23,7 +23,7 @@
   display:flex;
   flex-direction:row;
   align-items: center;
-  width: 150px;
+  width: 100px;
 }
 
 .searchIcon {
@@ -37,7 +37,7 @@
   color: #A7A7A7;
   font-size: 14px;
   margin-left: 20px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .tapBarItem2 {
@@ -51,7 +51,7 @@
   font-size: 14px;
   border-bottom: 1rpx solid #2D68AA;
   margin-left: 20px;
-  margin-right: 20px;
+  /* margin-right: 10px; */
 }
 
 .tapText1 {
