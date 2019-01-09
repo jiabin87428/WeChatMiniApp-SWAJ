@@ -1,0 +1,20 @@
+<!--pages/me/companyAccounts.wxml-->
+<view class="baseView">
+  <!-- <view class="searchView" wx:if="{{yhlx == 2}}">
+      <image class="searchIcon" src="../../assets/search.png" mode="widthFix"></image>
+      <input class='searchInput' placeholder='请输入企业名称' confirm-type='search' bindconfirm="searchCompany"></input>
+  </view> -->
+  <scroll-view scroll-y="true" class='scrollView' style="height:{{scrollHeight-70}}px;">
+    <block wx:for="{{zhlist}}" wx:for-item="item" wx:for-index="index">
+        <view class='subscrollBG' style="{{item.txtStyle}}" data-index="{{index}}" data-item="{{item}}">
+          <view class='scrollItem'>
+            <text class='cellText2'>{{item.userCode}}</text>
+          </view>
+        </view>
+      </block>
+  </scroll-view>
+  <view id='9' class='scrollButtonItem'>
+    <button class='submitButton' bindtap="addClick">新建账号</button>
+  </view>
+</view>
+

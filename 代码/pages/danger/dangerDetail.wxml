@@ -48,7 +48,7 @@
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{yhlx == 3}}"></image>
   </view>
   <view id='7' class='scrollItem' wx:if="{{yhlx == 3}}">
-    <text class='cellText1'>提交时间</text>
+    <text class='cellText1'>检查时间</text>
     <picker class='dateChoose' mode="date" value="{{checkTime}}" start="2015-09-01" end="2118-12-31" bindchange="bindSubmitDateChange">
       <view class="picker">
         <text class='pickerText'>{{checkTime}}</text>
@@ -57,7 +57,7 @@
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:if="{{yhlx == 3}}"></image>
   </view>
   <view id='7' class='scrollItem' wx:else>
-    <text class='cellText1'>提交时间</text>
+    <text class='cellText1'>检查时间</text>
     <text class='pickerText'>{{checkTime}}</text>
   </view>
   <view id='7' class='scrollItem' wx:if="{{yhlx == 3}}">

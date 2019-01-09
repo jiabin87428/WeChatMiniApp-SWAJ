@@ -1,0 +1,14 @@
+<!--pages/me/addCompanyAccount.wxml-->
+<!--pages/danger/addDanger.wxml-->
+<view class="baseView">
+  <scroll-view scroll-y="true" class='scrollView'>
+    <view id='qymc' class='scrollItem'>
+      <text class='cellText1'>账户名称</text>
+      <text class='mustText'>*</text>
+      <input class='input' placeholder="请输入账户名称" placeholder-style='color:#D8D8D8;' bindinput="getUserName" confirm-type='next'/>
+    </view>
+    <view id='9' class='scrollButtonItem'>
+      <button class='submitButton' bindtap="saveClick">保存</button>
+    </view>
+  </scroll-view>
+</view>

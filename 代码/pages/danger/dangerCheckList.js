@@ -244,6 +244,14 @@ Page({
   // 删除隐患
   deleteYH: function (e) {
     var that = this
+    if (app.globalData.userInfo.yhsc == "false") {
+      wx.showToast({
+        title: '没有删除权限',
+        icon: 'none'
+      })
+      return
+    }
+
     wx.showModal({
       title: '提示',
       content: '是否确认删除隐患？',

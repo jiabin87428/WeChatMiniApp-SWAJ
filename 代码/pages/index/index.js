@@ -209,7 +209,7 @@ Page({
     }
     request.requestLoading(config.getTj, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
-      console.log(res)
+      // console.log(res)
       if (res.repCode == "200") {
         var markList = that.data.markers
         if (app.globalData.userInfo.yhlx == '1' || app.globalData.userInfo.yhlx == '2' || app.globalData.userInfo.yhlx == '3') {
@@ -237,10 +237,30 @@ Page({
           }
           for (var i = 0; i < res.list.length; i++) {
             var item = res.list[i]
+            var bgColor = "#0083FF"
+            var textColor = "#FFFFFF"
+            var iconPath = "../../assets/point_D.png"
+            if(item.fxdj == "A(红色)"){
+              bgColor = "#FF0000"
+              iconPath = "../../assets/point_A.png"
+            }else if(item.fxdj == "B(橙色)"){
+              bgColor = "#FF8800"
+              iconPath = "../../assets/point_B.png"
+            } else if (item.fxdj == "C(黄色)") {
+              bgColor = "#FFFF00"
+              iconPath = "../../assets/point_C.png"
+              textColor = "#898989"
+            } else if (item.fxdj == "D(蓝色)") {
+              bgColor = "#0083FF"
+              iconPath = "../../assets/point_D.png"
+            }
+            console.log(bgColor)
             var callout = {
               content: item.qymc + '(隐患总数：' + item.yhsl + ')',
-              color: '#FFFFFF',
-              bgColor: '#5490FF',
+              color: textColor,
+              bgColor: bgColor,
+              borderColor: '#DDDDDD',
+              borderWidth: 1,
               borderRadius: 5,
               padding: 5,
               display: 'ALWAYS'
@@ -249,8 +269,8 @@ Page({
               id: item.qyid,
               latitude: item.mapy,
               longitude: item.mapx,
-              iconPath: item.sfyzdyh == "N" ? '../../assets/danger_position.png' : '../../assets/danger_undo.png',
-              width: 30,
+              iconPath: iconPath,
+              width: 25,
               height: 30,
               callout: callout
             }
@@ -288,6 +308,8 @@ Page({
               content: item.yhms,
               color: '#FFFFFF',
               bgColor: color,
+              borderColor: '#dddddd',
+              borderWidth: 1,
               borderRadius: 5,
               padding: 5,
               display: 'ALWAYS'

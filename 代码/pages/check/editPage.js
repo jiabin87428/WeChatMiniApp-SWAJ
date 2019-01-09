@@ -15,6 +15,9 @@ Page({
 
     // 日期
     date : '请选择日期',
+
+    // 是否重复点击Radio
+    repeatClickRadio: true,
   },
 
   /**
@@ -80,6 +83,9 @@ Page({
 
   // 单选
   radioChange: function (e) {
+    this.setData({
+      repeatClickRadio: false,
+    })
     this.data.returnObj[e.currentTarget.id] = e.detail.value
     console.log('radio发生change事件，携带value值为：', e.detail.value)
   },
@@ -128,5 +134,23 @@ Page({
     wx.navigateBack({
       delta: 1
     })
-  }
+  },
+
+  radioClick: function (e) {
+    if(this.data.repeatClickRadio == true) {
+      var currentTargetID = e.currentTarget.id
+      var targetID = e.target.id
+      var value = this.data.returnObj[currentTargetID]
+      if (value == targetID) {
+        var obj = this.data.returnObj
+        obj[currentTargetID] = ""
+        this.setData({
+          returnObj: obj
+        })
+      }
+    }
+    this.setData({
+      repeatClickRadio: true,
+    })
+  },
 })

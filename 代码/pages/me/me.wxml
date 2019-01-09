@@ -67,7 +67,7 @@
       <text class='cellText1'>邮箱</text>
       <text class='cellText2'>{{email}}</text>
     </view>
-    <view id='companyManager' class='scrollItem' wx:if="{{yhlx == '1' || yhlx == '3'}}" bindtap='companyManagerClick'>
+    <view id='companyManager' class='scrollItem' wx:if="{{yhlx != '0'}}" bindtap='companyManagerClick'>
       <text class='cellText1'>企业管理</text>
       <text class='cellText2'></text>
       <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit"></image>

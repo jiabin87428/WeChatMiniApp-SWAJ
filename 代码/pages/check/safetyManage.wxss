@@ -47,6 +47,7 @@
   color: #B5B5B5;
   margin-left: 10px;
   margin-right: 5px;
+  width: 100px;
   height: 48px;
   line-height: 48px; /*垂直居中*/
   text-align: right;

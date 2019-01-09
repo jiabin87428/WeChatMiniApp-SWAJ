@@ -3,26 +3,26 @@
   <view class='subView' wx:if="{{viewId == 'yaba'}}">
     <label class='titleLabel'>是否有应急预案编制</label>
     <view class='item'>
-      <radio-group id="sfyyjyabz" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfyyjyabz" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfyyjyabz == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfyyjyabz == '是'}}" >是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfyyjyabz == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfyyjyabz == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
 
     <label class='titleLabel'>是否备案</label>
     <view class='item'>
-      <radio-group id="sfba" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfba" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfba == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfba == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfba == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfba == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -42,13 +42,13 @@
   <view class='subView' wx:if="{{viewId == 'bzhdb'}}">
     <label class='titleLabel'>安全生产标准化是否达标</label>
     <view class='item'>
-      <radio-group id="aqscbzhdbjsjdj" class="radio-group" bindchange="radioChange">
+      <radio-group id="aqscbzhdbjsjdj" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.aqscbzhdbjsjdj == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.aqscbzhdbjsjdj == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.aqscbzhdbjsjdj == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.aqscbzhdbjsjdj == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -73,13 +73,13 @@
   <view class='subView' wx:if="{{viewId == 'fxgkqk'}}">
     <label class='titleLabel'>风险分级管控是否落实</label>
     <view class='item'>
-      <radio-group id="fxfjgklsqk" class="radio-group" bindchange="radioChange">
+      <radio-group id="fxfjgklsqk" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.fxfjgklsqk == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.fxfjgklsqk == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.fxfjgklsqk == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.fxfjgklsqk == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -89,13 +89,13 @@
   <view class='subView' wx:if="{{viewId == 'yhpcls'}}">
     <label class='titleLabel'>隐患排查制度是否落实</label>
     <view class='item'>
-      <radio-group id="yhpczdlsqk" class="radio-group" bindchange="radioChange">
+      <radio-group id="yhpczdlsqk" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.yhpczdlsqk == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.yhpczdlsqk == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.yhpczdlsqk == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.yhpczdlsqk == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -105,17 +105,17 @@
   <view class='subView' wx:if="{{viewId == 'anzrz'}}">
     <label class='titleLabel'>是否建立企业安全生产责任制</label>
     <view class='item'>
-      <radio-group id="sfjlqyaqsczrz" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfjlqyaqsczrz" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfjlqyaqsczrz == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfjlqyaqsczrz == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="欠缺" checked="{{returnObj.sfjlqyaqsczrz == '欠缺'}}">欠缺</radio>
+          <radio id="欠缺" value="欠缺" checked="{{returnObj.sfjlqyaqsczrz == '欠缺'}}">欠缺</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfjlqyaqsczrz == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfjlqyaqsczrz == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -125,30 +125,30 @@
   <view class='subView' wx:if="{{viewId == 'sfsyhxp'}}">
     <label class='titleLabel'>是否使用危险化学品</label>
     <view class='item'>
-      <radio-group id="sfsywxhxp" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfsywxhxp" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfsywxhxp == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfsywxhxp == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfsywxhxp == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfsywxhxp == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
 
     <label class='titleLabel'>管理状况</label>
     <view class='item'>
-      <radio-group id="glzk" class="radio-group" bindchange="radioChange">
+      <radio-group id="glzk" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="较好" checked="{{returnObj.glzk == '较好'}}">较好</radio>
+          <radio id="较好" value="较好" checked="{{returnObj.glzk == '较好'}}">较好</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="一般" checked="{{returnObj.glzk == '一般'}}">一般</radio>
+          <radio id="一般" value="一般" checked="{{returnObj.glzk == '一般'}}">一般</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="较差" checked="{{returnObj.glzk == '较差'}}">较差</radio>
+          <radio id="较差" value="较差" checked="{{returnObj.glzk == '较差'}}">较差</radio>
         </label>
       </radio-group>
     </view>
@@ -158,13 +158,13 @@
   <view class='subView' wx:if="{{viewId == 'sfyck'}}">
     <label class='titleLabel'>是否有危化品仓库或周转点</label>
     <view class='item'>
-      <radio-group id="sfywhpckhzzd" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfywhpckhzzd" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfywhpckhzzd == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfywhpckhzzd == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfywhpckhzzd == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfywhpckhzzd == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -174,17 +174,17 @@
   <view class='subView' wx:if="{{viewId == 'fzrsfcz'}}">
     <label class='titleLabel'>安全负责人持证情况</label>
     <view class='item'>
-      <radio-group id="aqfzrczqk" class="radio-group" bindchange="radioChange">
+      <radio-group id="aqfzrczqk" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="有" checked="{{returnObj.aqfzrczqk == '有'}}">有</radio>
+          <radio id="有" value="有" checked="{{returnObj.aqfzrczqk == '有'}}">有</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="无" checked="{{returnObj.aqfzrczqk == '无'}}">无</radio>
+          <radio id="无" value="无" checked="{{returnObj.aqfzrczqk == '无'}}">无</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="过期" checked="{{returnObj.aqfzrczqk == '过期'}}">过期</radio>
+          <radio id="过期" value="过期" checked="{{returnObj.aqfzrczqk == '过期'}}">过期</radio>
         </label>
       </radio-group>
     </view>
@@ -194,17 +194,17 @@
   <view class='subView' wx:if="{{viewId == 'glysfcz'}}">
     <label class='titleLabel'>安全管理员持证情况</label>
     <view class='item'>
-      <radio-group id="aqglyczqk" class="radio-group" bindchange="radioChange">
+      <radio-group id="aqglyczqk" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="有" checked="{{returnObj.aqglyczqk == '有'}}">有</radio>
+          <radio id="有" value="有" checked="{{returnObj.aqglyczqk == '有'}}">有</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="无" checked="{{returnObj.aqglyczqk == '无'}}">无</radio>
+          <radio id="无" value="无" checked="{{returnObj.aqglyczqk == '无'}}">无</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="过期" checked="{{returnObj.aqglyczqk == '过期'}}">过期</radio>
+          <radio id="过期" value="过期" checked="{{returnObj.aqglyczqk == '过期'}}">过期</radio>
         </label>
       </radio-group>
     </view>
@@ -214,13 +214,13 @@
   <view class='subView' wx:if="{{viewId == 'fcqy'}}">
     <label class='titleLabel'>是否有粉尘区域</label>
     <view class='item'>
-      <radio-group id="sfyfcqy" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfyfcqy" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfyfcqy == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfyfcqy == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfyfcqy == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfyfcqy == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
@@ -230,17 +230,17 @@
   <view class='subView' wx:if="{{viewId == 'tzsbjc'}}">
     <label class='titleLabel'>特种设备检测情况</label>
     <view class='item'>
-      <radio-group id="tzsbjcqk" class="radio-group" bindchange="radioChange">
+      <radio-group id="tzsbjcqk" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.tzsbjcqk == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.tzsbjcqk == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.tzsbjcqk == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.tzsbjcqk == '否'}}">否</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="无" checked="{{returnObj.tzsbjcqk == '无'}}">无</radio>
+          <radio id="无" value="无" checked="{{returnObj.tzsbjcqk == '无'}}">无</radio>
         </label>
       </radio-group>
     </view>
@@ -250,17 +250,17 @@
   <view class='subView' wx:if="{{viewId == 'aqzdsfqq'}}">
     <label class='titleLabel'>安全生产管理制度是否齐全</label>
     <view class='item'>
-      <radio-group id="aqscglzdsfqq" class="radio-group" bindchange="radioChange">
+      <radio-group id="aqscglzdsfqq" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="齐全" checked="{{returnObj.aqscglzdsfqq == '齐全'}}">齐全</radio>
+          <radio id="齐全" value="齐全" checked="{{returnObj.aqscglzdsfqq == '齐全'}}">齐全</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="一般" checked="{{returnObj.aqscglzdsfqq == '一般'}}">一般</radio>
+          <radio id="一般" value="一般" checked="{{returnObj.aqscglzdsfqq == '一般'}}">一般</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="欠缺较多" checked="{{returnObj.aqscglzdsfqq == '欠缺较多'}}">欠缺较多</radio>
+          <radio id="欠缺较多" value="欠缺较多" checked="{{returnObj.aqscglzdsfqq == '欠缺较多'}}">欠缺较多</radio>
         </label>
       </radio-group>
     </view>
@@ -270,26 +270,26 @@
   <view class='subView' wx:if="{{viewId == 'sfyst'}}">
     <label class='titleLabel'>是否有食堂</label>
     <view class='item'>
-      <radio-group id="sfyst" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfyst" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.sfyst == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.sfyst == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.sfyst == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.sfyst == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>
 
     <label class='titleLabel'>是否有证</label>
     <view class='item'>
-      <radio-group id="sfyz" class="radio-group" bindchange="radioChange">
+      <radio-group id="sfyz" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="有证" checked="{{returnObj.sfyz == '有证'}}">有证</radio>
+          <radio id="有证" value="有证" checked="{{returnObj.sfyz == '有证'}}">有证</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="无证" checked="{{returnObj.sfyz == '无证'}}">无证</radio>
+          <radio id="无证" value="无证" checked="{{returnObj.sfyz == '无证'}}">无证</radio>
         </label>
       </radio-group>
     </view>
@@ -299,13 +299,13 @@
   <view class='subView' wx:if="{{viewId == 'blzzsfjc'}}">
     <label class='titleLabel'>防雷装置是否检测</label>
     <view class='item'>
-      <radio-group id="flzzsfjc" class="radio-group" bindchange="radioChange">
+      <radio-group id="flzzsfjc" class="radio-group" bindchange="radioChange" bindtap='radioClick'>
         <label class="radio">
-          <radio value="是" checked="{{returnObj.flzzsfjc == '是'}}">是</radio>
+          <radio id="是" value="是" checked="{{returnObj.flzzsfjc == '是'}}">是</radio>
         </label>
         <view class='line'></view>
         <label class="radio">
-          <radio value="否" checked="{{returnObj.flzzsfjc == '否'}}">否</radio>
+          <radio id="否" value="否" checked="{{returnObj.flzzsfjc == '否'}}">否</radio>
         </label>
       </radio-group>
     </view>

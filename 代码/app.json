@@ -46,7 +46,9 @@
     "pages/danger/dangerClassify",
     "pages/me/changePassword",
     "pages/me/companyReportList",
-    "pages/index/fliter"
+    "pages/index/fliter",
+    "pages/me/companyAccounts",
+    "pages/me/addCompanyAccount"
   ],
   "window": {
     "backgroundTextStyle": "light",
