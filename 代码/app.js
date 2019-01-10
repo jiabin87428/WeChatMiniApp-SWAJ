@@ -182,6 +182,29 @@ App({
       },
     });
   },
+  // 删除图片
+  deleteImg(lists, index=0, cb) {
+    var that = this
+    var i = index
+    var attid = lists[i].split('attid=')[1]
+    var param = {
+      "attid": attid
+    }
+    //调用接口
+    request.requestLoading(config.deleteImg, param, '正在处理', function (res) {
+      console.log(res)
+      i++
+      if(i == lists.length) {
+        typeof cb == "function" && cb('200')
+      }else {
+        that.deleteImg(lists, i);
+      }
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
+    })
+  },
   globalData: {
     /** 
     行业类型

@@ -102,7 +102,7 @@
 .dangerText {
   font-size: 16px;
   color: #256FBD;
-  margin-left: 3px;
+  margin-left: 15px;
 }
 
 .subText {
@@ -110,6 +110,12 @@
   color: #767676;
   margin-left: 20px;
   margin-top: 5px;
+}
+
+.titleText {
+  font-size: 16px;
+  color: #256FBD;
+  margin-left: 3px;
 }
 
 .scrollItem {

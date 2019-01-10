@@ -63,7 +63,13 @@ Page({
     // 整改完成情况
     zgcs: "",
 
+    // 隐患照片新增列表
     newaddImagelist: [],
+    // 整改照片新增列表
+    newaddWcImageList: [],
+
+    // 需要删除的网络图片，不包含本地图片
+    needDeleteImageList: [],
   },
 
   /**
@@ -246,8 +252,8 @@ Page({
       urls: _this.data.bigImgList // 需要预览的图片http链接列表
     })
   },
-  // 添加图片
-  addPhoto: function () {
+  // 添加图片 - 隐患照片
+  addBasePhoto: function () {
     if (this.data.xmzt == '1' || this.data.editable == false) {
       return
     }
@@ -255,11 +261,12 @@ Page({
     wx.chooseImage({
       success: function (res) {
         _this.setData({
-          wcImageList: _this.data.wcImageList.concat(res.tempFilePaths),
+          imageList: _this.data.imageList.concat(res.tempFilePaths),
+          newaddImagelist: _this.data.newaddImagelist.concat(res.tempFilePaths),
         })
 
         _this.setData({
-          wcImageViewHeight: Math.ceil((_this.data.wcImageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
+          imageViewHeight: Math.ceil((_this.data.imageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
         })
       }
     })
@@ -273,7 +280,7 @@ Page({
       urls: _this.data.bigWcImgList // 需要预览的图片http链接列表
     })
   },
-  // 删除图片
+  // 删除图片 - 整改照片
   deleteImage: function (e) {
     if (this.data.editable == false) {
       return
@@ -281,6 +288,29 @@ Page({
     var _this = this
     var currentIdx = e.currentTarget.id;
     var list = _this.data.wcImageList;
+
+    var item = list[currentIdx]
+    var reg = RegExp(/www.gelure.com/);
+    if (item.match(reg) == null) {// 不包含, 说明是新增的图片，这时候也要去newaddWcImageList里找到并删除对应的
+      var newlist = _this.data.newaddWcImageList
+      for (var i = 0; i < newlist.length; i++) {
+        var newItem = newlist[i]
+        if (item == newItem) {
+          newlist.splice(i, 1)
+          i--
+        }
+      }
+      _this.setData({
+        newaddWcImageList: newlist
+      })
+    } else {// 包含，说明是原有网络图片，调用删除接口
+      var deleteImageList = _this.data.needDeleteImageList
+      deleteImageList.push(item)
+      _this.setData({
+        needDeleteImageList: deleteImageList
+      })
+    }
+
     list.splice(currentIdx, 1)
     _this.setData({
       wcImageList: list
@@ -330,7 +360,7 @@ Page({
     })
   },
 
-  // 提交隐患
+  // 提交隐患 - 完成整改
   submitClick: function (e) {
     var that = this
     var params = {
@@ -347,7 +377,18 @@ Page({
       //res就是我们请求接口返回的数据
       console.log(res)
       if (res.repCode == '200') {
-        if (that.data.wcImageList.length > 0) {
+        if (that.data.needDeleteImageList.length > 0) {
+          app.deleteImg(that.data.needDeleteImageList, 0, function (resultCode) {
+            if (resultCode == '200') {
+              console.log("删除成功")
+            }
+          })
+        }
+        if (that.data.newaddImagelist.length > 0) {
+          that.submitBaseImage()
+        }
+
+        if (that.data.newaddWcImageList.length > 0) {
           that.submitImage()
         }else {
           wx.showToast({
@@ -372,18 +413,20 @@ Page({
       })
     })
   },
-  // 提交图片事件
-  submitImage: function () {
-    app.uploadDIY('?yhid=' + this.data.yhid + '&zptype=zghzp', this.data.wcImageList, 0, 0, 0, this.data.wcImageList.length, function (resultCode) {
+  // 提交图片事件 - 整改后照片
+  submitImage: function (needBack = true) {
+    app.uploadDIY('?yhid=' + this.data.yhid + '&zptype=zghzp', this.data.newaddWcImageList, 0, 0, 0, this.data.newaddWcImageList.length, function (resultCode) {
       if (resultCode == '200') {
-        wx.showToast({
-          title: '隐患处理成功',
-          complete: setTimeout(function () {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1500)
-        })
+        if (needBack == true) {
+          wx.showToast({
+            title: '隐患处理成功',
+            complete: setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1500)
+          })
+        }
       }
     })
   },
@@ -476,27 +519,27 @@ Page({
       checkTime: e.detail.value
     })
   },
-  // 添加图片
+  // 添加图片 - 整改照片
   addPhoto: function () {
-    if (this.data.yhlx != 3) {
-      return
-    }
+    // if (this.data.yhlx != 3) {
+    //   return
+    // }
     var _this = this;
     wx.chooseImage({
       success: function (res) {
         _this.setData({
-          imageList: _this.data.imageList.concat(res.tempFilePaths),
-          newaddImagelist: _this.data.newaddImagelist.concat(res.tempFilePaths),
+          wcImageList: _this.data.wcImageList.concat(res.tempFilePaths),
+          newaddWcImageList: _this.data.newaddWcImageList.concat(res.tempFilePaths),
         })
 
         _this.setData({
-          imageViewHeight: Math.ceil((_this.data.imageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
+          wcImageViewHeight: Math.ceil((_this.data.wcImageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
         })
       }
     })
   },
-  // 删除图片
-  deleteDangerImage: function (e) {
+  // 删除图片 - 隐患照片
+  deleteBaseImage: function (e) {
     if (this.data.yhlx != 3) {
       return
     }
@@ -518,6 +561,12 @@ Page({
       _this.setData({
         newaddImagelist: newlist
       })
+    }else{// 包含，说明是原有网络图片，调用删除接口
+      var deleteImageList = _this.data.needDeleteImageList
+      deleteImageList.push(item)
+      _this.setData({
+        needDeleteImageList: deleteImageList
+      })
     }
 
     list.splice(currentIdx, 1)
@@ -528,8 +577,8 @@ Page({
       imageViewHeight: Math.ceil((_this.data.imageList.length + 1) / 4) * (_this.data.littleImageWidth + 8)
     })
   },
-  // 提交图片事件
-  submitDangerImage: function () {
+  // 提交图片事件 - 整改前照片
+  submitBaseImage: function () {
     app.uploadDIY('?yhid=' + this.data.yhid + '&zptype=zgqzp', this.data.newaddImagelist, 0, 0, 0, this.data.newaddImagelist.length, function (resultCode) {
       if (resultCode == '200') {
         wx.showToast({
@@ -543,7 +592,7 @@ Page({
       }
     })
   },
-  // 调用新增隐患接口
+  // 调用新增隐患接口 - 提交隐患
   submitYH: function () {
     var that = this
     var params = {
@@ -566,8 +615,18 @@ Page({
       //res就是我们请求接口返回的数据
       console.log(res)
       if (res.repCode == '200') {
+        if(that.data.needDeleteImageList.length > 0) {
+          app.deleteImg(that.data.needDeleteImageList, 0, function (resultCode) {
+            if (resultCode == '200') {
+              console.log("删除成功")
+            }
+          })
+        }
+        if (that.data.newaddWcImageList.length > 0) {
+          that.submitImage(false)
+        }
         if (that.data.newaddImagelist.length > 0) {
-          that.submitDangerImage()
+          that.submitBaseImage()
         } else {
           wx.showToast({
             title: res.repMsg,

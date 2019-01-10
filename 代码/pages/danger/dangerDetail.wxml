@@ -34,10 +34,10 @@
       <block wx:for="{{imageList}}" wx:for-item="image" wx:for-index='idx'>
         <view class="littleImageView" style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;'>
           <image class="littleImage" bindtap='viewPhoto' src="{{image}}" data-id="{{idx}}" data-src="{{image}}" mode="aspectFit"></image>
-          <image class='littleImageDelete' src='../../assets/delete.png' bindtap='deleteDangerImage' id='{{idx}}' wx:if="{{yhzt != '0' && yhlx == 3}}"></image>
+          <image class='littleImageDelete' src='../../assets/delete.png' bindtap='deleteBaseImage' id='{{idx}}' wx:if="{{yhzt != '0' && yhlx == 3}}"></image>
         </view>
       </block>
-      <view class="littleImageView" bindtap='addPhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;' wx:if="{{yhzt != '0' && yhlx == 3}}">
+      <view class="littleImageView" bindtap='addBasePhoto' style='width:{{littleImageWidth}}px;height:{{littleImageWidth}}px;' wx:if="{{yhzt != '0' && yhlx == 3}}">
         <image class="littleImage" src="../../assets/addImage.png" mode="aspectFit"></image>
       </view>
     </view>

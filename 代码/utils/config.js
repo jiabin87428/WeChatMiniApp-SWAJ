@@ -43,6 +43,8 @@ var config = {
 
   // 上传图片接口
   uploadImg: `${host}/uploadImg`,
+  // 删除图片接口
+  deleteImg: `${host}/getXx.do?action=delYhzp`,
 
   // 头像默认链接
   logoImg: `${host}/getXx.do?action=loadQyxxPhoto&qyid=`,

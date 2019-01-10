@@ -59,7 +59,7 @@
                 <text class='levelText' wx:if="{{item.fxdj == 'C(黄色)'}}">(C级)</text>
                 <image class='rect' src="../../assets/blueRect.png" mode="aspectFit" wx:if="{{item.fxdj == 'D(蓝色)'}}"></image>
                 <text class='levelText' wx:if="{{item.fxdj == 'D(蓝色)'}}">(D级)</text>
-                <text class='dangerText'>{{item.name}}({{item.yhsl}})</text>
+                <text class='titleText'>{{item.name}}({{item.yhsl}})</text>
               </view>
               <text class='subText'>{{item.qydz}}</text>
             </view>
