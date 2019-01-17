@@ -46,7 +46,16 @@ Page({
     endDate: "",
 
     // 组织ID-用于查询地图目标范围内坐标点
-    orgid: ""
+    orgid: "",
+
+    // 风险等级
+    level: ["", "A(红色)", "B(橙色)", "C(黄色)", "D(蓝色)"],
+    fxdj: "",
+
+    // 当前筛选区域 - 用于显示在底部
+    currentArea: "全部",
+    // 当前筛选隐患等级 - 用于显示在底部
+    currentLevel: "全部",
   },
   onLoad: function (e) {
     var that = this;
@@ -205,13 +214,15 @@ Page({
       "userid": app.globalData.userInfo.userid,
       "beginTime": that.data.yhlx == "1" ? that.data.startDate : "",
       "endTime": that.data.yhlx == "1" ? that.data.endDate : "",
-      "orgid": that.data.orgid
+      "orgid": that.data.orgid,
+      "fxdj": that.data.fxdj,
     }
     request.requestLoading(config.getTj, params, '正在加载数据', function (res) {
       //res就是我们请求接口返回的数据
       // console.log(res)
       if (res.repCode == "200") {
-        var markList = that.data.markers
+        // var markList = that.data.markers
+        var markList = []
         if (app.globalData.userInfo.yhlx == '1' || app.globalData.userInfo.yhlx == '2' || app.globalData.userInfo.yhlx == '3') {
           if (res.sxqy != null && res.sxqy != "") {
             var sxlongitude = 0
@@ -228,11 +239,12 @@ Page({
               }
             }
             that.setData({
-              currentLocation: "当前筛选区域:" + res.sxqy
+              currentArea: res.sxqy,
+              currentLocation: "当前筛选区域:" + res.sxqy + "，查看风险等级:" + that.data.currentLevel
             })
           }else {
             that.setData({
-              currentLocation: "当前筛选区域: 全部"
+              currentLocation: "当前筛选区域: 全部" + "，查看风险等级:" + that.data.currentLevel
             })
           }
           for (var i = 0; i < res.list.length; i++) {
@@ -344,10 +356,43 @@ Page({
   },
   // 添加隐患
   filterClick: function (e) {
-    wx.navigateTo({
-      url: '../index/fliter'
+    var that = this
+    wx.showActionSheet({
+      itemList: ['范围筛选', '企业风险等级筛选'],
+      success: function (res) {
+        if (res.tapIndex == 0) {// 范围筛选
+          wx.navigateTo({
+            url: '../index/fliter'
+          })
+        } else if (res.tapIndex == 1) {// 企业风险等级筛选
+          that.levelFilter()
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
     })
   },
+  // 级别筛选
+  levelFilter: function () {
+    var that = this
+    var list = ['全部', 'A级', 'B级', 'C级', 'D级']
+    wx.showActionSheet({
+      itemList: list,
+      success: function (res) {
+        that.setData({
+          fxdj: that.data.level[res.tapIndex],
+          currentLevel: list[res.tapIndex],
+          currentLocation: "当前筛选区域:" + that.data.currentArea + "，查看风险等级:" + list[res.tapIndex]
+        })
+        that.getStatistics()
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+
   // 获取当前位置
   getCurrentLocation: function (e) {
     var that = this
@@ -437,5 +482,9 @@ Page({
     wx.navigateTo({
       url: '../me/companyList?userid=' + app.globalData.userInfo.userid + '&addable=false&pagetype=' + pagetype
     })
+  },
+  // map视野发生变化时触发
+  regionchange(e) {
+    console.log(e.type)
   },
 })    

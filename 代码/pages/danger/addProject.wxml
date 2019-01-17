@@ -15,15 +15,15 @@
     <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
   </view>
-  <view id='projectNumber' class='scrollItem' bindtap='jumpInput'>
-    <text class='cellText1'>项目编号</text>
+  <view id='projectNumber' class='scrollItem' bindtap='chooseType'>
+    <text class='cellText1'>检查类型</text>
     <text class='mustText'></text>
     <text class='cellText2'>{{projectNumber}}</text>
     <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 
     <image class="arrow" src="../../assets/arrowRight.png" mode="aspectFit" wx:else></image>
   </view>
   <view id='projectInCharge' class='scrollItem' bindtap='jumpInput'>
-    <text class='cellText1'>负责人</text>
+    <text class='cellText1'>检查人员</text>
     <text class='mustText'></text>
     <text class='cellText2'>{{projectInCharge}}</text>
     <image class="arrow" src="" mode="aspectFit" wx:if="{{xmzt == '1'}}"></image> 

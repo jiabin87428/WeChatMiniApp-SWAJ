@@ -129,6 +129,9 @@ var config = {
   // 企业编辑，新建账号
   createAccount: `${host}/getXx.do?action=register`,
 
+  // 获取检查类型
+  getJclx: `${host}/getXx.do?action=getJclx`,
+
   // 下载文件
   downLoadFile: `${host}/getfile?fileid=`,
 };

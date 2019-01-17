@@ -20,7 +20,7 @@ Page({
     companyName: null,
     // 项目名称
     projectName: "",
-    // 项目编号
+    // 项目编号 - 现改为检查类型
     projectNumber: "",
     // 项目负责人
     projectInCharge: "",
@@ -30,6 +30,9 @@ Page({
     xmzt: "",
     // 检查日期
     checkTime: "",
+
+    // 检查类型
+    jclxList: []
   },
 
   /**
@@ -52,6 +55,8 @@ Page({
         xmzt: item.xmzt,
       })
     }
+
+    this.getJCLX()
   },
 
   /**
@@ -117,10 +122,10 @@ Page({
       placeholder = "请输入项目名称"
       inputstring = this.data.projectName
     } else if (viewId == "projectNumber") {
-      placeholder = "请输入项目编号"
+      placeholder = "请输入检查类型"
       inputstring = this.data.projectNumber
     } else if (viewId == "projectInCharge") {
-      placeholder = "请输入项目负责人"
+      placeholder = "请输入项目检查人员"
       inputstring = this.data.projectInCharge
     }
     wx.navigateTo({
@@ -285,6 +290,55 @@ Page({
   bindDateChange: function (e) {
     this.setData({
       checkTime: e.detail.value
+    })
+  },
+
+  // 选择检查类型种类
+  chooseType: function (e) {
+    var that = this
+    wx.showActionSheet({
+      itemList: that.data.jclxList,
+      success: function (res) {
+        if (res.tapIndex == that.data.jclxList.length - 1) {// 自行输入分类
+          that.jumpInput(e)
+        } else {// 从隐患库检索
+          that.setData({
+            projectNumber: that.data.jclxList[res.tapIndex]
+          })
+        }
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+
+  // 获取检查类型
+  getJCLX: function (e) {
+    var that = this
+    request.requestLoading(config.getJclx, null, '正在加载数据', function (res) {
+      //res就是我们请求接口返回的数据
+      console.log(res)
+      if (res.repList != null) {
+        var nameList = []
+        for (var i = 0; i < res.repList.length; i++) {
+          var name = res.repList[i].name
+          nameList.push(name)
+        }
+        nameList.push("自行输入")
+        that.setData({
+          jclxList: nameList
+        })
+      } else {
+        wx.showToast({
+          title: '加载数据失败',
+          icon: 'none'
+        })
+      }
+    }, function () {
+      wx.showToast({
+        title: '加载数据失败',
+      })
     })
   },
 })

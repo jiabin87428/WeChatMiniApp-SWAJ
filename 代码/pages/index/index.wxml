@@ -52,7 +52,7 @@
     </view>
   </view>
   <view class="map_container" style='height:{{winHeight-titleHeight}}px;'>
-    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="markertap" bindcallouttap='callouttap'>
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}" bindmarkertap="markertap" bindcallouttap='callouttap' bindregionchange='regionchange'>
        <cover-image class="add" style='left:{{winWidth/2-25}}px;' src="../../assets/filter.png" mode="aspectFit" bindtap='filterClick' wx:if="{{yhlx == 3}}"></cover-image> 
        <cover-image class="tip" style='left:5px;' src="../../assets/tip.png" mode="aspectFit"></cover-image> 
     </map>
