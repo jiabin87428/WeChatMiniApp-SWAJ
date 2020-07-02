@@ -59,7 +59,7 @@
   "tabBar": {
     "color": "#898989",
     "selectedColor": "#086DD7",
-    "borderStyle": "#6F6F6F",
+    "borderStyle": "black",
     "backgroundColor": "#F7F7F7",
     "list": [
       {
@@ -93,5 +93,6 @@
     "connectSocket": 20000,
     "uploadFile": 20000,
     "downloadFile": 20000
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
